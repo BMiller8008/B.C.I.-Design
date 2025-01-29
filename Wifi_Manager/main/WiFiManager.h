@@ -3,14 +3,18 @@
 
 #include <string>
 
-extern "C" {
     // ESP-IDF headers required for Wi-Fi and system functionality
     #include <freertos/FreeRTOS.h>
     #include <freertos/event_groups.h>
     #include <esp_wifi.h>
     #include <esp_event.h>
     #include <esp_log.h>
-}
+    #include <lwip/sockets.h>
+    #include <esp_heap_caps.h>
+    #include <cstring>
+
+// For audio chunks 
+#define CHUNK_SIZE 256
 
 /**
  * @brief A class to manage Wi-Fi connections and provide extensibility for additional features.
@@ -21,7 +25,7 @@ extern "C" {
 class WiFiManager {
 public:
     // Constructor: Sets up the Wi-Fi manager and initializes components
-    WiFiManager();
+    WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize);
 
     // Destructor: Cleans up resources
     virtual ~WiFiManager();
@@ -51,6 +55,11 @@ public:
      */
     void print_network_info();
 
+    /**
+     * @brief method to start Data Sender Task
+     */
+    void startDataSenderTask();
+
 protected:
     /**
      * @brief Initialize Wi-Fi settings and register event handlers.
@@ -73,6 +82,21 @@ protected:
 
     // IP address of the connected device
     std::string ipAddress;
+
+    // Target IP Address of server
+    std::string targetAddress;
+
+    // Target Port
+    static const int target_port = 8080;
+
+    // for buffer control
+    uint8_t* audioBuffer;        // Pointer to external buffer
+    size_t bufferSize;           // Size of the external buffer
+    size_t bufferIndex = 0;      // Tracking write position
+
+
+    // Data Sender Task
+    static void dataSenderTask(void* arg);
 };
 
 #endif // WIFI_MANAGER_H

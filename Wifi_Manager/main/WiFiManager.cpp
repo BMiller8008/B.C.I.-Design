@@ -3,7 +3,7 @@
 #include "nvs_flash.h"
 
 // Constructor: Initialize retry count and create the event group
-WiFiManager::WiFiManager() : retryCount(0) {
+WiFiManager::WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize) : retryCount(0), targetAddress(ip), audioBuffer(buffer), bufferSize(bufferSize) {
     wifiEventGroup = xEventGroupCreate(); // Create event group for Wi-Fi events
     esp_log_level_set("wifi", ESP_LOG_ERROR); // Set Lower Logging Levels
     initWiFi(); // Set up Wi-Fi
@@ -99,6 +99,8 @@ void WiFiManager::onWiFiConnected(void* arg) {
     // calling print network stats
     auto* self = static_cast<WiFiManager*>(arg);
     self->print_network_info();
+
+    // starting tasks
 }
 
 // Prints IP and Stats
@@ -149,4 +151,41 @@ void WiFiManager::print_network_info() {
     ESP_LOGI("WiFiManager", "  Connected SSID: %s", apInfo.ssid);
     ESP_LOGI("WiFiManager", "  Signal Strength (RSSI): %d dBm", apInfo.rssi);
     ESP_LOGI("WiFiManager", "\n==========================================\n\n");
+}
+
+void WiFiManager::startDataSenderTask() {
+    xTaskCreate(dataSenderTask, "DataSenderTask", 4096, this, 5, NULL);
+}
+
+void WiFiManager::dataSenderTask(void* arg) {
+    WiFiManager* instance = static_cast<WiFiManager*>(arg);
+    int port = instance->target_port;
+
+    while (true) {
+        if (instance->bufferIndex >= instance->bufferSize) {
+            int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+            if (sock < 0) {
+                ESP_LOGE("WiFiManager", "Socket creation failed");
+                vTaskDelay(pdMS_TO_TICKS(1000));
+                continue;
+            }
+
+            struct sockaddr_in destAddr;
+            destAddr.sin_addr.s_addr = inet_addr(instance->targetAddress.c_str());
+            destAddr.sin_family = AF_INET;
+            destAddr.sin_port = htons(port);
+
+            for (size_t i = 0; i < instance->bufferSize; i += CHUNK_SIZE) {
+                sendto(sock, &instance->audioBuffer[i], CHUNK_SIZE, 0, 
+                       (struct sockaddr*)&destAddr, sizeof(destAddr));
+            }
+
+            close(sock);
+            ESP_LOGI("WiFiManager", "Sent %d bytes of audio data.", instance->bufferSize);
+
+            instance->bufferIndex = 0; // Reset buffer index
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(500));
+    }
 }
