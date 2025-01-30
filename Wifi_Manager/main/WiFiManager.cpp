@@ -3,9 +3,10 @@
 #include "nvs_flash.h"
 
 // Constructor: Initialize retry count and create the event group
-WiFiManager::WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize, int port) : retryCount(0), targetAddress(ip), 
-target_port(port), audioBuffer(buffer), bufferSize(bufferSize) {
+WiFiManager::WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize, int port, int recvPort) : retryCount(0), targetAddress(ip), 
+target_port(port), recvPort(recvPort), audioBuffer(buffer), bufferSize(bufferSize) {
     wifiEventGroup = xEventGroupCreate(); // Create event group for Wi-Fi events
+    messageLock = xSemaphoreCreateMutex();  // Protects message access
     esp_log_level_set("wifi", ESP_LOG_ERROR); // Set Lower Logging Levels
 
     // Printing
@@ -165,6 +166,11 @@ void WiFiManager::startDataSenderTask() {
     xTaskCreate(dataSenderTask, "DataSenderTask", 4096, this, 5, NULL);
 }
 
+void WiFiManager::startDataReceiverTask() {
+    ESP_LOGI("WiFiManager", "Starting DataReceiver");
+    xTaskCreate(dataReceiverTask, "DataReceiverTask", 4096, this, 5, NULL);
+}
+
 void WiFiManager::dataSenderTask(void* arg) {
     WiFiManager* instance = static_cast<WiFiManager*>(arg);
 
@@ -178,7 +184,7 @@ void WiFiManager::dataSenderTask(void* arg) {
     int port = instance->target_port;
 
     while (true) {
-        ESP_LOGI("WiFiManager", "DataSender Task LOOP, bufferIndex = %d", instance->bufferIndex);
+        ESP_LOGD("WiFiManager", "DataSender Task LOOP, bufferIndex = %d", instance->bufferIndex);
 
         // Ensure buffer has data
         if (instance->bufferIndex > 0) {
@@ -233,4 +239,64 @@ void WiFiManager::addDataToBuffer(const int* data, size_t length) {
     memcpy(audioBuffer, data, length * sizeof(int));
     bufferIndex = length;  // Set bufferIndex to actual data length
     ESP_LOGI("WiFiManager", "Added %d ints to buffer", bufferIndex);
+}
+
+void WiFiManager::dataReceiverTask(void* arg) {
+    WiFiManager* instance = static_cast<WiFiManager*>(arg);
+    
+    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (sock < 0) {
+        ESP_LOGE("WiFiManager", "Failed to create receive socket! Error: %d", errno);
+        vTaskDelete(NULL);
+    }
+
+    struct sockaddr_in serverAddr;
+    memset(&serverAddr, 0, sizeof(serverAddr));
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(instance->recvPort);  // ✅ Bind to separate port
+    serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    if (bind(sock, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
+        ESP_LOGE("WiFiManager", "Failed to bind receive socket! Error: %d", errno);
+        close(sock);
+        vTaskDelete(NULL);
+    }
+
+    ESP_LOGI("WiFiManager", "Listening for UDP messages on port %d", instance->recvPort);
+
+    while (true) {
+        struct sockaddr_in sourceAddr;
+        socklen_t socklen = sizeof(sourceAddr);
+        char buffer[128];  // Temporary buffer
+        int len = recvfrom(sock, buffer, sizeof(buffer) - 1, 0, 
+                           (struct sockaddr*)&sourceAddr, &socklen);
+
+        if (len > 0) {
+            buffer[len] = '\0';  // Null-terminate received data
+            ESP_LOGI("WiFiManager", "Received message: %s", buffer);
+        } else {
+            ESP_LOGE("WiFiManager", "Error receiving data! Error: %d", errno);
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(100));  // Prevent CPU overuse
+    }
+
+    close(sock);
+    vTaskDelete(NULL);
+}
+
+
+bool WiFiManager::hasNewMessage() {
+    xSemaphoreTake(messageLock, portMAX_DELAY);  // Lock before reading
+    bool available = messageAvailable;
+    xSemaphoreGive(messageLock);
+    return available;
+}
+
+const char* WiFiManager::getReceivedMessage() {
+    xSemaphoreTake(messageLock, portMAX_DELAY);  // Lock before accessing
+    messageAvailable = false;  // Clear the flag after reading
+    const char* message = receivedMessage;
+    xSemaphoreGive(messageLock);
+    return message;
 }
