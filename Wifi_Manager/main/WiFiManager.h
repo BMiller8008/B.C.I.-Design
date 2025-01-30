@@ -14,7 +14,7 @@
     #include <cstring>
 
 // For audio chunks 
-#define CHUNK_SIZE 256
+#define CHUNK_SIZE 1
 
 /**
  * @brief A class to manage Wi-Fi connections and provide extensibility for additional features.
@@ -25,7 +25,7 @@
 class WiFiManager {
 public:
     // Constructor: Sets up the Wi-Fi manager and initializes components
-    WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize);
+    WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize, int port);
 
     // Destructor: Cleans up resources
     virtual ~WiFiManager();
@@ -60,6 +60,8 @@ public:
      */
     void startDataSenderTask();
 
+    void addDataToBuffer(const int* data, size_t length);
+
 protected:
     /**
      * @brief Initialize Wi-Fi settings and register event handlers.
@@ -87,7 +89,7 @@ protected:
     std::string targetAddress;
 
     // Target Port
-    static const int target_port = 8080;
+    int target_port;
 
     // for buffer control
     uint8_t* audioBuffer;        // Pointer to external buffer
