@@ -1,8 +1,8 @@
 #include "WiFiManager.h"
 
-#define BUFFER_SIZE 16 * sizeof(int)  // ✅ Correct size for int array
+#define BUFFER_SIZE 32 * sizeof(int)  // ✅ Correct size for int array
 
-int audioBuffer[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+int audioBuffer[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
 WiFiManager* wifiManager;
 
@@ -11,8 +11,7 @@ extern "C" void app_main() {
     wifiManager->connectToOpenNetwork("belkin54g");
 
     // ✅ Manually add data to buffer before starting sender task
-    int testData[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-    wifiManager->addDataToBuffer(testData, 16);
+    wifiManager->addDataToBuffer(audioBuffer, 32);
 
     wifiManager->startDataSenderTask();
 }

@@ -180,7 +180,7 @@ void WiFiManager::dataSenderTask(void* arg) {
     while (true) {
         ESP_LOGI("WiFiManager", "DataSender Task LOOP, bufferIndex = %d", instance->bufferIndex);
 
-        // ✅ Ensure buffer has data
+        // Ensure buffer has data
         if (instance->bufferIndex > 0) {
             int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
             if (sock < 0) {
@@ -200,7 +200,7 @@ void WiFiManager::dataSenderTask(void* arg) {
                 continue;
             }
 
-            // ✅ Correctly handle `int` array size
+            // Correctly handle `int` array size
             size_t bytesToSend = instance->bufferIndex * sizeof(int);
 
             ESP_LOGI("WiFiManager", "Sending %d bytes to %s:%d", bytesToSend, instance->targetAddress.c_str(), port);
@@ -217,10 +217,10 @@ void WiFiManager::dataSenderTask(void* arg) {
             close(sock);
             ESP_LOGI("WiFiManager", "Finished sending data.");
 
-            instance->bufferIndex = 0;  // ✅ Reset buffer after sending
+            instance->bufferIndex = 0;  // Reset buffer after sending
         }
 
-        vTaskDelay(pdMS_TO_TICKS(500));  // ✅ Prevent CPU overuse
+        vTaskDelay(pdMS_TO_TICKS(500));  // Prevent CPU overuse
     }
 }
 
@@ -231,6 +231,6 @@ void WiFiManager::addDataToBuffer(const int* data, size_t length) {
     }
 
     memcpy(audioBuffer, data, length * sizeof(int));
-    bufferIndex = length;  // ✅ Set bufferIndex to actual data length
+    bufferIndex = length;  // Set bufferIndex to actual data length
     ESP_LOGI("WiFiManager", "Added %d ints to buffer", bufferIndex);
 }
