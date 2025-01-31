@@ -1,0 +1,1 @@
+Note that the OLED library is provided by WAVESHARE and that the library is designed for arduino. We have ported the library over to work with the esp32
