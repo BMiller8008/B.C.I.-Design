@@ -20,37 +20,32 @@
 #include "esp_log.h"
 
 extern "C" void app_main() {
-    // **1. Initialize SPI & OLED**
-    System_Init();
     OLED_Display oled;
     oled.init();
     oled.clear();
+    int loops = 0;
 
-    // **2. Create framebuffer (128x64)**
-    uint8_t imageBuffer[1024] = {0}; // OLED 128x64 / 8 pages
-    Paint_NewImage(imageBuffer, 128, 64, ROTATE_0, BLACK);
-    
-    Paint_SelectImage(imageBuffer);
+    while (1) {
+        oled.drawText(10, 10, "ECE 477", &Font8, BLACK, WHITE);
+        oled.drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE);
+        oled.display();
 
-    while (1)
-    {
-        Paint_Clear(BLACK);
-
-        // **3. Draw a test string in 8pt font (Foreground: WHITE, Background: BLACK)**
-        Paint_DrawString_EN(10, 10, "ECE 477", &Font8, BLACK, WHITE);
-        Paint_DrawString_EN(10, 40, "ECE 477", &Font16, BLACK, WHITE);
-
-        // **4. Send framebuffer to OLED**
-        oled.display(imageBuffer);
-
-        // **5. Wait 10 sec**
-        Driver_Delay_ms(5000);
-        Paint_Clear(BLACK);
-        Paint_DrawString_EN(10, 40, "ALFREDO GAY", &Font16, BLACK, WHITE);
-        oled.display(imageBuffer);
-        Driver_Delay_ms(5000);
-        Paint_Clear(BLACK);
-        oled.display(imageBuffer);
-        Driver_Delay_ms(5000);
+        Driver_Delay_ms(2000);
+        oled.clear_buffer();
+        
+        oled.drawText(0, 0, "ALFREDO GAY", &Font24, BLACK, WHITE);
+        oled.display();
+        
+        Driver_Delay_ms(1000);
+        oled.clear_buffer();
+        oled.display();
+        
+        Driver_Delay_ms(2000);
+        char buffer[50];
+        snprintf(buffer, sizeof(buffer), "This is loop %d!", loops++);
+        oled.drawText(0,0, buffer, &Font8, BLACK, WHITE);
+        oled.display();
+        Driver_Delay_ms(2000);
+        oled.clear_buffer();
     }
 }

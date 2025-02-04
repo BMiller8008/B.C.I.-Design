@@ -1,11 +1,11 @@
 /*****************************************************************************
 * | File        :   OLED_Driver.cpp
-* | Author      :   Waveshare team
+* | Author      :   BCI Team                        
 * | Function    :   1.3inch OLED Drive function
 * | Info        :
 *----------------
-* | This version:   V1.0
-* | Date        :   2020-08-20
+* | This version:   V2.0
+* | Date        :   2025-02-04
 * | Info        :
 * -----------------------------------------------------------------------------
 #
@@ -38,7 +38,10 @@
 #define TAG "OLED"
 
 OLED_Display::OLED_Display() {
-    // Constructor: No need for initialization here.
+    // filling and setting fram buffer
+    Paint_NewImage(framebuffer, OLED_1IN51_HEIGHT, OLED_1IN51_WIDTH, ROTATE_0, BLACK);
+    // Paint_SelectImage(framebuffer);
+    Paint_Clear(BLACK);
 }
 
 OLED_Display::~OLED_Display() {
@@ -70,6 +73,9 @@ void OLED_Display::writeData(uint8_t data) {
 }
 
 void OLED_Display::init() {
+    // initializing SPI
+    System_Init();
+
     ESP_LOGI(TAG, "Initializing OLED...");
 
     // **Configure GPIOs**
@@ -112,15 +118,36 @@ void OLED_Display::clear() {
     }
 }
 
-void OLED_Display::display(const uint8_t *image) {
+void OLED_Display::display() {
     for (uint8_t page = 0; page < 8; page++) {
-        writeCommand(0xB0 + page); // Set page address
-        writeCommand(0x00);        // Set low column address
-        writeCommand(0x10);        // Set high column address
+        writeCommand(0xB0 + page); 
+        writeCommand(0x00);
+        writeCommand(0x10);
 
-        for (uint8_t col = 0; col < 128; col++) {
-            writeData(image[page * 128 + col]); // Send correct row-major data
+        for (uint8_t col = 0; col < OLED_1IN51_HEIGHT; col++) {
+            writeData(framebuffer[page * OLED_1IN51_HEIGHT + col]);
         }
     }
 }
 
+void OLED_Display::drawText(int x, int y, const char* text, sFONT* font, uint16_t fgColor, uint16_t bgColor) {
+    Paint_DrawString_EN(x,y,text,font,fgColor,bgColor);
+}
+
+void OLED_Display::clear_buffer(){
+    Paint_Clear(BLACK);
+}
+
+void OLED_Display::draw_rect(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,
+                         UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill) {
+    Paint_DrawRectangle(Xstart, Ystart, Xend, Yend, Color, Line_width, Draw_Fill);
+}
+
+void OLED_Display::draw_num(UWORD Xpoint, UWORD Ypoint,const char * Number,
+        sFONT* Font, UWORD Digit,UWORD Color_Foreground, UWORD Color_Background) {
+    Paint_DrawNum(Xpoint, Ypoint, Number, Font, Digit, Color_Foreground, Color_Background);
+}
+
+void OLED_Display::DrawBitMap(const unsigned char* image) {
+    Paint_DrawBitMap(image);
+}

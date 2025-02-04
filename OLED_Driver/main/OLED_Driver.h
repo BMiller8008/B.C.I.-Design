@@ -32,6 +32,8 @@
 #define __OLED_DRIVER_H		
 
 #include "DEV_Config.h"
+#include "GUI_Paint.h"
+#include "fonts.h"
 
 /********************************************************************************
 function:	
@@ -47,12 +49,20 @@ public:
 
     void init();
     void clear();
-    void display(const uint8_t *image);
+    void display(); //const uint8_t *image
     void reset();
-
+    void drawText(int x, int y, const char* text, sFONT* font, uint16_t fgColor, uint16_t bgColor);
+    void clear_buffer();
+    void draw_rect(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,
+                         UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);
+    void draw_num(UWORD Xpoint, UWORD Ypoint,const char * Number,
+                   sFONT* Font, UWORD Digit,UWORD Color_Foreground, UWORD Color_Background);                  
+    void DrawBitMap(const unsigned char* image);
 private:
     void writeCommand(uint8_t cmd);
     void writeData(uint8_t data);
+    uint8_t framebuffer[OLED_1IN51_WIDTH * OLED_1IN51_HEIGHT / 8]; // 128 x 64 pixels
+
 };
 
 #endif  // OLED_DRIVER_H
