@@ -2218,17 +2218,6 @@
 		)
 		(uuid "3c634884-ff5e-4f7a-81e2-883a3c3dfc47")
 	)
-	(label "VBUS"
-		(at 60.96 152.4 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "83ff0a6d-8a9b-493a-b892-4d2e38ed3ef7")
-	)
 	(label "USB_DN"
 		(at 66.04 140.97 0)
 		(fields_autoplaced yes)
@@ -2240,17 +2229,6 @@
 		)
 		(uuid "d025188b-71e0-4b72-88a2-144f6c0745b8")
 	)
-	(label "VBUS"
-		(at 66.04 138.43 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e29079c2-140e-43dc-be19-0fe518efee92")
-	)
 	(label "USB_DP"
 		(at 66.04 143.51 0)
 		(fields_autoplaced yes)
@@ -2261,6 +2239,50 @@
 			(justify left bottom)
 		)
 		(uuid "f732334d-1646-4fdd-96cb-e30301870558")
+	)
+	(global_label "V_BUS"
+		(shape input)
+		(at 66.04 138.43 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0b29387b-c2b4-4a48-8275-4d87cc959c48")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 57.1886 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V_BUS"
+		(shape input)
+		(at 60.96 152.4 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d1345c69-ed27-461b-b70b-ffb60ccb1f22")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 69.8114 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
