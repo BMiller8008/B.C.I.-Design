@@ -4462,6 +4462,12 @@
 		(uuid "20f8deee-fd61-42b7-927d-b46f2c4b371a")
 	)
 	(junction
+		(at 383.54 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2a4fd4e3-9ee9-47ef-9d57-4e9c41dc88d7")
+	)
+	(junction
 		(at 304.8 215.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5089,7 +5095,7 @@
 	)
 	(wire
 		(pts
-			(xy 368.3 54.61) (xy 392.43 54.61)
+			(xy 368.3 54.61) (xy 383.54 54.61)
 		)
 		(stroke
 			(width 0)
@@ -5436,6 +5442,16 @@
 			(type default)
 		)
 		(uuid "74cf1201-975d-4776-8b9e-8a5f4b798329")
+	)
+	(wire
+		(pts
+			(xy 383.54 43.18) (xy 383.54 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "754b4e5a-dde9-4e05-953a-0e702983d5b1")
 	)
 	(wire
 		(pts
@@ -5906,6 +5922,16 @@
 			(type default)
 		)
 		(uuid "c17bc152-db19-4ede-8726-c21bf9ccf5ad")
+	)
+	(wire
+		(pts
+			(xy 383.54 54.61) (xy 392.43 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c210481a-9e47-42ce-b954-f3fe7852d898")
 	)
 	(wire
 		(pts
@@ -9549,6 +9575,72 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
+		(at 383.54 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6858e523-c48f-4c14-ba85-9ed346c1fe21")
+		(property "Reference" "#PWR036"
+			(at 383.54 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 383.54 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 383.54 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 383.54 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 383.54 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "44762d63-79fe-4563-b03b-7e29add7d285")
+		)
+		(instances
+			(project "ECE477"
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
 		(at 167.64 66.04 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9776,7 +9868,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm_H13mm"
 			(at 238.76 73.66 0)
 			(effects
 				(font
@@ -10687,7 +10779,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm_H13mm"
 			(at 278.13 74.93 0)
 			(effects
 				(font
@@ -13380,6 +13472,76 @@
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
 					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 383.54 50.8 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fd83c786-fa61-426d-b199-b761af7f5ac4")
+		(property "Reference" "R14"
+			(at 386.08 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 386.08 52.0699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 382.524 50.546 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 383.54 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, US symbol"
+			(at 383.54 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "518b81d0-fcbd-4e35-8980-a60ddc5d3f74")
+		)
+		(pin "2"
+			(uuid "17145300-adcf-47db-9a2e-178f11055862")
+		)
+		(instances
+			(project "ECE477"
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "R14")
 					(unit 1)
 				)
 			)
