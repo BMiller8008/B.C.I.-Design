@@ -158,7 +158,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23"
 		(layer "F.Cu")
 		(uuid "02c00c8e-3033-4d1c-8388-003259d191c3")
-		(at 137.0625 85.34)
+		(at 141.9425 136.58)
 		(descr "SOT, 3 Pin (https://www.jedec.org/system/files/docs/to-236h.pdf variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q1"
@@ -463,7 +463,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "0346bfc6-8249-44b5-8f7e-d313dc758511")
-		(at 121.98 113.87)
+		(at 59.905 184.065)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C7"
@@ -676,7 +676,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "0525a8f8-752c-4d66-857b-d2e060819d1c")
-		(at 122.205 84.045)
+		(at 60.13 154.24)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R17"
@@ -889,7 +889,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "09ee88a5-d47e-4157-ac17-a08ed370cc87")
-		(at 127 84.18)
+		(at 64.925 154.375)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D5"
@@ -1124,7 +1124,7 @@
 	(footprint "Diode_SMD:D_SOD-923"
 		(layer "F.Cu")
 		(uuid "0a894950-d61e-4a01-8080-40a4bc9e25bb")
-		(at 207.5 80.79)
+		(at 212.3 117.79)
 		(descr "https://www.onsemi.com/pub/Collateral/ESD9B-D.PDF#page=4")
 		(tags "Diode SOD923")
 		(property "Reference" "D2"
@@ -1489,7 +1489,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "0f414bdb-14ea-41b4-a49b-351b53d97045")
-		(at 125 59.265)
+		(at 125 54.46)
 		(descr "Through hole straight pin header, 1x05, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x05 2.54mm single row")
 		(property "Reference" "J7"
@@ -1789,7 +1789,7 @@
 	(footprint "Button_Switch_THT:SW_PUSH_1P1T_6x3.5mm_H4.3_APEM_MJTP1243"
 		(layer "F.Cu")
 		(uuid "11b0aa50-7e3d-4c92-b53e-f0eee741fcca")
-		(at 224.25 118.34)
+		(at 120.75 72.5)
 		(descr "tactile push button, 6x3.5mm, https://www.apem.com/idec-apem/en_US/PCB-switches/Tactile-Switches/MJTP-6mm-through-hole/c/MJTP_6mm_through%20hole?page=1")
 		(tags "PHAP3362 6mm tact sw THT")
 		(property "Reference" "Boot1"
@@ -2137,7 +2137,7 @@
 	(footprint "RF_Module:ESP32-WROOM-32D"
 		(layer "F.Cu")
 		(uuid "1a549c33-6170-4545-9fa7-ebfdf8ddf26a")
-		(at 181.25 105.75 180)
+		(at 155.25 81.18 180)
 		(descr "2.4 GHz Wi-Fi and Bluetooth module, https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf")
 		(tags "2.4 GHz Wi-Fi and Bluetooth module ESP32-D0WD Espressif ESP32-WROOM-32E")
 		(property "Reference" "U1"
@@ -2152,7 +2152,7 @@
 			)
 		)
 		(property "Value" "ESP32-WROOM-32E"
-			(at 0 11.5 360)
+			(at 0 11.5 0)
 			(layer "F.Fab")
 			(uuid "f5294e17-13c2-4ccc-9693-e8a5e46a3ec8")
 			(effects
@@ -2599,7 +2599,7 @@
 			(uuid "55b40fe2-b5cc-45c7-8781-23ec8c953843")
 		)
 		(fp_text user "5 mm"
-			(at 16.2 -14.375 360)
+			(at 16.2 -14.375 0)
 			(layer "Cmts.User")
 			(uuid "8efc7048-a42c-4f55-a5e9-cd4cb9c89728")
 			(effects
@@ -2610,7 +2610,7 @@
 			)
 		)
 		(fp_text user "5 mm"
-			(at -16.2 -14.375 360)
+			(at -16.2 -14.375 0)
 			(layer "Cmts.User")
 			(uuid "a473ed9b-e941-497d-85c8-0919e1ffa46d")
 			(effects
@@ -2621,7 +2621,7 @@
 			)
 		)
 		(fp_text user "KEEP-OUT ZONE"
-			(at 0 -19 360)
+			(at 0 -19 0)
 			(layer "Cmts.User")
 			(uuid "abf4b220-e51f-4666-822d-339185d87dad")
 			(effects
@@ -2632,7 +2632,7 @@
 			)
 		)
 		(fp_text user "Antenna"
-			(at 0 -13 360)
+			(at 0 -13 0)
 			(layer "Cmts.User")
 			(uuid "eb7dbbd7-a713-4449-bd06-bad3248f33ea")
 			(effects
@@ -2654,7 +2654,7 @@
 			)
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "a4bde015-eb05-45cd-bde2-86c629adbb7c")
 			(effects
@@ -3264,7 +3264,7 @@
 			)
 			(polygon
 				(pts
-					(xy 205.25 115.3) (xy 157.25 115.3) (xy 157.25 136.49) (xy 205.25 136.49)
+					(xy 179.25 90.73) (xy 131.25 90.73) (xy 131.25 111.92) (xy 179.25 111.92)
 				)
 			)
 		)
@@ -3283,7 +3283,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23"
 		(layer "F.Cu")
 		(uuid "208f9746-7297-4be6-8cee-2e2555b437bc")
-		(at 137.0625 89.965)
+		(at 141.9425 141.205)
 		(descr "SOT, 3 Pin (https://www.jedec.org/system/files/docs/to-236h.pdf variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q2"
@@ -3588,7 +3588,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "20bbd278-b524-41ec-a195-5ff90f5ae8d3")
-		(at 112.705 84.045)
+		(at 50.63 154.24)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R7"
@@ -3801,7 +3801,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "2ca806ad-fb25-4bfa-952b-299300e7ea08")
-		(at 127 93.3)
+		(at 64.925 163.495)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D8"
@@ -4036,7 +4036,7 @@
 	(footprint "Button_Switch_THT:SW_PUSH_6mm_H13mm"
 		(layer "F.Cu")
 		(uuid "31a2e978-9695-4236-843b-43b5309bac09")
-		(at 207.25 104.25)
+		(at 181 58.25)
 		(descr "tactile push button, 6x6mm e.g. PHAP33xx series, height=13mm")
 		(tags "tact sw push 6mm")
 		(property "Reference" "B2"
@@ -4395,7 +4395,7 @@
 	(footprint "Diode_SMD:D_SOD-923"
 		(layer "F.Cu")
 		(uuid "376aa42c-fcb7-4798-b7df-aaf437b880a0")
-		(at 207.5 86.64)
+		(at 212.3 123.64)
 		(descr "https://www.onsemi.com/pub/Collateral/ESD9B-D.PDF#page=4")
 		(tags "Diode SOD923")
 		(property "Reference" "D11"
@@ -4760,11 +4760,11 @@
 	(footprint "Package_DFN_QFN:QFN-28-1EP_5x5mm_P0.5mm_EP3.35x3.35mm"
 		(layer "F.Cu")
 		(uuid "379293a9-0b32-43aa-8a72-d65e56ac4b10")
-		(at 161 70.84 180)
+		(at 155.5 59.55 180)
 		(descr "QFN, 28 Pin (http://ww1.microchip.com/downloads/en/PackagingSpec/00000049BQ.pdf#page=283), generated with kicad-footprint-generator ipc_noLead_generator.py")
 		(tags "QFN NoLead")
 		(property "Reference" "U2"
-			(at 0 -3.8 360)
+			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(uuid "ed5eb271-0d96-438c-9c22-05eae66d9af9")
 			(effects
@@ -4775,7 +4775,7 @@
 			)
 		)
 		(property "Value" "CP2102N-Axx-xQFN28"
-			(at 0 3.8 360)
+			(at 0 3.8 0)
 			(layer "F.Fab")
 			(uuid "dba63bd4-51c7-439d-bffb-572fd1e20909")
 			(effects
@@ -5012,7 +5012,7 @@
 			(uuid "47d57c3e-11df-419e-bdd4-31daafc4e69b")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "98ea2c41-9ad4-482b-ba94-f98e66fe3c0f")
 			(effects
@@ -5391,7 +5391,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "3c3f13c6-2212-4559-aad2-767afecc77f4")
-		(at 107.955 89.945)
+		(at 45.88 160.14)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R4"
@@ -5604,7 +5604,7 @@
 	(footprint "Diode_SMD:D_SOD-923"
 		(layer "F.Cu")
 		(uuid "3fadfe18-bafc-45e0-bf9e-ca05cdfdae2d")
-		(at 207.5 78.84)
+		(at 212.3 115.84)
 		(descr "https://www.onsemi.com/pub/Collateral/ESD9B-D.PDF#page=4")
 		(tags "Diode SOD923")
 		(property "Reference" "D1"
@@ -5969,7 +5969,7 @@
 	(footprint "Connector_BarrelJack:BarrelJack_Wuerth_6941xx301002"
 		(layer "F.Cu")
 		(uuid "4258938f-49c7-4de6-8ebd-ce293753d655")
-		(at 110.3 63.74 -90)
+		(at 114.85 55.4 -90)
 		(descr "Wuerth electronics barrel jack connector (5.5mm outher diameter, inner diameter 2.05mm or 2.55mm depending on exact order number), See: http://katalog.we-online.de/em/datasheet/6941xx301002.pdf")
 		(tags "connector barrel jack")
 		(property "Reference" "J2"
@@ -6299,189 +6299,10 @@
 			)
 		)
 	)
-	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
-		(layer "F.Cu")
-		(uuid "46fce8c8-5b78-4cb8-86ed-fc722ec4cb18")
-		(at 90.5 115.79)
-		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
-		(tags "Through Hole Mount Test Points")
-		(property "Reference" "TP9"
-			(at 0 -2.75 0)
-			(layer "F.SilkS")
-			(uuid "f2dd7c60-02d2-4dee-891b-50378761a2ef")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "EN"
-			(at 0 2.75 0)
-			(layer "F.Fab")
-			(uuid "0f8a9670-9b44-46f7-a22f-968ed509199b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "45619cba-a509-456f-9030-83d601faff97")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cb6e4b10-cbef-4451-bb73-9f47277f37f4")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "49b346d2-5bae-48cd-8983-2a29a2870b0d")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/de48485c-de36-41f3-94ec-0aefe8b8b00f")
-		(sheetname "Root")
-		(sheetfile "ECE477.kicad_sch")
-		(attr through_hole)
-		(fp_circle
-			(center 0 0)
-			(end 1.75 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.SilkS")
-			(uuid "3160df2e-05fd-458e-ac24-5528d0cf2436")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 2 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.CrtYd")
-			(uuid "6c6a7e3c-3204-46e7-9f19-957d49ec0e51")
-		)
-		(fp_line
-			(start -1.25 -0.4)
-			(end 1.25 -0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "40c082bf-3c48-4fb8-ac45-903e8cf3dd1b")
-		)
-		(fp_line
-			(start -1.25 0.4)
-			(end -1.25 -0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "445064ed-e65d-4a3c-9761-9789c543e80d")
-		)
-		(fp_line
-			(start 1.25 -0.4)
-			(end 1.25 0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "e38f1ec5-28e0-43ca-8a70-f8297acaaccc")
-		)
-		(fp_line
-			(start 1.25 0.4)
-			(end -1.25 0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "507e0b38-a051-42b0-99b9-f0dfcab7d33d")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1.6 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.Fab")
-			(uuid "1c3679be-c50b-474e-91e6-a3de2f7ef883")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(uuid "cc842900-c7cd-45ca-815b-4cc014ff6907")
-			(effects
-				(font
-					(size 0.6 0.6)
-					(thickness 0.09)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0)
-			(size 2.8 2.8)
-			(drill 1.6)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 4 "/EN")
-			(pinfunction "1")
-			(pintype "passive")
-			(uuid "e7619be2-12b6-46ee-82e7-bc68b7d41a46")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/TestPoint.3dshapes/TestPoint_Keystone_5010-5014_Multipurpose.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "473d8696-2f2f-4f0c-b772-a02a187b42a8")
-		(at 243.5 107.26)
+		(at 186 82.475)
 		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x03 2.54mm single row")
 		(property "Reference" "Microphone1"
@@ -6759,7 +6580,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "4a84323d-0b39-4c17-bd1a-83c647f44c80")
-		(at 161 90.84 -90)
+		(at 122.975 87.5 90)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "UART1"
@@ -6785,7 +6606,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6798,7 +6619,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6811,7 +6632,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6829,44 +6650,14 @@
 		(sheetfile "ECE477.kicad_sch")
 		(attr through_hole)
 		(fp_line
-			(start -1.33 3.87)
-			(end 1.33 3.87)
+			(start -1.33 -1.33)
+			(end 0 -1.33)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "2d0aa686-fd87-4299-97bc-25329b0025ec")
-		)
-		(fp_line
-			(start -1.33 1.27)
-			(end -1.33 3.87)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "9bc603a8-a0e9-41b1-98df-3178f88b9cfe")
-		)
-		(fp_line
-			(start -1.33 1.27)
-			(end 1.33 1.27)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "e22e1def-036d-4af8-8547-f511e2c828b3")
-		)
-		(fp_line
-			(start 1.33 1.27)
-			(end 1.33 3.87)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "2a7ed14a-de27-44b0-849f-fd4a1059fe0a")
+			(uuid "124cf98b-fe89-4bc4-8985-1ad1b457b1f3")
 		)
 		(fp_line
 			(start -1.33 0)
@@ -6879,44 +6670,44 @@
 			(uuid "93c09073-fb4d-45b5-8da8-45c5bdb9a483")
 		)
 		(fp_line
-			(start -1.33 -1.33)
-			(end 0 -1.33)
+			(start 1.33 1.27)
+			(end 1.33 3.87)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "124cf98b-fe89-4bc4-8985-1ad1b457b1f3")
+			(uuid "2a7ed14a-de27-44b0-849f-fd4a1059fe0a")
 		)
 		(fp_line
-			(start -1.8 4.35)
-			(end 1.8 4.35)
+			(start -1.33 1.27)
+			(end 1.33 1.27)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "ce61cc85-d5a0-4014-a44e-dcc42db92364")
+			(layer "F.SilkS")
+			(uuid "e22e1def-036d-4af8-8547-f511e2c828b3")
 		)
 		(fp_line
-			(start 1.8 4.35)
-			(end 1.8 -1.8)
+			(start -1.33 1.27)
+			(end -1.33 3.87)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "91b43dce-bb1b-442f-8ffa-1bc765969cea")
+			(layer "F.SilkS")
+			(uuid "9bc603a8-a0e9-41b1-98df-3178f88b9cfe")
 		)
 		(fp_line
-			(start -1.8 -1.8)
-			(end -1.8 4.35)
+			(start -1.33 3.87)
+			(end 1.33 3.87)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "a0bb3f51-245b-45fc-aed2-22ed250bc393")
+			(layer "F.SilkS")
+			(uuid "2d0aa686-fd87-4299-97bc-25329b0025ec")
 		)
 		(fp_line
 			(start 1.8 -1.8)
@@ -6929,34 +6720,44 @@
 			(uuid "4c4c30eb-5f11-4af1-ad49-87e46d324b1c")
 		)
 		(fp_line
-			(start -1.27 3.81)
-			(end -1.27 -0.635)
+			(start -1.8 -1.8)
+			(end -1.8 4.35)
 			(stroke
-				(width 0.1)
+				(width 0.05)
 				(type solid)
 			)
-			(layer "F.Fab")
-			(uuid "a3b2ca2b-7abd-41ba-9e77-70f7bf9f5a6b")
+			(layer "F.CrtYd")
+			(uuid "a0bb3f51-245b-45fc-aed2-22ed250bc393")
 		)
 		(fp_line
-			(start 1.27 3.81)
-			(end -1.27 3.81)
+			(start 1.8 4.35)
+			(end 1.8 -1.8)
 			(stroke
-				(width 0.1)
+				(width 0.05)
 				(type solid)
 			)
-			(layer "F.Fab")
-			(uuid "537a2d76-866e-4a20-a6c3-2a3bc53baad6")
+			(layer "F.CrtYd")
+			(uuid "91b43dce-bb1b-442f-8ffa-1bc765969cea")
 		)
 		(fp_line
-			(start -1.27 -0.635)
-			(end -0.635 -1.27)
+			(start -1.8 4.35)
+			(end 1.8 4.35)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ce61cc85-d5a0-4014-a44e-dcc42db92364")
+		)
+		(fp_line
+			(start 1.27 -1.27)
+			(end 1.27 3.81)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "fe6984c0-7ec4-4f43-91fb-6b99cd574ed3")
+			(uuid "e1338a08-e805-4d84-9728-a8ad05b32f8e")
 		)
 		(fp_line
 			(start -0.635 -1.27)
@@ -6969,14 +6770,34 @@
 			(uuid "dd321d64-24cb-4a21-8bd1-5b27c977f074")
 		)
 		(fp_line
-			(start 1.27 -1.27)
-			(end 1.27 3.81)
+			(start -1.27 -0.635)
+			(end -0.635 -1.27)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "e1338a08-e805-4d84-9728-a8ad05b32f8e")
+			(uuid "fe6984c0-7ec4-4f43-91fb-6b99cd574ed3")
+		)
+		(fp_line
+			(start 1.27 3.81)
+			(end -1.27 3.81)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "537a2d76-866e-4a20-a6c3-2a3bc53baad6")
+		)
+		(fp_line
+			(start -1.27 3.81)
+			(end -1.27 -0.635)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "a3b2ca2b-7abd-41ba-9e77-70f7bf9f5a6b")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 1.27 360)
@@ -6990,7 +6811,7 @@
 			)
 		)
 		(pad "1" thru_hole rect
-			(at 0 0 270)
+			(at 0 0 90)
 			(size 1.7 1.7)
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
@@ -7001,7 +6822,7 @@
 			(uuid "03befda0-bffd-4b0b-9965-24115c6fb27b")
 		)
 		(pad "2" thru_hole oval
-			(at 0 2.54 270)
+			(at 0 2.54 90)
 			(size 1.7 1.7)
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
@@ -7026,7 +6847,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "4d236d72-890c-4c65-9044-d2ccf35af02c")
-		(at 112.705 86.995)
+		(at 50.63 157.19)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R8"
@@ -7239,7 +7060,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "59b8cf89-ebc7-4a52-8094-49f216ac8c8b")
-		(at 85.45 115.79)
+		(at 61.38 137.29)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP4"
@@ -7418,7 +7239,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "5ac73c4b-25fc-4e00-bb31-b21b6c091114")
-		(at 127 81.14)
+		(at 64.925 151.335)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D4"
@@ -7653,7 +7474,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "5c35753b-0822-437f-8277-61fff508f8eb")
-		(at 121.98 119.89)
+		(at 59.905 190.085)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C9"
@@ -7866,7 +7687,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "62012702-be1e-4636-bd68-0834a5a11356")
-		(at 90.5 105.69)
+		(at 176.5 82.5)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP7"
@@ -8045,7 +7866,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "64331f11-1066-4292-af02-3f7b510ca866")
-		(at 121.98 116.88)
+		(at 59.905 187.075)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C8"
@@ -8258,7 +8079,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "66012ae6-c3f7-4093-9516-1ac36c657106")
-		(at 112.705 89.945)
+		(at 50.63 160.14)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R9"
@@ -8471,7 +8292,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "678fd100-a7d6-45e0-bb7f-7e5869d80736")
-		(at 107.955 86.995)
+		(at 45.88 157.19)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R3"
@@ -8684,7 +8505,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "69825929-f635-4bde-a81f-084d118b9f6b")
-		(at 121.98 104.84)
+		(at 59.905 175.035)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C3"
@@ -8897,7 +8718,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "70800e15-d088-4522-99a5-3f39986177ee")
-		(at 85.45 100.64)
+		(at 110 71.5)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP1"
@@ -9076,7 +8897,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "761514a1-2d54-4771-ab0f-4c5a52dab444")
-		(at 150.5 116.225)
+		(at 181 74)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "Debug1"
@@ -9343,7 +9164,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "76b6c1e0-816d-4ae9-84db-75a76e72afdc")
-		(at 121.98 101.83)
+		(at 59.905 172.025)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C2"
@@ -9556,7 +9377,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "782f8f3b-fdba-4f81-a76d-0cfc160b3fb7")
-		(at 107.955 81.095)
+		(at 45.88 151.29)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R1"
@@ -9769,7 +9590,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "811a48e5-5077-4880-878b-7323b6d472aa")
-		(at 112.705 92.895)
+		(at 50.63 163.09)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R10"
@@ -9982,7 +9803,7 @@
 	(footprint "MountingHole:MountingHole_2.5mm"
 		(layer "F.Cu")
 		(uuid "85265b2b-8f6f-4305-83a0-3d0c65f09f9f")
-		(at 83.5 66.89)
+		(at 186.5 53)
 		(descr "Mounting Hole 2.5mm, no annular")
 		(tags "mounting hole 2.5mm no annular")
 		(property "Reference" "H2"
@@ -10095,7 +9916,7 @@
 	(footprint "Button_Switch_THT:SW_PUSH_6mm_H13mm"
 		(layer "F.Cu")
 		(uuid "86b049be-3182-4c53-8329-38ba4ca6070f")
-		(at 224 94.84)
+		(at 168.5 58.25)
 		(descr "tactile push button, 6x6mm e.g. PHAP33xx series, height=13mm")
 		(tags "tact sw push 6mm")
 		(property "Reference" "B1"
@@ -10454,7 +10275,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "87d8f771-bf1d-4edc-bba9-a6a3311f048b")
-		(at 90.5 110.74)
+		(at 147.5 52.5)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP8"
@@ -10633,7 +10454,7 @@
 	(footprint "Connector_JST:JST_PH_B7B-PH-K_1x07_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "87f0f4c7-bfd0-41dc-a869-bc923958d0ba")
-		(at 148.5 98.34 -90)
+		(at 137.5 74.5 -90)
 		(descr "JST PH series connector, B7B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST PH side entry")
 		(property "Reference" "J3"
@@ -11356,7 +11177,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "88bf69b7-6584-46bf-8c0a-472a67b5aba5")
-		(at 117.455 89.945)
+		(at 55.38 160.14)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R14"
@@ -11569,7 +11390,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "8e0dcc07-b88e-4e21-951f-79eefd8cc430")
-		(at 107.955 92.895)
+		(at 45.88 163.09)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R5"
@@ -11782,7 +11603,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "91aec119-71a1-4203-9d93-47cbc6bb8cc6")
-		(at 117.455 92.895)
+		(at 55.38 163.09)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R15"
@@ -11995,7 +11816,7 @@
 	(footprint "Button_Switch_THT:SW_PUSH_1P1T_6x3.5mm_H4.3_APEM_MJTP1243"
 		(layer "F.Cu")
 		(uuid "9486a4cc-5e14-4560-844e-ce7b6709077b")
-		(at 224 128.34)
+		(at 120.75 80.5)
 		(descr "tactile push button, 6x3.5mm, https://www.apem.com/idec-apem/en_US/PCB-switches/Tactile-Switches/MJTP-6mm-through-hole/c/MJTP_6mm_through%20hole?page=1")
 		(tags "PHAP3362 6mm tact sw THT")
 		(property "Reference" "RST1"
@@ -12343,7 +12164,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "9658cdc2-7a59-4b08-9a0f-40c290a49358")
-		(at 127 90.26)
+		(at 64.925 160.455)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D7"
@@ -12575,189 +12396,10 @@
 			)
 		)
 	)
-	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
-		(layer "F.Cu")
-		(uuid "a30cb95a-1529-4a0c-9655-ae9eb663f408")
-		(at 90.5 120.84)
-		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
-		(tags "Through Hole Mount Test Points")
-		(property "Reference" "TP10"
-			(at 0 -2.75 0)
-			(layer "F.SilkS")
-			(uuid "0d69d2f5-7f97-4089-a80b-15cc9e48570f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "IO0"
-			(at 0 2.75 0)
-			(layer "F.Fab")
-			(uuid "d409b755-e19a-4952-9b7c-310915f7eb3c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fbccc7d5-65e9-4256-a5ad-7e39420127d7")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7a38c730-0d1a-4123-9731-b9e2111868e7")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f28b5bf4-8d46-4cc9-8d93-658a09bd7178")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/b2158735-37e7-4cbd-b594-4dfef1d22a44")
-		(sheetname "Root")
-		(sheetfile "ECE477.kicad_sch")
-		(attr through_hole)
-		(fp_circle
-			(center 0 0)
-			(end 1.75 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.SilkS")
-			(uuid "99646e47-9623-4654-9c08-9423ba121ca2")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 2 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.CrtYd")
-			(uuid "6ed20161-541e-4285-9d8d-e7d62d5c267f")
-		)
-		(fp_line
-			(start -1.25 -0.4)
-			(end 1.25 -0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f1cbfa57-5f15-4e75-9b1d-9354cf807118")
-		)
-		(fp_line
-			(start -1.25 0.4)
-			(end -1.25 -0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "867f52fa-af54-4c5d-98e6-ed6219620afe")
-		)
-		(fp_line
-			(start 1.25 -0.4)
-			(end 1.25 0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "5cc9bc8e-feca-426f-8535-303be01fc21c")
-		)
-		(fp_line
-			(start 1.25 0.4)
-			(end -1.25 0.4)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "feb5b828-d0ed-4898-bc5a-ab378a29b594")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1.6 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.Fab")
-			(uuid "d631446b-d1e6-4e54-a3d7-8fc3e8e54673")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(uuid "757dd66e-0583-414f-b750-10460e49be21")
-			(effects
-				(font
-					(size 0.6 0.6)
-					(thickness 0.09)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0)
-			(size 2.8 2.8)
-			(drill 1.6)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 3 "/IO0")
-			(pinfunction "1")
-			(pintype "passive")
-			(uuid "85d6af87-7969-4aff-ad67-0f8b0fd84566")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/TestPoint.3dshapes/TestPoint_Keystone_5010-5014_Multipurpose.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "a30d274b-ae73-4392-8213-91bda254de07")
-		(at 127 96.34)
+		(at 64.925 166.535)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D9"
@@ -12992,7 +12634,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "a99416f5-1cda-490a-b8d1-4c5468d515e7")
-		(at 112.705 81.095)
+		(at 50.63 151.29)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R6"
@@ -13205,7 +12847,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "aaa4c4a3-ce64-4284-a3c0-dfbe6019e555")
-		(at 85.45 105.69)
+		(at 176.5 87)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP2"
@@ -13384,7 +13026,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "b1073df8-810e-402c-8efd-ca5ac509768a")
-		(at 122.205 89.945)
+		(at 60.13 160.14)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R19"
@@ -13597,7 +13239,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "b13517a3-3681-4764-b245-034c8ba58f97")
-		(at 122.205 81.095)
+		(at 84.5 124)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R16"
@@ -13810,7 +13452,7 @@
 	(footprint "Diode_SMD:D_SOD-923"
 		(layer "F.Cu")
 		(uuid "b1b457da-04dc-40bf-9acf-81bec0b787c3")
-		(at 207.5 82.74)
+		(at 212.3 119.74)
 		(descr "https://www.onsemi.com/pub/Collateral/ESD9B-D.PDF#page=4")
 		(tags "Diode SOD923")
 		(property "Reference" "D3"
@@ -14175,7 +13817,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "b78ba74d-11b6-4b99-aef4-8e3dd32528d0")
-		(at 85.45 120.84)
+		(at 61.38 142.34)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP5"
@@ -14354,7 +13996,7 @@
 	(footprint "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "bb0740eb-4820-4c0a-a211-cb1d1c082948")
-		(at 127 87.22)
+		(at 64.925 157.415)
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "LED handsolder")
 		(property "Reference" "D6"
@@ -14589,7 +14231,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "bb4abd06-eab0-4490-bb49-c4bb4fec3312")
-		(at 122.205 92.895)
+		(at 60.13 163.09)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R20"
@@ -14802,7 +14444,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "bb808105-008c-4378-b137-dfe73b7b726c")
-		(at 121.98 98.82)
+		(at 59.905 169.015)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C1"
@@ -15015,7 +14657,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "c7f886ce-f928-47cc-baa1-fb13b4ea5f48")
-		(at 117.455 81.095)
+		(at 55.38 151.29)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R11"
@@ -15228,7 +14870,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "cf1324d3-f1da-4de3-b9c9-978878f9f2d0")
-		(at 85.45 110.74)
+		(at 168.5 52.5)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP3"
@@ -15407,7 +15049,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "d417df43-c326-4107-8038-d420026bf13f")
-		(at 107.955 84.045)
+		(at 45.88 154.24)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R2"
@@ -15620,7 +15262,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "d5744071-a42e-405c-ae5b-20965df98e78")
-		(at 121.98 107.85)
+		(at 59.905 178.045)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C4"
@@ -15833,7 +15475,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "d64baa2b-0bbc-4c6c-81f7-cd6f56ae323a")
-		(at 122.205 86.995)
+		(at 60.13 157.19)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R18"
@@ -16046,7 +15688,7 @@
 	(footprint "Diode_SMD:D_SOD-923"
 		(layer "F.Cu")
 		(uuid "db05a08c-bdf9-48b1-ba99-5888ea4aa5c6")
-		(at 207.5 84.69)
+		(at 212.3 121.69)
 		(descr "https://www.onsemi.com/pub/Collateral/ESD9B-D.PDF#page=4")
 		(tags "Diode SOD923")
 		(property "Reference" "D10"
@@ -16411,7 +16053,7 @@
 	(footprint "MountingHole:MountingHole_2.5mm"
 		(layer "F.Cu")
 		(uuid "dec0df58-f70c-4de8-84cc-b9e57158652e")
-		(at 83.5 73.44)
+		(at 186.5 75.5)
 		(descr "Mounting Hole 2.5mm, no annular")
 		(tags "mounting hole 2.5mm no annular")
 		(property "Reference" "H3"
@@ -16524,7 +16166,7 @@
 	(footprint "MountingHole:MountingHole_2.5mm"
 		(layer "F.Cu")
 		(uuid "e5d6182e-f32e-4f31-94b7-ae15a45c84d3")
-		(at 83.5 60.34)
+		(at 107 65)
 		(descr "Mounting Hole 2.5mm, no annular")
 		(tags "mounting hole 2.5mm no annular")
 		(property "Reference" "H1"
@@ -16637,11 +16279,11 @@
 	(footprint "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical"
 		(layer "F.Cu")
 		(uuid "eceb1be3-ea90-4cba-866a-1e891a19ff33")
-		(at 164 54.34 180)
+		(at 157.15 52.5 180)
 		(descr "USB Micro-B receptacle, through-hole, vertical, http://katalog.we-online.de/em/datasheet/614105150721.pdf")
 		(tags "usb micro receptacle vertical")
 		(property "Reference" "J1"
-			(at 1.3 -2.48 360)
+			(at 1.3 -2.48 0)
 			(layer "F.SilkS")
 			(uuid "6f058dcd-00c9-4ea8-969b-9062003cc512")
 			(effects
@@ -16652,7 +16294,7 @@
 			)
 		)
 		(property "Value" "USB_B_Micro"
-			(at 1.3 2.92 360)
+			(at 1.3 2.92 0)
 			(layer "F.Fab")
 			(uuid "594681b0-d892-4b27-96c4-07ff12d4d454")
 			(effects
@@ -16887,7 +16529,7 @@
 			(uuid "daf381c0-fa5f-460b-b689-2a21bd6638f1")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 1.3 0.22 360)
+			(at 1.3 0.22 0)
 			(layer "F.Fab")
 			(uuid "224c2649-d71e-4f42-826f-bc59b0fc7785")
 			(effects
@@ -16989,7 +16631,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "f1a2f23a-17b8-4c21-b7a5-f366562b2682")
-		(at 117.455 84.045)
+		(at 55.38 154.24)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R12"
@@ -17202,7 +16844,7 @@
 	(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "f26ff1f1-3691-4504-a633-f27a27ae0f71")
-		(at 117.455 86.995)
+		(at 55.38 157.19)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor handsolder")
 		(property "Reference" "R13"
@@ -17415,7 +17057,7 @@
 	(footprint "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose"
 		(layer "F.Cu")
 		(uuid "f4410185-7054-491d-a8ba-2a577e08e6f9")
-		(at 90.5 100.64)
+		(at 113 75.5)
 		(descr "Keystone Miniature THM Test Point 5010-5014, http://www.keyelco.com/product-pdf.cfm?p=1319")
 		(tags "Through Hole Mount Test Points")
 		(property "Reference" "TP6"
@@ -17594,7 +17236,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "f9415159-d6b7-4060-8f36-b82dd1d7d8dd")
-		(at 121.98 110.86)
+		(at 59.905 181.055)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C6"
@@ -17803,5 +17445,66 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(gr_rect
+		(start 123 50.535)
+		(end 144 68.535)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "72751fc5-bc11-4379-b7f9-b14652b6fa06")
+	)
+	(gr_line
+		(start 190 90.5)
+		(end 119.5 90.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "04d7b888-39b1-49c9-b938-f6b25b1bae82")
+	)
+	(gr_line
+		(start 190 50)
+		(end 190 90.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "06d45595-d509-4c2e-9372-feef6006aefd")
+	)
+	(gr_line
+		(start 100 60)
+		(end 119.5 90.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "6b82537a-9a2a-45b3-8063-69a74d3a8ab7")
+	)
+	(gr_line
+		(start 100 50)
+		(end 190 50)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "be0be6c0-fc3c-463f-98e5-73bb35334a83")
+	)
+	(gr_line
+		(start 100 50)
+		(end 100 60)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "df7bf246-4579-428f-acfb-77aa27dcf57d")
 	)
 )
