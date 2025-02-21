@@ -4940,10 +4940,6 @@
 		(uuid "713e22b6-cb4a-4a99-8b11-0223dab23c24")
 	)
 	(no_connect
-		(at 375.92 80.01)
-		(uuid "84d82df9-7fb0-407e-b222-602c80b1bef0")
-	)
-	(no_connect
 		(at 252.73 208.28)
 		(uuid "85122f7b-332d-488c-a696-52d2c4e73b65")
 	)
@@ -4958,10 +4954,6 @@
 	(no_connect
 		(at 252.73 205.74)
 		(uuid "b1c5c218-5076-4a7b-9be5-1e02629cee27")
-	)
-	(no_connect
-		(at 375.92 82.55)
-		(uuid "b2509ded-9c85-4b46-805d-14847fdfa302")
 	)
 	(no_connect
 		(at 375.92 59.69)
@@ -7133,6 +7125,17 @@
 		)
 		(uuid "0151a1ce-5ca3-4604-bf0d-2ef6f953b633")
 	)
+	(label "Button2"
+		(at 375.92 82.55 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "036f116d-cc11-4d51-bdcd-e90e560002ef")
+	)
 	(label "USB_DN"
 		(at 180.34 219.71 0)
 		(fields_autoplaced yes)
@@ -7220,6 +7223,17 @@
 			(justify right bottom)
 		)
 		(uuid "1a561f32-ef83-4472-b11c-ffb6e79673ac")
+	)
+	(label "Button1"
+		(at 375.92 80.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "237ea165-750a-48ec-935f-656dabeda61c")
 	)
 	(label "Debug_4"
 		(at 375.92 105.41 0)
@@ -8202,7 +8216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "09e6f141-4e61-4485-9ada-a817991ffead")
-		(property "Reference" "SW1"
+		(property "Reference" "Boot1"
 			(at 397.51 46.99 0)
 			(effects
 				(font
@@ -8254,7 +8268,7 @@
 		(instances
 			(project ""
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "SW1")
+					(reference "Boot1")
 					(unit 1)
 				)
 			)
@@ -11224,7 +11238,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6fdb8740-fb02-4996-8e3c-40ca7abe8401")
-		(property "Reference" "SW3"
+		(property "Reference" "B1"
 			(at 245.11 71.12 0)
 			(effects
 				(font
@@ -11282,7 +11296,7 @@
 		(instances
 			(project ""
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "SW3")
+					(reference "B1")
 					(unit 1)
 				)
 			)
@@ -11499,7 +11513,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8696e6bc-5ea4-4086-9d46-af62d0fe3a91")
-		(property "Reference" "J4"
+		(property "Reference" "Microphone1"
 			(at 251.46 110.4899 0)
 			(effects
 				(font
@@ -11556,7 +11570,7 @@
 		(instances
 			(project ""
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "J4")
+					(reference "Microphone1")
 					(unit 1)
 				)
 			)
@@ -12348,7 +12362,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a452d19c-8f91-4542-9fac-90eb356d47a3")
-		(property "Reference" "SW4"
+		(property "Reference" "B2"
 			(at 284.48 72.39 0)
 			(effects
 				(font
@@ -12406,7 +12420,7 @@
 		(instances
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "SW4")
+					(reference "B2")
 					(unit 1)
 				)
 			)
@@ -13529,7 +13543,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c7c44b83-3cc5-464b-8592-6ef7ff029d34")
-		(property "Reference" "J5"
+		(property "Reference" "UART1"
 			(at 309.245 151.13 0)
 			(effects
 				(font
@@ -13581,7 +13595,7 @@
 		(instances
 			(project ""
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "J5")
+					(reference "UART1")
 					(unit 1)
 				)
 			)
@@ -14808,7 +14822,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e9df719f-53cb-4d72-89f2-a52bf6d8ddb7")
-		(property "Reference" "J6"
+		(property "Reference" "Debug1"
 			(at 381.635 151.13 0)
 			(effects
 				(font
@@ -14860,7 +14874,7 @@
 		(instances
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "J6")
+					(reference "Debug1")
 					(unit 1)
 				)
 			)
@@ -15012,7 +15026,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f287ddc3-031a-4ff2-a392-88c43fcff907")
-		(property "Reference" "SW2"
+		(property "Reference" "RST1"
 			(at 309.88 46.99 0)
 			(effects
 				(font
@@ -15064,7 +15078,7 @@
 		(instances
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
-					(reference "SW2")
+					(reference "RST1")
 					(unit 1)
 				)
 			)
