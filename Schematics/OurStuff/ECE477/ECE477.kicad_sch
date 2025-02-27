@@ -4800,6 +4800,12 @@
 		(uuid "533a52ba-7cf6-465e-8312-88c1211c8961")
 	)
 	(junction
+		(at 186.69 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5500b05e-f000-49a8-bfe9-d2eeaabe1fb2")
+	)
+	(junction
 		(at 269.24 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5105,6 +5111,16 @@
 	)
 	(wire
 		(pts
+			(xy 186.69 41.91) (xy 189.23 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "087db856-34d7-4faa-aa4a-1d91031efda1")
+	)
+	(wire
+		(pts
 			(xy 240.03 140.97) (xy 240.03 143.51)
 		)
 		(stroke
@@ -5265,7 +5281,7 @@
 	)
 	(wire
 		(pts
-			(xy 368.3 82.55) (xy 375.92 82.55)
+			(xy 368.3 82.55) (xy 377.19 82.55)
 		)
 		(stroke
 			(width 0)
@@ -5745,7 +5761,7 @@
 	)
 	(wire
 		(pts
-			(xy 368.3 80.01) (xy 375.92 80.01)
+			(xy 368.3 80.01) (xy 377.19 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6465,7 +6481,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 41.91) (xy 189.23 41.91)
+			(xy 181.61 41.91) (xy 186.69 41.91)
 		)
 		(stroke
 			(width 0)
@@ -7096,7 +7112,6 @@
 	)
 	(label "RX"
 		(at 375.92 62.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7105,20 +7120,8 @@
 		)
 		(uuid "0151a1ce-5ca3-4604-bf0d-2ef6f953b633")
 	)
-	(label "Button2"
-		(at 375.92 82.55 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "036f116d-cc11-4d51-bdcd-e90e560002ef")
-	)
 	(label "USB_DN"
 		(at 180.34 219.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7129,7 +7132,6 @@
 	)
 	(label "TX"
 		(at 321.31 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7140,7 +7142,6 @@
 	)
 	(label "TXT"
 		(at 307.34 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7151,7 +7152,6 @@
 	)
 	(label "O_DC"
 		(at 375.92 87.63 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7162,7 +7162,6 @@
 	)
 	(label "RXT"
 		(at 320.04 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7173,7 +7172,6 @@
 	)
 	(label "Debug_2"
 		(at 354.33 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7184,7 +7182,6 @@
 	)
 	(label "O_DIN"
 		(at 246.38 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7195,7 +7192,6 @@
 	)
 	(label "RX"
 		(at 321.31 158.75 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7204,20 +7200,8 @@
 		)
 		(uuid "1a561f32-ef83-4472-b11c-ffb6e79673ac")
 	)
-	(label "Button1"
-		(at 375.92 80.01 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "237ea165-750a-48ec-935f-656dabeda61c")
-	)
 	(label "Debug_4"
 		(at 375.92 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7226,9 +7210,18 @@
 		)
 		(uuid "2b07b55c-6390-4bff-9915-9f6dddd9c256")
 	)
+	(label "Debug_1"
+		(at 377.19 82.55 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2e3d36bc-6e8c-4cce-96c5-3c4f2c1c48fb")
+	)
 	(label "Debug_4"
 		(at 392.43 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7239,7 +7232,6 @@
 	)
 	(label "USB_DP"
 		(at 191.77 217.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7250,7 +7242,6 @@
 	)
 	(label "Mic_In"
 		(at 375.92 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7261,7 +7252,6 @@
 	)
 	(label "EN"
 		(at 342.9 208.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7270,9 +7260,18 @@
 		)
 		(uuid "4dd6f35c-46b7-455f-9ba2-e76bf61ff9b5")
 	)
+	(label "Button1"
+		(at 375.92 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5a40dc4c-5781-46e0-8f54-921cf7b12401")
+	)
 	(label "O_CLK"
 		(at 375.92 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7283,7 +7282,6 @@
 	)
 	(label "Debug_3"
 		(at 392.43 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7294,7 +7292,6 @@
 	)
 	(label "TX"
 		(at 276.86 167.64 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7305,7 +7302,6 @@
 	)
 	(label "RTS"
 		(at 262.89 170.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7316,7 +7312,6 @@
 	)
 	(label "Debug_1"
 		(at 339.09 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7327,7 +7322,6 @@
 	)
 	(label "RX"
 		(at 276.86 165.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7338,7 +7332,6 @@
 	)
 	(label "IO0"
 		(at 374.65 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7349,7 +7342,6 @@
 	)
 	(label "O_DC"
 		(at 246.38 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7360,7 +7352,6 @@
 	)
 	(label "O_RST"
 		(at 375.92 92.71 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7369,20 +7360,8 @@
 		)
 		(uuid "81244c29-5d1a-45d0-8273-aafc9a4a324e")
 	)
-	(label "Debug_1"
-		(at 375.92 97.79 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "905a63f5-6a27-4fc8-94ae-3d15ad48ed8b")
-	)
 	(label "Debug_3"
 		(at 375.92 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7393,7 +7372,6 @@
 	)
 	(label "DTR"
 		(at 299.72 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7404,7 +7382,6 @@
 	)
 	(label "O_CS"
 		(at 375.92 90.17 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7415,7 +7392,6 @@
 	)
 	(label "O_CLK"
 		(at 246.38 40.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7424,9 +7400,18 @@
 		)
 		(uuid "a52581d5-f47c-48b3-88f5-67aa4234c806")
 	)
+	(label "Debug_2"
+		(at 377.19 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a976820a-6503-40ef-99e6-79b286e9c3fc")
+	)
 	(label "Button2"
 		(at 269.24 77.47 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7437,7 +7422,6 @@
 	)
 	(label "O_RST"
 		(at 246.38 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7446,9 +7430,18 @@
 		)
 		(uuid "bdbb8213-79f4-4b36-9c71-1ef6fe32485e")
 	)
+	(label "Button2"
+		(at 375.92 100.33 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c20bba94-eefc-42ad-8b77-b99bda0c0d02")
+	)
 	(label "Mic_In"
 		(at 393.7 220.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7459,7 +7452,6 @@
 	)
 	(label "DTR"
 		(at 262.89 177.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7470,7 +7462,6 @@
 	)
 	(label "EN"
 		(at 332.74 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7481,7 +7472,6 @@
 	)
 	(label "USB_DN"
 		(at 214.63 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7492,7 +7482,6 @@
 	)
 	(label "RXT"
 		(at 266.7 198.12 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7503,7 +7492,6 @@
 	)
 	(label "Mic_In"
 		(at 241.3 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7514,7 +7502,6 @@
 	)
 	(label "TXT"
 		(at 266.7 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7525,7 +7512,6 @@
 	)
 	(label "Button1"
 		(at 229.87 76.2 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7536,7 +7522,6 @@
 	)
 	(label "TX"
 		(at 375.92 57.15 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7545,20 +7530,8 @@
 		)
 		(uuid "dd535274-5105-4ad4-9d58-efc020a58460")
 	)
-	(label "Debug_2"
-		(at 375.92 100.33 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "edb41d54-8c03-4612-80a0-68bbd2b71ed0")
-	)
 	(label "O_DIN"
 		(at 375.92 95.25 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7569,7 +7542,6 @@
 	)
 	(label "RTS"
 		(at 299.72 238.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7580,7 +7552,6 @@
 	)
 	(label "IO0"
 		(at 344.17 233.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7591,7 +7562,6 @@
 	)
 	(label "USB_DP"
 		(at 214.63 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7602,7 +7572,6 @@
 	)
 	(label "O_CS"
 		(at 246.38 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13629,6 +13598,72 @@
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
 					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 186.69 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cc4dd1fe-4f54-4de8-b5cc-629c75854a76")
+		(property "Reference" "#PWR044"
+			(at 186.69 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 186.69 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 186.69 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e03395c5-41e1-4483-92f2-fec150121bb5")
+		)
+		(instances
+			(project "ECE477"
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
