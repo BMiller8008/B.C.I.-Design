@@ -5728,7 +5728,7 @@
 		(uuid "b1c39a09-7da2-4cc4-972e-769ffc28f7d8")
 	)
 	(junction
-		(at 181.61 118.11)
+		(at 181.61 116.84)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bdae9a88-9dc5-4a62-a6d2-de825af5acda")
@@ -6255,7 +6255,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 118.11) (xy 181.61 118.11)
+			(xy 177.8 116.84) (xy 181.61 116.84)
 		)
 		(stroke
 			(width 0)
@@ -6595,7 +6595,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 116.84) (xy 181.61 118.11)
+			(xy 181.61 115.57) (xy 181.61 116.84)
 		)
 		(stroke
 			(width 0)
@@ -7525,7 +7525,7 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 118.11) (xy 194.31 121.92)
+			(xy 194.31 116.84) (xy 194.31 120.65)
 		)
 		(stroke
 			(width 0)
@@ -7585,7 +7585,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 118.11) (xy 186.69 118.11)
+			(xy 181.61 116.84) (xy 186.69 116.84)
 		)
 		(stroke
 			(width 0)
@@ -7625,7 +7625,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 118.11) (xy 170.18 118.11)
+			(xy 166.37 116.84) (xy 170.18 116.84)
 		)
 		(stroke
 			(width 0)
@@ -7998,7 +7998,6 @@
 	)
 	(label "RX"
 		(at 375.92 62.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8009,7 +8008,6 @@
 	)
 	(label "USB_DN"
 		(at 199.39 219.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8020,7 +8018,6 @@
 	)
 	(label "TX"
 		(at 321.31 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8031,7 +8028,6 @@
 	)
 	(label "TXT"
 		(at 307.34 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8042,7 +8038,6 @@
 	)
 	(label "O_DC"
 		(at 375.92 87.63 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8053,7 +8048,6 @@
 	)
 	(label "RXT"
 		(at 320.04 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8064,7 +8058,6 @@
 	)
 	(label "Debug_2"
 		(at 354.33 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8075,7 +8068,6 @@
 	)
 	(label "O_DIN"
 		(at 246.38 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8086,7 +8078,6 @@
 	)
 	(label "RX"
 		(at 321.31 158.75 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8097,7 +8088,6 @@
 	)
 	(label "Debug_4"
 		(at 375.92 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8108,7 +8098,6 @@
 	)
 	(label "Debug_1"
 		(at 377.19 82.55 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8119,7 +8108,6 @@
 	)
 	(label "Debug_4"
 		(at 392.43 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8130,7 +8118,6 @@
 	)
 	(label "USB_DP"
 		(at 199.39 217.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8141,7 +8128,6 @@
 	)
 	(label "Button2"
 		(at 127 251.46 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8152,7 +8138,6 @@
 	)
 	(label "Mic_In"
 		(at 375.92 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8163,7 +8148,6 @@
 	)
 	(label "EN"
 		(at 342.9 208.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8174,7 +8158,6 @@
 	)
 	(label "Button1"
 		(at 375.92 97.79 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8185,7 +8168,6 @@
 	)
 	(label "O_CLK"
 		(at 375.92 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8196,7 +8178,6 @@
 	)
 	(label "Debug_3"
 		(at 392.43 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8207,7 +8188,6 @@
 	)
 	(label "TX"
 		(at 276.86 167.64 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8218,7 +8198,6 @@
 	)
 	(label "RTS"
 		(at 262.89 170.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8229,7 +8208,6 @@
 	)
 	(label "Debug_1"
 		(at 339.09 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8240,7 +8218,6 @@
 	)
 	(label "RX"
 		(at 276.86 165.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8251,7 +8228,6 @@
 	)
 	(label "IO0"
 		(at 374.65 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8262,7 +8238,6 @@
 	)
 	(label "O_DC"
 		(at 246.38 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8273,7 +8248,6 @@
 	)
 	(label "O_RST"
 		(at 375.92 92.71 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8284,7 +8258,6 @@
 	)
 	(label "Debug_3"
 		(at 375.92 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8295,7 +8268,6 @@
 	)
 	(label "DTR"
 		(at 299.72 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8306,7 +8278,6 @@
 	)
 	(label "O_CS"
 		(at 375.92 90.17 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8317,7 +8288,6 @@
 	)
 	(label "O_CLK"
 		(at 246.38 40.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8328,7 +8298,6 @@
 	)
 	(label "Debug_2"
 		(at 377.19 80.01 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8339,7 +8308,6 @@
 	)
 	(label "Button2"
 		(at 269.24 77.47 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8350,7 +8318,6 @@
 	)
 	(label "O_RST"
 		(at 246.38 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8361,7 +8328,6 @@
 	)
 	(label "Debug_3"
 		(at 132.08 251.46 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8372,7 +8338,6 @@
 	)
 	(label "Button2"
 		(at 375.92 100.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8383,7 +8348,6 @@
 	)
 	(label "Mic_In"
 		(at 393.7 220.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8394,7 +8358,6 @@
 	)
 	(label "DTR"
 		(at 262.89 177.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8405,7 +8368,6 @@
 	)
 	(label "EN"
 		(at 332.74 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8416,7 +8378,6 @@
 	)
 	(label "USB_DN"
 		(at 214.63 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8427,7 +8388,6 @@
 	)
 	(label "RXT"
 		(at 266.7 198.12 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8438,7 +8398,6 @@
 	)
 	(label "Mic_In"
 		(at 241.3 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8449,7 +8408,6 @@
 	)
 	(label "TXT"
 		(at 266.7 195.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8460,7 +8418,6 @@
 	)
 	(label "Button1"
 		(at 229.87 76.2 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8471,7 +8428,6 @@
 	)
 	(label "TX"
 		(at 375.92 57.15 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8482,7 +8438,6 @@
 	)
 	(label "O_DIN"
 		(at 375.92 95.25 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8493,7 +8448,6 @@
 	)
 	(label "RTS"
 		(at 299.72 238.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8504,7 +8458,6 @@
 	)
 	(label "IO0"
 		(at 344.17 233.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8515,7 +8468,6 @@
 	)
 	(label "USB_DP"
 		(at 214.63 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8526,7 +8478,6 @@
 	)
 	(label "Button1"
 		(at 124.46 251.46 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8537,7 +8488,6 @@
 	)
 	(label "O_CS"
 		(at 246.38 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8548,7 +8498,6 @@
 	)
 	(label "Debug_4"
 		(at 134.62 251.46 90)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8603,7 +8552,7 @@
 	)
 	(global_label "Vbat"
 		(shape input)
-		(at 166.37 118.11 180)
+		(at 166.37 116.84 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8613,7 +8562,7 @@
 		)
 		(uuid "27ff8312-88c1-4a4c-835f-3e575eae437f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 159.2725 118.11 0)
+			(at 159.2725 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8713,7 +8662,7 @@
 	)
 	(global_label "BAT_ADC"
 		(shape input)
-		(at 181.61 116.84 90)
+		(at 181.61 115.57 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8723,7 +8672,7 @@
 		)
 		(uuid "ad5194f7-d4d5-4fcc-8229-f243acb99974")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 181.61 105.9324 90)
+			(at 181.61 104.6624 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9443,6 +9392,72 @@
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
 					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 181.61 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "23b0dec1-d4ca-47e9-9bf6-df2ea6748bab")
+		(property "Reference" "#PWR04"
+			(at 181.61 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 181.61 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 181.61 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 181.61 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 181.61 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dcef011d-8f10-426c-a52f-ac921b4033c0")
+		)
+		(instances
+			(project "ECE477"
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -11239,7 +11254,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 173.99 118.11 90)
+		(at 173.99 116.84 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11248,7 +11263,7 @@
 		(fields_autoplaced yes)
 		(uuid "6268defd-a27b-4e36-8e61-718e46090b9a")
 		(property "Reference" "R6"
-			(at 173.99 111.76 90)
+			(at 173.99 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11256,7 +11271,7 @@
 			)
 		)
 		(property "Value" "6M"
-			(at 173.99 114.3 90)
+			(at 173.99 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11264,7 +11279,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 174.244 117.094 90)
+			(at 174.244 115.824 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11273,7 +11288,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 173.99 118.11 0)
+			(at 173.99 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11282,7 +11297,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 173.99 118.11 0)
+			(at 173.99 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13734,6 +13749,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 181.61 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bd1fde64-8643-4c31-9e17-8005c291ff88")
+		(property "Reference" "C5"
+			(at 185.42 119.3799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 185.42 121.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 182.5752 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 181.61 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 181.61 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "79470636-c7c8-4328-a43c-1629251cd513")
+		)
+		(pin "1"
+			(uuid "ef5052f6-de81-4a9c-8f27-a4cf5a2a47d1")
+		)
+		(instances
+			(project ""
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 339.09 181.61 0)
 		(unit 1)
@@ -14673,7 +14758,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 194.31 121.92 0)
+		(at 194.31 120.65 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14682,7 +14767,7 @@
 		(fields_autoplaced yes)
 		(uuid "db4e40b5-9490-4ac4-92af-bf35ff6cdf02")
 		(property "Reference" "#PWR014"
-			(at 194.31 128.27 0)
+			(at 194.31 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14691,7 +14776,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 194.31 127 0)
+			(at 194.31 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14699,7 +14784,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 194.31 121.92 0)
+			(at 194.31 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14708,7 +14793,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 194.31 121.92 0)
+			(at 194.31 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14717,7 +14802,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 194.31 121.92 0)
+			(at 194.31 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14739,7 +14824,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 190.5 118.11 90)
+		(at 190.5 116.84 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14748,7 +14833,7 @@
 		(fields_autoplaced yes)
 		(uuid "dd37020f-bcb5-44fc-9864-2328ab6abb56")
 		(property "Reference" "R7"
-			(at 190.5 111.76 90)
+			(at 190.5 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14756,7 +14841,7 @@
 			)
 		)
 		(property "Value" "3M"
-			(at 190.5 114.3 90)
+			(at 190.5 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14764,7 +14849,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 190.754 117.094 90)
+			(at 190.754 115.824 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14773,7 +14858,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 190.5 118.11 0)
+			(at 190.5 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14782,7 +14867,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 190.5 118.11 0)
+			(at 190.5 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
