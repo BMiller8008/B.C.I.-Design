@@ -12218,7 +12218,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Socket"
-			(at 0 12.49 360)
+			(at 0 12.49 0)
 			(layer "F.Fab")
 			(uuid "4de391ff-d61c-4d3a-9e14-6f5079bfb675")
 			(effects
@@ -18040,7 +18040,7 @@
 		(descr "Inductor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 80, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "inductor handsolder")
 		(property "Reference" "FB1"
-			(at 0 1.55 360)
+			(at 0 1.55 0)
 			(layer "B.SilkS")
 			(uuid "c31692be-508d-497b-b920-dce2b5d21ede")
 			(effects
@@ -18052,7 +18052,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 0 -1.55 360)
+			(at 0 -1.55 0)
 			(layer "B.Fab")
 			(uuid "b365583f-e32e-4216-b56f-56d628619ded")
 			(effects
@@ -18211,7 +18211,7 @@
 			(uuid "d4be7bd9-1dc8-474d-88db-f41bf8699eaa")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(uuid "33ef4970-738a-4a34-a7aa-5e713090e0f0")
 			(effects
@@ -18638,14 +18638,6 @@
 		(uuid "14a2cdc6-440d-4549-bab5-5206391523a5")
 	)
 	(segment
-		(start 197.25 65.8)
-		(end 199.796 65.8)
-		(width 0.508)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "255786c8-90ce-4d16-997c-a416275e3d8b")
-	)
-	(segment
 		(start 136.75 86.75)
 		(end 144.627 78.873)
 		(width 0.254)
@@ -18676,6 +18668,14 @@
 		(layer "B.Cu")
 		(net 1)
 		(uuid "346aebdf-f786-4e8e-843d-15379306bff6")
+	)
+	(segment
+		(start 200.5 67)
+		(end 200.5 66.25)
+		(width 0.508)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "355c50bf-1bf2-4988-8f71-2b346b0b41de")
 	)
 	(segment
 		(start 149.75 53.25)
@@ -18716,14 +18716,6 @@
 		(layer "B.Cu")
 		(net 1)
 		(uuid "4ee182e1-4d69-419e-96d9-9ed21f81023d")
-	)
-	(segment
-		(start 199.796 65.8)
-		(end 200.623 66.627)
-		(width 0.508)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "562eff12-f53d-4e20-a32c-237e06f92689")
 	)
 	(segment
 		(start 165.75 62)
@@ -18780,6 +18772,14 @@
 		(layer "B.Cu")
 		(net 1)
 		(uuid "6c40aed1-f512-403d-b2f9-426ea169ae8b")
+	)
+	(segment
+		(start 200.05 65.8)
+		(end 197.25 65.8)
+		(width 0.508)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "6e2b038e-4651-46fe-9781-8ac97d76d378")
 	)
 	(segment
 		(start 124.196 56.684)
@@ -18846,20 +18846,20 @@
 		(uuid "9b61a3c0-8f8e-440f-b8ef-8fbc06975c82")
 	)
 	(segment
+		(start 200.5 66.25)
+		(end 200.05 65.8)
+		(width 0.508)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "9d1ec72a-8458-429e-8dae-f52c4ecd000f")
+	)
+	(segment
 		(start 138.792892 73.792892)
 		(end 137.292892 73.792892)
 		(width 0.508)
 		(layer "B.Cu")
 		(net 1)
 		(uuid "9d22e3ea-b561-4f8e-a146-ee88682fad63")
-	)
-	(segment
-		(start 199 68.5)
-		(end 200.623 66.877)
-		(width 0.508)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "a36e973e-51aa-4d43-8525-5537badd3034")
 	)
 	(segment
 		(start 163.658 58.5)
@@ -18918,6 +18918,14 @@
 		(uuid "c83ea8ee-6707-4267-a002-e9b822131d3a")
 	)
 	(segment
+		(start 199 68.5)
+		(end 200.5 67)
+		(width 0.508)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "cbce95a8-de0e-4893-9163-2ebf030f292d")
+	)
+	(segment
 		(start 184.961034 51.121)
 		(end 191 57.159966)
 		(width 0.508)
@@ -18940,14 +18948,6 @@
 		(layer "B.Cu")
 		(net 1)
 		(uuid "d81771f5-b4bc-4d9c-9df4-8fe79e3290c6")
-	)
-	(segment
-		(start 200.623 66.877)
-		(end 200.623 66.627)
-		(width 0.508)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "d84a14d6-754f-43d8-b2e0-dd4b8d0c4fa9")
 	)
 	(segment
 		(start 129.5 70.5)
@@ -20210,6 +20210,15 @@
 		(free yes)
 		(net 20)
 		(uuid "40372cee-e3f0-4254-9e16-2b9e735ed306")
+	)
+	(via
+		(at 185.5 67.25)
+		(size 1)
+		(drill 0.508)
+		(layers "F.Cu" "B.Cu")
+		(free yes)
+		(net 20)
+		(uuid "4039543a-6f62-4036-b931-7527c171a140")
 	)
 	(via
 		(at 184.5 88)
