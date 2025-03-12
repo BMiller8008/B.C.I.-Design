@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "ECE477 Translating Glasses")
-		(date "2025-02-18")
+		(date "2025-03-12")
 	)
 	(lib_symbols
 		(symbol "Connector:Barrel_Jack"
@@ -5892,6 +5892,12 @@
 		(uuid "3b20bc49-663b-4878-81d2-26107c8328af")
 	)
 	(junction
+		(at 149.86 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3f85375c-00b5-4d35-a157-dd16307f875a")
+	)
+	(junction
 		(at 359.41 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6953,6 +6959,16 @@
 	)
 	(wire
 		(pts
+			(xy 149.86 107.95) (xy 149.86 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ed658a2-f986-4743-b955-5cf2fe47d4a3")
+	)
+	(wire
+		(pts
 			(xy 240.03 226.06) (xy 240.03 229.87)
 		)
 		(stroke
@@ -7903,7 +7919,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 105.41) (xy 149.86 110.49)
+			(xy 149.86 105.41) (xy 149.86 107.95)
 		)
 		(stroke
 			(width 0)
@@ -12713,6 +12729,73 @@
 			(project "ECE477"
 				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
 					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 149.86 107.95 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "782d7126-fa4a-4597-b370-d7885f0a4845")
+		(property "Reference" "#FLG02"
+			(at 151.765 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 153.67 107.9499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c0c93353-d7fb-407d-849c-98598eac0927")
+		)
+		(instances
+			(project "ECE477"
+				(path "/f5b3def7-e561-4cb3-8a45-4eba76d025b6"
+					(reference "#FLG02")
 					(unit 1)
 				)
 			)
