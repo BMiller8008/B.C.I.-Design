@@ -1,7 +1,7 @@
 {
     "C_Cpp.intelliSenseEngine": "default",
     "idf.espIdfPath": "/home/bcm910/esp/esp-idf",
-    "idf.pythonInstallPath": "/usr/bin/python3",
+    "idf.pythonInstallPath": "C:\\Users\\bcm91\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
     "idf.openOcdConfigs": [
         "interface/ftdi/esp32_devkitj_v1.cfg",
         "target/esp32.cfg"
@@ -11,5 +11,6 @@
     "idf.flashType": "UART",
     "files.associations": {
         "string": "cpp"
-    }
+    },
+    "idf.portWin": "COM11"
 }
