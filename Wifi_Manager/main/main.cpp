@@ -7,15 +7,13 @@ int audioBuffer[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1,
 WiFiManager* wifiManager;
 
 extern "C" void app_main() {
-    wifiManager = new WiFiManager("192.168.2.4", (uint8_t*)audioBuffer, BUFFER_SIZE, 8080, 8081);
-    wifiManager->connectToOpenNetwork("belkin54g");
-
-    // Manually add data to buffer before starting sender task
-    wifiManager->addDataToBuffer(audioBuffer, 32);
+    wifiManager = new WiFiManager("192.168.1.3", 8080, 8081, 8088);
+    wifiManager->connectToOpenNetwork("NETGEAR41");
+    // wifiManager->connectToWPA2Network("NETGEAR41", "bravemango923");
 
     // Starting Data Tasks
-    wifiManager->startDataSenderTask();
-    wifiManager->startDataReceiverTask();
+    // wifiManager->startDataReceiverTask();
+    wifiManager->sendRawData(audioBuffer, 32);
 
     // Polling Receive
     while (true) {

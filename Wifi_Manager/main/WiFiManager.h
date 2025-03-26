@@ -25,8 +25,9 @@ class WiFiManager {
 public:
     /**
      * @brief Contructor
+     * @param server_ip the ip of the server
      */
-    WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize, int port, int recvPort);
+    WiFiManager(const std::string& server_ip, int serv_port, int recvPort, int cmdPort);
 
     /**
      * @brief Destructor
@@ -48,32 +49,14 @@ public:
 
     /**
      * @brief method called when Wi-Fi is successfully connected.
-     * @param ipAddress The IP address assigned to the device.
      */
     void onWiFiConnected(void* arg);
 
     /**
      * @brief Prints the network info
-     * @param ipAddress The IP address assigned to the device.
      */
     void print_network_info();
 
-    /**
-     * @brief method to start Data Sender Task
-     */
-    void startDataSenderTask();
-
-    /**
-     * @brief method to start Data receiver Task
-     */
-    void startDataReceiverTask();
-
-    /**
-     * @brief Temporary method to add data to the send buffer
-     * @param data an array of data to send
-     * @param length the length of the array
-     */
-    void addDataToBuffer(const int* data, size_t length);
 
     /**
      * @brief getter function to check if the receive buffer has new data
@@ -85,7 +68,16 @@ public:
      */
     const char* getReceivedMessage();
 
+    /**
+     * @brief sends an int array to the server
+     */
     void sendRawData(const int* data, size_t length);
+
+    /**
+     * @brief starts receiving software
+     */
+    void startDataReceiverTask();
+
 
 
 protected:
@@ -94,14 +86,6 @@ protected:
      */
     void initWiFi();
 
-    /**
-     * @brief Task to send data
-     */
-    static void dataSenderTask(void* arg);
-
-    /**
-     * @brief Task to receive data
-     */
     static void dataReceiverTask(void* arg);
 
     /**
@@ -126,16 +110,14 @@ protected:
     // Target IP Address of server
     std::string targetAddress;
 
-    // Target Port for server
+    // Target Port for server (audio)
     int target_port;
 
     // Target Port for ESP32
     int recvPort;
 
-    // for buffer control
-    uint8_t* audioBuffer;        // Pointer to external buffer
-    size_t bufferSize;           // Size of the external buffer
-    size_t bufferIndex = 0;      // Tracking write position
+    // Target port for server commands
+    int cmdPort;
 
     // For receive Buffer
     char receivedMessage[RECEIVE_BUFFER];  // Stores the latest message

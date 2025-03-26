@@ -8,11 +8,13 @@
 static const char *TAG = "WiFiManager";
 
 int udp_sock = -1;
+int recv_sock = -1;
+
 struct sockaddr_in serverAddr;
 
 // Modify constructor to initialize UDP socket
-WiFiManager::WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSize, int port, int recvPort)
-    : retryCount(0), targetAddress(ip), target_port(port), recvPort(recvPort), audioBuffer(buffer), bufferSize(bufferSize) {
+WiFiManager::WiFiManager(const std::string& target_ip, int serv_port, int recvPort, int cmdPort)
+    : retryCount(0), targetAddress(target_ip), target_port(serv_port), recvPort(recvPort), cmdPort(cmdPort) {
     
     wifiEventGroup = xEventGroupCreate();
     messageLock = xSemaphoreCreateMutex();
@@ -20,16 +22,35 @@ WiFiManager::WiFiManager(const std::string& ip, uint8_t* buffer, size_t bufferSi
     ESP_LOGI(TAG, "Initializing WifiManager");
     initWiFi();
 
-    // Create UDP socket
+    // === Create send socket (udp_sock) ===
     udp_sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     if (udp_sock < 0) {
-        ESP_LOGE(TAG, "Failed to create socket!");
+        ESP_LOGE(TAG, "Failed to create UDP send socket!");
+        return;
     }
 
+    // Bind send socket to port 8080 (hardcoded or pass as param if desired)
+    struct sockaddr_in sendAddr;
+    memset(&sendAddr, 0, sizeof(sendAddr));
+    sendAddr.sin_family = AF_INET;
+    sendAddr.sin_port = htons(8080);  // SEND FROM port 8080
+    sendAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    if (bind(udp_sock, (struct sockaddr*)&sendAddr, sizeof(sendAddr)) < 0) {
+        ESP_LOGE(TAG, "Failed to bind send socket to port 8080! Error: %d", errno);
+        close(udp_sock);
+        udp_sock = -1;
+        return;
+    }
+
+    // === Setup destination server address ===
     memset(&serverAddr, 0, sizeof(serverAddr));
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(target_port);
+    serverAddr.sin_port = htons(target_port);  // PC LISTENING ON 8080
     inet_pton(AF_INET, targetAddress.c_str(), &serverAddr.sin_addr);
+
+    ESP_LOGI(TAG, "WiFiManager setup complete.");
+    ESP_LOGI(TAG, "Sending FROM port 8080 TO %s:%d", targetAddress.c_str(), target_port);
 }
 
 
@@ -128,6 +149,7 @@ void WiFiManager::onWiFiConnected(void* arg) {
     ESP_LOGI("wifi-startup", "Wifi Connected");
     auto* self = static_cast<WiFiManager*>(arg);
     self->print_network_info();
+    self->startDataReceiverTask();
 }
 
 // Prints IP and Stats
@@ -180,131 +202,6 @@ void WiFiManager::print_network_info() {
     ESP_LOGI("WiFiManager", "\n==========================================\n\n");
 }
 
-void WiFiManager::startDataSenderTask() {
-    ESP_LOGI("WiFiManager", "Starting DataSender");
-    xTaskCreate(dataSenderTask, "DataSenderTask", 4096, this, 5, NULL);
-}
-
-void WiFiManager::startDataReceiverTask() {
-    ESP_LOGI("WiFiManager", "Starting DataReceiver");
-    xTaskCreate(dataReceiverTask, "DataReceiverTask", 4096, this, 5, NULL);
-}
-
-void WiFiManager::dataSenderTask(void* arg) {
-    WiFiManager* instance = static_cast<WiFiManager*>(arg);
-
-    if (instance->audioBuffer == nullptr) {
-        ESP_LOGE("WiFiManager", "Audio buffer is NULL!");
-        vTaskDelete(NULL);
-    }
-
-    ESP_LOGI("WiFiManager", "DataSender Task Running...");
-
-    int port = instance->target_port;
-
-    while (true) {
-        ESP_LOGD("WiFiManager", "DataSender Task LOOP, bufferIndex = %d", instance->bufferIndex);
-
-        // Ensure buffer has data
-        if (instance->bufferIndex > 0) {
-            int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-            if (sock < 0) {
-                ESP_LOGE("WiFiManager", "Socket creation failed! Error: %d", errno);
-                vTaskDelay(pdMS_TO_TICKS(1000));
-                continue;
-            }
-
-            struct sockaddr_in destAddr;
-            destAddr.sin_family = AF_INET;
-            destAddr.sin_port = htons(port);
-
-            if (inet_pton(AF_INET, instance->targetAddress.c_str(), &destAddr.sin_addr) <= 0) {
-                ESP_LOGE("WiFiManager", "Invalid IP address: %s", instance->targetAddress.c_str());
-                close(sock);
-                vTaskDelay(pdMS_TO_TICKS(1000));
-                continue;
-            }
-
-            // Correctly handle `int` array size
-            size_t bytesToSend = instance->bufferIndex * sizeof(int);
-
-            ESP_LOGI("WiFiManager", "Sending %d bytes to %s:%d", bytesToSend, instance->targetAddress.c_str(), port);
-
-            int sentBytes = sendto(sock, instance->audioBuffer, bytesToSend, 0, 
-                                   (struct sockaddr*)&destAddr, sizeof(destAddr));
-
-            if (sentBytes < 0) {
-                ESP_LOGE("WiFiManager", "Failed to send data! Error: %d", errno);
-            } else {
-                ESP_LOGI("WiFiManager", "Sent %d bytes", sentBytes);
-            }
-
-            close(sock);
-            ESP_LOGI("WiFiManager", "Finished sending data.");
-
-            instance->bufferIndex = 0;  // Reset buffer after sending
-        }
-
-        vTaskDelay(pdMS_TO_TICKS(500));  // Prevent CPU overuse
-    }
-}
-
-void WiFiManager::addDataToBuffer(const int* data, size_t length) {
-    if (length > bufferSize / sizeof(int)) {
-        ESP_LOGE("WiFiManager", "Data too large for buffer!");
-        return;
-    }
-
-    memcpy(audioBuffer, data, length * sizeof(int));
-    bufferIndex = length;  // Set bufferIndex to actual data length
-    ESP_LOGI("WiFiManager", "Added %d ints to buffer", bufferIndex);
-}
-
-void WiFiManager::dataReceiverTask(void* arg) {
-    WiFiManager* instance = static_cast<WiFiManager*>(arg);
-    
-    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-    if (sock < 0) {
-        ESP_LOGE("WiFiManager", "Failed to create receive socket! Error: %d", errno);
-        vTaskDelete(NULL);
-    }
-
-    struct sockaddr_in serverAddr;
-    memset(&serverAddr, 0, sizeof(serverAddr));
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(instance->recvPort);  // ✅ Bind to separate port
-    serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-
-    if (bind(sock, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
-        ESP_LOGE("WiFiManager", "Failed to bind receive socket! Error: %d", errno);
-        close(sock);
-        vTaskDelete(NULL);
-    }
-
-    ESP_LOGI("WiFiManager", "Listening for UDP messages on port %d", instance->recvPort);
-
-    while (true) {
-        struct sockaddr_in sourceAddr;
-        socklen_t socklen = sizeof(sourceAddr);
-        char buffer[128];  // Temporary buffer
-        int len = recvfrom(sock, buffer, sizeof(buffer) - 1, 0, 
-                           (struct sockaddr*)&sourceAddr, &socklen);
-
-        if (len > 0) {
-            buffer[len] = '\0';  // Null-terminate received data
-            ESP_LOGI("WiFiManager", "Received message: %s", buffer);
-        } else {
-            ESP_LOGE("WiFiManager", "Error receiving data! Error: %d", errno);
-        }
-
-        vTaskDelay(pdMS_TO_TICKS(100));  // Prevent CPU overuse
-    }
-
-    close(sock);
-    vTaskDelete(NULL);
-}
-
-
 bool WiFiManager::hasNewMessage() {
     xSemaphoreTake(messageLock, portMAX_DELAY);  // Lock before reading
     bool available = messageAvailable;
@@ -334,4 +231,75 @@ void WiFiManager::sendRawData(const int* data, size_t length) {
     } else {
         ESP_LOGI(TAG, "Sent %d bytes to %s:%d", sentBytes, targetAddress.c_str(), target_port);
     }
+}
+
+void WiFiManager::startDataReceiverTask() {
+    ESP_LOGI("WiFiManager", "Starting DataReceiver");
+    xTaskCreate(dataReceiverTask, "DataReceiverTask", 4096, this, 5, NULL);
+}
+
+void WiFiManager::dataReceiverTask(void* arg) {
+    WiFiManager* instance = static_cast<WiFiManager*>(arg);
+
+    int server_sock, client_sock;
+    struct sockaddr_in server_addr, client_addr;
+    socklen_t addr_len = sizeof(client_addr);
+
+    server_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
+    if (server_sock < 0) {
+        ESP_LOGE("WiFiManager", "Failed to create TCP socket! Error: %d", errno);
+        vTaskDelete(NULL);
+    }
+
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(instance->recvPort);  // now TCP port
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+
+    if (bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
+        ESP_LOGE("WiFiManager", "Failed to bind TCP socket to port %d! Error: %d", instance->recvPort, errno);
+        close(server_sock);
+        vTaskDelete(NULL);
+    }
+
+    if (listen(server_sock, 1) < 0) {
+        ESP_LOGE("WiFiManager", "TCP listen failed! Error: %d", errno);
+        close(server_sock);
+        vTaskDelete(NULL);
+    }
+
+    ESP_LOGI("WiFiManager", "TCP server listening on port %d", instance->recvPort);
+
+    while (true) {
+        client_sock = accept(server_sock, (struct sockaddr*)&client_addr, &addr_len);
+        if (client_sock < 0) {
+            ESP_LOGE("WiFiManager", "Failed to accept TCP connection! Error: %d", errno);
+            continue;
+        }
+
+        ESP_LOGI("WiFiManager", "Client connected: %s:%d", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+
+        char buffer[RECEIVE_BUFFER];
+        while (true) {
+            int len = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
+            if (len <= 0) {
+                ESP_LOGW("WiFiManager", "TCP connection closed or error occurred.");
+                break;
+            }
+
+            buffer[len] = '\0';
+
+            ESP_LOGI("WiFiManager", "Received TCP message: %s", buffer);
+
+            // Store message
+            xSemaphoreTake(instance->messageLock, portMAX_DELAY);
+            strncpy(instance->receivedMessage, buffer, sizeof(instance->receivedMessage) - 1);
+            instance->messageAvailable = true;
+            xSemaphoreGive(instance->messageLock);
+        }
+
+        close(client_sock);
+    }
+
+    close(server_sock);
+    vTaskDelete(NULL);
 }

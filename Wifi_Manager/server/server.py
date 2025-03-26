@@ -1,21 +1,37 @@
 import socket
+import threading
 import time
 
-# Server Configuration
-HOST = "0.0.0.0"
-PORT = 8080
+# === CONFIG ===
+ESP32_IP = "192.168.1.4"     # ESP32's IP
+ESP32_TCP_PORT = 8081        # ESP32's TCP listener port
+SERVER_UDP_PORT = 8080       # PC's UDP port for incoming audio
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-server_socket.bind((HOST, PORT))
+# === UDP Receiver (audio from ESP32) ===
+def udp_server():
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    udp_sock.bind(("0.0.0.0", SERVER_UDP_PORT))
+    print(f"[UDP] Listening for audio data on port {SERVER_UDP_PORT}...")
 
-print(f"Listening for UDP packets on {HOST}:{PORT}...\n")
+    while True:
+        data, addr = udp_sock.recvfrom(1024)
+        print(f"[UDP] Received {len(data)} bytes from {addr}")
 
-while True:
-    data, addr = server_socket.recvfrom(1024)
-    print(f"Received {len(data)} bytes from {addr}: {data}")
+# === TCP Client (control to ESP32) ===
+def tcp_control_sender():
+    print(f"[TCP] Connecting to ESP32 at {ESP32_IP}:{ESP32_TCP_PORT}...")
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.connect((ESP32_IP, ESP32_TCP_PORT))
+        print("[TCP] Connected!")
 
-    # Send response **to ESP32's receive port (8081)**
-    response = "Hello from server!"
-    server_socket.sendto(response.encode(), (addr[0], 8081))  # ✅ Send to ESP32 receive port
+        # Send control messages periodically
+        while True:
+            msg = input("[TCP] Enter control message: ")
+            if msg.strip() == "":
+                continue
+            sock.sendall(msg.encode() + b"\n")
 
-    time.sleep(1)  # Prevent spamming
+# === Start Both Threads ===
+if __name__ == "__main__":
+    threading.Thread(target=udp_server, daemon=True).start()
+    tcp_control_sender()
