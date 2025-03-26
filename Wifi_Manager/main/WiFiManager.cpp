@@ -251,8 +251,12 @@ void WiFiManager::dataReceiverTask(void* arg) {
         vTaskDelete(NULL);
     }
 
+    // Allow socket reuse
+    int opt = 1;
+    setsockopt(server_sock, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(instance->recvPort);  // now TCP port
+    server_addr.sin_port = htons(instance->recvPort);  // TCP listen port
     server_addr.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(server_sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
@@ -278,19 +282,32 @@ void WiFiManager::dataReceiverTask(void* arg) {
 
         ESP_LOGI("WiFiManager", "Client connected: %s:%d", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
+        // Set 10s recv timeout
+        struct timeval timeout;
+        timeout.tv_sec = 10;
+        timeout.tv_usec = 0;
+        setsockopt(client_sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+
         char buffer[RECEIVE_BUFFER];
         while (true) {
             int len = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
-            if (len <= 0) {
-                ESP_LOGW("WiFiManager", "TCP connection closed or error occurred.");
+            if (len == 0) {
+                ESP_LOGW("WiFiManager", "TCP client closed the connection.");
                 break;
+            } else if (len < 0) {
+                if (errno == EWOULDBLOCK || errno == EAGAIN) {
+                    ESP_LOGW("WiFiManager", "TCP recv timeout.");
+                    continue;
+                } else {
+                    ESP_LOGE("WiFiManager", "TCP recv error: %d", errno);
+                    break;
+                }
             }
 
             buffer[len] = '\0';
 
             ESP_LOGI("WiFiManager", "Received TCP message: %s", buffer);
 
-            // Store message
             xSemaphoreTake(instance->messageLock, portMAX_DELAY);
             strncpy(instance->receivedMessage, buffer, sizeof(instance->receivedMessage) - 1);
             instance->messageAvailable = true;
