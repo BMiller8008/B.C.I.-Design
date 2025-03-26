@@ -320,3 +320,26 @@ void WiFiManager::dataReceiverTask(void* arg) {
     close(server_sock);
     vTaskDelete(NULL);
 }
+
+void WiFiManager::sendCommandToServer(const std::string& message) {
+    int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
+    if (sock < 0) {
+        ESP_LOGE("WiFiManager", "Failed to create TCP client socket.");
+        return;
+    }
+
+    struct sockaddr_in destAddr;
+    destAddr.sin_family = AF_INET;
+    destAddr.sin_port = htons(cmdPort);  // Usually 8088
+    inet_pton(AF_INET, targetAddress.c_str(), &destAddr.sin_addr);
+
+    if (connect(sock, (struct sockaddr*)&destAddr, sizeof(destAddr)) != 0) {
+        ESP_LOGE("WiFiManager", "TCP connection to server failed. Error: %d", errno);
+        close(sock);
+        return;
+    }
+
+    send(sock, message.c_str(), message.length(), 0);
+    ESP_LOGI("WiFiManager", "Sent command: %s", message.c_str());
+    close(sock);
+}

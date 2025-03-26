@@ -78,6 +78,11 @@ public:
      */
     void startDataReceiverTask();
 
+    /**
+     * @brief sends command packet via tcp
+     */
+    void sendCommandToServer(const std::string& message);
+
 
 
 protected:
@@ -86,6 +91,9 @@ protected:
      */
     void initWiFi();
 
+    /**
+     * @brief Starts TCP Receiving task
+     */
     static void dataReceiverTask(void* arg);
 
     /**

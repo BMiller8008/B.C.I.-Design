@@ -12,14 +12,15 @@ extern "C" void app_main() {
     // wifiManager->connectToWPA2Network("NETGEAR41", "bravemango923");
 
     // Starting Data Tasks
-    // wifiManager->startDataReceiverTask();
-    wifiManager->sendRawData(audioBuffer, 32);
 
-    // Polling Receive
+
+    // Polling Receive and sending periodically
     while (true) {
         if (wifiManager->hasNewMessage()) {
             ESP_LOGI("MAIN", "Received: %s", wifiManager->getReceivedMessage());
         }
-        vTaskDelay(pdMS_TO_TICKS(500));
+        vTaskDelay(pdMS_TO_TICKS(1500));
+        wifiManager->sendRawData(audioBuffer, 32);
+        wifiManager->sendCommandToServer("BOOBIES_RULE");
     }
 }
