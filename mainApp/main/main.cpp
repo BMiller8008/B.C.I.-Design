@@ -64,11 +64,11 @@ static void audio_stream_task(void* pvParameters)
 // ----- OLED Display Message Task -----
 static void wifi_display_task(void* pvParameters) {
     while (true) {
-        if (wifiManager->hasNewMessage() && app->getState() == MainApp::State::ON) {
+        if (wifiManager->hasNewMessage()) {
             const char* msg = wifiManager->getReceivedMessage();
-            ESP_LOGI(TAG, "Received: %s", msg);
+            ESP_LOGI(TAG, "Receive message!!");
             oled->clear_buffer();
-            oled->drawText(0, 0, msg, &Font24, BLACK, WHITE);
+            oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
             oled->display();
         }
         vTaskDelay(pdMS_TO_TICKS(500));
@@ -117,6 +117,8 @@ extern "C" void app_main() {
     oled = new OLED_Display();
     oled->init();
     oled->clear();
+    oled->drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE);
+    oled->display();
 
     app = new MainApp();
 
