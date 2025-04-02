@@ -2,8 +2,15 @@
 #include "mainApp.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "WiFiManager.h"
+
+/* CLASS OBJECTS */
+WiFiManager* wifiManager;
 
 extern "C" void app_main(void) {
+    // Initi
+    wifiManager = new WiFiManager("192.168.1.4", 8080, 8081, 8088);
+    wifiManager->connectToOpenNetwork("NETGEAR41");
     MainApp app;
 
     printf("Initial state: %s\n", app.getState() == MainApp::State::ON ? "ON" : "OFF");
