@@ -1,125 +1,141 @@
-#include <stdio.h>
-#include "mainApp.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "WiFiManager.h"
-#include "esp_timer.h" 
+#include "esp_timer.h"
 #include "driver/adc.h"
+#include "esp_log.h"
+#include "WiFiManager.h"
 #include "OLED_Driver.h"
-#include "GUI_Paint.h"
-#include "DEV_Config.h"
+#include "mainApp.h"
 #include "fonts.h"
 
-/* Audio Contants */
-#define BUFFER_SIZE 1024  // More efficient to send large packets
-#define SAMPLE_RATE 8000
-#define ADC1_CHANNEL ADC1_CHANNEL_6  // GPIO34
-static const char *TAG = "MAIN";
+static const char* TAG = "MAIN";
 
-int audioBuffer[BUFFER_SIZE] = {0};
+// ----- Audio Config -----
+#define SAMPLE_RATE        8000
+#define CHUNK_SIZE         1024
+#define RING_BUFFER_SIZE   4096
+#define ADC1_CHANNEL       ADC1_CHANNEL_6 // GPIO34
 
-/* CLASS OBJECTS */
-WiFiManager* wifiManager;
-MainApp* app;
-OLED_Display* oled;
+// ----- Globals -----
+static int* ringBuffer = nullptr;
+static volatile int writeIndex = 0;
+static volatile int readIndex  = 0;
 
-// Task to stream audio
-void audio_stream_task(void *pvParameters) {
-    ESP_LOGI(TAG, "Audio streaming task started!");
+static WiFiManager* wifiManager = nullptr;
+static OLED_Display* oled = nullptr;
+static MainApp* app = nullptr;
+static esp_timer_handle_t samplingTimer = nullptr;
+
+// ----- Timer Callback -----
+static void IRAM_ATTR audioSamplingCallback(void* arg)
+{
+    int nextWrite = (writeIndex + 1) % RING_BUFFER_SIZE;
+    if (nextWrite == readIndex) {
+        readIndex = (readIndex + 1) % RING_BUFFER_SIZE;
+    }
+    ringBuffer[writeIndex] = adc1_get_raw(ADC1_CHANNEL);
+    writeIndex = nextWrite;
+}
+
+// ----- Audio Stream Task -----
+static void audio_stream_task(void* pvParameters)
+{
+    ESP_LOGI(TAG, "Audio streaming task started");
+    int localBuffer[CHUNK_SIZE];
 
     while (true) {
-        int64_t start_time = esp_timer_get_time();  // Get start timestamp
+        int available = (writeIndex - readIndex + RING_BUFFER_SIZE) % RING_BUFFER_SIZE;
+        if (available >= CHUNK_SIZE) {
+            for (int i = 0; i < CHUNK_SIZE; i++) {
+                localBuffer[i] = ringBuffer[readIndex];
+                readIndex = (readIndex + 1) % RING_BUFFER_SIZE;
+            }
 
-        for (int i = 0; i < BUFFER_SIZE; i++) {
-            audioBuffer[i] = adc1_get_raw(ADC1_CHANNEL);
-        }
+            // TODO: Apply FIR or IIR filter here if needed
 
-        wifiManager->sendRawData(audioBuffer, BUFFER_SIZE);
-        ESP_LOGI(TAG, "Sent %d samples", BUFFER_SIZE);
-
-        // Adjust delay to maintain an 8kHz sampling rate
-        int64_t elapsed_time = esp_timer_get_time() - start_time;
-        int64_t target_delay = (1000000 / SAMPLE_RATE) * BUFFER_SIZE;  // Microseconds
-        int64_t sleep_time = target_delay - elapsed_time;
-
-        if (sleep_time > 0) {
-            vTaskDelay(pdMS_TO_TICKS(sleep_time / 1000));  // Convert to ms
+            wifiManager->sendRawData(localBuffer, CHUNK_SIZE);
+            ESP_LOGI(TAG, "Sent %d samples", CHUNK_SIZE);
+        } else {
+            vTaskDelay(pdMS_TO_TICKS(1));
         }
     }
 }
 
-// Polls the receive buffer
-void wifi_display_task(void* pvParameters) {
+// ----- OLED Display Message Task -----
+static void wifi_display_task(void* pvParameters) {
     while (true) {
         if (wifiManager->hasNewMessage() && app->getState() == MainApp::State::ON) {
             const char* msg = wifiManager->getReceivedMessage();
             ESP_LOGI(TAG, "Received: %s", msg);
-
             oled->clear_buffer();
             oled->drawText(0, 0, msg, &Font24, BLACK, WHITE);
             oled->display();
         }
-
-        vTaskDelay(pdMS_TO_TICKS(500));  // Check every 500ms
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
-
-extern "C" void app_main(void) {
-    // Inititializing WIFI
-    wifiManager = new WiFiManager("192.168.1.4", 8080, 8081, 8088);
+// ----- Setup Helpers -----
+static void initWiFi() {
+    ESP_LOGI(TAG, "Initializing Wi-Fi Manager...");
+    wifiManager = new WiFiManager("192.168.1.5", 8080, 8081, 8088);
     wifiManager->connectToOpenNetwork("NETGEAR41");
+}
 
-    // Initializing Mic ADC
+static void configADC() {
+    ESP_LOGI(TAG, "Configuring ADC...");
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC1_CHANNEL, ADC_ATTEN_DB_11);
+}
 
-    // Initializing OLED
+static void startAudioSamplingTimer() {
+    ESP_LOGI(TAG, "Creating ADC sampling timer...");
+    esp_timer_create_args_t timerArgs = {
+        .callback = &audioSamplingCallback,
+        .arg = nullptr,
+        .dispatch_method = ESP_TIMER_TASK,
+        .name = "ADC Sampling Timer"
+    };
+    ESP_ERROR_CHECK(esp_timer_create(&timerArgs, &samplingTimer));
+    ESP_ERROR_CHECK(esp_timer_start_periodic(samplingTimer, 1000000 / SAMPLE_RATE));
+    ESP_LOGI(TAG, "ADC sampling timer started at %d Hz", SAMPLE_RATE);
+}
+
+// ----- Main Entry -----
+extern "C" void app_main() {
+    // 1. Allocate ring buffer
+    ringBuffer = (int*)heap_caps_malloc(RING_BUFFER_SIZE * sizeof(int), MALLOC_CAP_INTERNAL);
+    if (!ringBuffer) {
+        ESP_LOGE(TAG, "Failed to allocate ring buffer!");
+        return;
+    }
+
+    // 2. Setup components
+    initWiFi();
+    configADC();
+
     oled = new OLED_Display();
     oled->init();
     oled->clear();
 
-    // Starting Audio Transmission Task
-    ESP_LOGI(TAG, "Starting Audio Streaming Task...");
-    xTaskCreate(audio_stream_task, "AudioStreamTask", 4096, NULL, 5, NULL);
-
-    // Creating main app
     app = new MainApp();
 
-    // Starting WiFi Message Display Task
-    ESP_LOGI(TAG, "Starting Wi-Fi Display Task...");
-    xTaskCreate(wifi_display_task, "WiFiDisplayTask", 4096, NULL, 4, NULL);
+    // 3. Start tasks
+    xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
+    xTaskCreate(wifi_display_task, "WiFiDisplayTask", 4096, nullptr, 4, nullptr);
+    startAudioSamplingTimer();
 
+    // 4. MainApp info and LED blink
     printf("Initial state: %s\n", app->getState() == MainApp::State::ON ? "ON" : "OFF");
-    printf("Current language: %s\n", app->getLanguage().c_str());
-    printf("Current font size: %s\n", app->getFontSize().c_str());
-
     app->printAvailableLanguages();
     app->printAvailableFontSizes();
 
-    // Change language and font size
     app->setLanguage("French");
     app->setFontSize("12");
-    printf("\nUpdated language: %s\n", app->getLanguage().c_str());
-    printf("Updated font size: %s\n", app->getFontSize().c_str());
 
-    // Toggle LEDs
-    printf("Turning on LED1 and LED2...\n");
     app->set_led1(1);
     app->set_led2(1);
     vTaskDelay(pdMS_TO_TICKS(1000));
-
-    printf("Turning off LED1 and LED2...\n");
     app->set_led1(0);
     app->set_led2(0);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-
-    printf("Done.\n");
-
-    std::vector<std::string> langSlice = app->getWrappedSlice(app->getAvailableLanguages(), 5, 3);
-    printf("Wrapped language slice:\n");
-    for (const auto& lang : langSlice) {
-        printf(" - %s\n", lang.c_str());
-    }
-
 }
