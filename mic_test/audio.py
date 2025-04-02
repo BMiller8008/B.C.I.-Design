@@ -9,8 +9,8 @@ from scipy.signal import iirfilter, lfilter, lfilter_zi
 UDP_IP      = "0.0.0.0"
 UDP_PORT    = 8080
 SAMPLE_RATE = 16000    # match your ESP32 sample rate
-RECORD_SECS = 5
-OUTPUT_WAV  = "wifi_audio_hysteresis_gate.wav"
+RECORD_SECS = 10
+OUTPUT_WAV  = "ten.wav"
 
 # Band-pass range for voice
 lowcut  = 300.0

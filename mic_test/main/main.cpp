@@ -3,8 +3,10 @@
 #include "esp_timer.h"
 #include "driver/adc.h"
 #include "esp_log.h"
-
+#include "FIRFilter.h"
 #include "WiFiManager.h"
+
+static FIRFilter fir;
 
 static const char* TAG = "MAIN";
 
@@ -52,7 +54,7 @@ static void audio_stream_task(void* pvParameters)
             }
 
             // **** APPLY IIR FILTERS HERE ****
-            // applyAudioFilters(localBuffer, CHUNK_SIZE);
+            // fir.apply(localBuffer, CHUNK_SIZE);
 
             // Send filtered audio
             wifiManager->sendRawData(localBuffer, CHUNK_SIZE);
@@ -68,8 +70,9 @@ static void audio_stream_task(void* pvParameters)
 static void initWiFi()
 {
     ESP_LOGI(TAG, "Initializing Wi-Fi Manager...");
-    wifiManager = new WiFiManager("192.168.2.2", nullptr, 0, 8080, 8081);
-    wifiManager->connectToOpenNetwork("belkin54g");
+    wifiManager = new WiFiManager("192.168.1.3", nullptr, 0, 8080, 8081);
+    wifiManager->connectToOpenNetwork("NETGEAR41");
+    //wifiManager->connectToWPA2Network("2120 McCormick Rd Apt 724","DQZ655uht$");
 }
 
 static void configADC()
