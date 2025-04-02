@@ -56,7 +56,7 @@ def send_to_azure(audio_data, text_queue):
         "Accept": "application/json"
     }
     params = {
-        "language": "hi-IN",
+        "language": "es-ES",
         "format": "simple"
     }
     speech_start = time.time()
