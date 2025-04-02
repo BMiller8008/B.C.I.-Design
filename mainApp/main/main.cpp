@@ -5,6 +5,10 @@
 #include "WiFiManager.h"
 #include "esp_timer.h" 
 #include "driver/adc.h"
+#include "OLED_Driver.h"
+#include "GUI_Paint.h"
+#include "DEV_Config.h"
+#include "fonts.h"
 
 /* Audio Contants */
 #define BUFFER_SIZE 1024  // More efficient to send large packets
@@ -17,6 +21,7 @@ int audioBuffer[BUFFER_SIZE] = {0};
 /* CLASS OBJECTS */
 WiFiManager* wifiManager;
 MainApp* app;
+OLED_Display* oled;
 
 // Task to stream audio
 void audio_stream_task(void *pvParameters) {
@@ -43,6 +48,23 @@ void audio_stream_task(void *pvParameters) {
     }
 }
 
+// Polls the receive buffer
+void wifi_display_task(void* pvParameters) {
+    while (true) {
+        if (wifiManager->hasNewMessage() && app->getState() == MainApp::State::ON) {
+            const char* msg = wifiManager->getReceivedMessage();
+            ESP_LOGI(TAG, "Received: %s", msg);
+
+            oled->clear_buffer();
+            oled->drawText(0, 0, msg, &Font24, BLACK, WHITE);
+            oled->display();
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(500));  // Check every 500ms
+    }
+}
+
+
 extern "C" void app_main(void) {
     // Inititializing WIFI
     wifiManager = new WiFiManager("192.168.1.4", 8080, 8081, 8088);
@@ -52,12 +74,21 @@ extern "C" void app_main(void) {
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC1_CHANNEL, ADC_ATTEN_DB_11);
 
+    // Initializing OLED
+    oled = new OLED_Display();
+    oled->init();
+    oled->clear();
+
     // Starting Audio Transmission Task
     ESP_LOGI(TAG, "Starting Audio Streaming Task...");
     xTaskCreate(audio_stream_task, "AudioStreamTask", 4096, NULL, 5, NULL);
 
     // Creating main app
     app = new MainApp();
+
+    // Starting WiFi Message Display Task
+    ESP_LOGI(TAG, "Starting Wi-Fi Display Task...");
+    xTaskCreate(wifi_display_task, "WiFiDisplayTask", 4096, NULL, 4, NULL);
 
     printf("Initial state: %s\n", app->getState() == MainApp::State::ON ? "ON" : "OFF");
     printf("Current language: %s\n", app->getLanguage().c_str());
