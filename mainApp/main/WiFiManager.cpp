@@ -229,7 +229,7 @@ void WiFiManager::sendRawData(const int* data, size_t length) {
     if (sentBytes < 0) {
         ESP_LOGE(TAG, "UDP send failed! Error: %d", errno);
     } else {
-        ESP_LOGI(TAG, "Sent %d bytes to %s:%d", sentBytes, targetAddress.c_str(), target_port);
+        // ESP_LOGI(TAG, "Sent %d bytes to %s:%d", sentBytes, targetAddress.c_str(), target_port);
     }
 }
 

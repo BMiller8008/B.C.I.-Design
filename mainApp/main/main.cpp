@@ -54,7 +54,7 @@ static void audio_stream_task(void* pvParameters)
             // TODO: Apply FIR or IIR filter here if needed
 
             wifiManager->sendRawData(localBuffer, CHUNK_SIZE);
-            ESP_LOGI(TAG, "Sent %d samples", CHUNK_SIZE);
+            // ESP_LOGI(TAG, "Sent %d samples", CHUNK_SIZE);
         } else {
             vTaskDelay(pdMS_TO_TICKS(1));
         }
