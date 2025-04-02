@@ -5,6 +5,7 @@
 #include <vector>
 #include "driver/gpio.h"
 #include <esp_log.h>
+#include "WiFiManager.h"
 
 class MainApp {
 public:
