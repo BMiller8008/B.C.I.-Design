@@ -19,37 +19,61 @@ def udp_server():
         print(f"[UDP] Received {len(data)} bytes from {addr}")
 
 # === TCP Client (PC → ESP32) to send control
-def tcp_control_sender():
+# def tcp_control_sender():
+#     while True:
+#         try:
+#             print(f"[TCP] Connecting to ESP32 at {ESP32_IP}:{ESP32_TCP_PORT}...")
+#             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#             sock.settimeout(5)  # Short timeout for connect attempts
+#             sock.connect((ESP32_IP, ESP32_TCP_PORT))
+#             sock.settimeout(None)  # Restore blocking mode
+#             print("[TCP] Connected!")
+
+#             while True:
+#                 msg = input("[TCP] Enter control message: ")
+#                 if msg.strip() == "":
+#                     continue
+#                 try:
+#                     sock.sendall(msg.encode() + b"\n")
+#                 except BrokenPipeError:
+#                     print("[TCP] Disconnected. Will reconnect...")
+#                     break
+
+#         except (socket.timeout, ConnectionRefusedError, OSError) as e:
+#             print(f"[TCP] Could not connect: {e}. Retrying in 2s...")
+#             time.sleep(2)
+#         except Exception as e:
+#             print(f"[TCP] Unexpected error: {e}")
+#             time.sleep(2)
+#         finally:
+#             try:
+#                 sock.close()
+#             except:
+#                 pass
+
+# === automated translated text for TCP Client (PC → ESP32) to send control messages ===
+
+def tcp_control_sender(text_queue):
     while True:
         try:
             print(f"[TCP] Connecting to ESP32 at {ESP32_IP}:{ESP32_TCP_PORT}...")
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(5)  # Short timeout for connect attempts
             sock.connect((ESP32_IP, ESP32_TCP_PORT))
-            sock.settimeout(None)  # Restore blocking mode
             print("[TCP] Connected!")
 
             while True:
-                msg = input("[TCP] Enter control message: ")
-                if msg.strip() == "":
-                    continue
+                # Wait for a new text chunk
+                control_msg = text_queue.get()
                 try:
-                    sock.sendall(msg.encode() + b"\n")
+                    sock.sendall(control_msg.encode() + b"\n")
+                    print(f"[TCP] Sent: {control_msg}")
                 except BrokenPipeError:
                     print("[TCP] Disconnected. Will reconnect...")
                     break
 
-        except (socket.timeout, ConnectionRefusedError, OSError) as e:
-            print(f"[TCP] Could not connect: {e}. Retrying in 2s...")
-            time.sleep(2)
         except Exception as e:
-            print(f"[TCP] Unexpected error: {e}")
+            print(f"[TCP] Connection error: {e}")
             time.sleep(2)
-        finally:
-            try:
-                sock.close()
-            except:
-                pass
 
 
 # === TCP Server (PC ← ESP32) to receive status/commands
