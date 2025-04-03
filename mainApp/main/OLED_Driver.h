@@ -28,6 +28,21 @@
 # THE SOFTWARE.
 #
 ******************************************************************************/
+
+/*
+-----------------------------------------------------------------------------------
+| OLED Pin Name | ESP32 Pin                | Description                         |
+|-------------|---------------------------|-------------------------------------|
+| VCC         | 3.3V                        | Power supply (3.3V recommended)     |
+| GND         | GND                          | Ground                              |
+| CS          | GPIO21                       | Chip Select (SPI)                   |
+| RST         | GPIO22                       | Reset                               |
+| DC          | GPIO19                       | Data/Command                        |
+| CLK (SCK)   | GPIO18                       | SPI Clock                           |
+| MOSI (DIN)  | GPIO23                       | SPI Data                            |
+| MISO        | Not used                     | (Not needed for OLED)               |
+-----------------------------------------------------------------------------------
+*/
 #ifndef __OLED_DRIVER_H
 #define __OLED_DRIVER_H		
 

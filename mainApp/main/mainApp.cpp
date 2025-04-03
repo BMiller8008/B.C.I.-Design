@@ -7,8 +7,10 @@ MainApp::MainApp()
       currentLanguage("English"),
       currentFontSize("Medium")
 {
-    availableLanguages = {"English", "Spanish", "Hindi", "Mandarin", "Arabic", "French", "Portugues"};
-    availableFontSizes = {"8", "12", "16", "20", "24"};
+    availableLanguages = {"English", "Spanish", "Hindi", "Mandarin", "Arabic", "Portugues"};
+    availableFontSizes = {"8", "12", "16"};
+    batt_charge = 0.0;
+    menuIdx = 0;
     initLeds();
 }
 
@@ -47,6 +49,14 @@ std::vector<std::string> MainApp::getAvailableFontSizes() const {
 
 void MainApp::setState(State newState) {
     currentState = newState;
+}
+
+void MainApp::setMenuIdx(int idx) {
+    menuIdx = idx;
+}
+
+int MainApp::getMenuIdx() const {
+    return menuIdx;
 }
 
 void MainApp::setLanguage(const std::string& lang) {
@@ -125,4 +135,86 @@ std::vector<std::string> MainApp::getWrappedSlice(const std::vector<std::string>
         result.push_back(input[(startIndex + i) % n]);
     }
     return result;
+}
+
+void MainApp::displayLangChoice(OLED_Display* display) {
+    // clearing buffer
+    display->clear_buffer();
+    // getting options based on current menu pointer
+    std::vector<std::string> options = availableLanguages;
+
+    // Drawing Each Option to the Screen
+    for (size_t i = 0; i < options.size(); i++)
+    {
+        std::string msg = options[i];
+        // showing choice
+        if (i == (menuIdx % options.size()))
+        {
+            msg.insert(0, ">");
+        }
+        else 
+        {
+            msg.insert(0, " ");
+        }
+        
+        display->drawText(10, 10 * i, msg.c_str(), &Font8, BLACK, WHITE);
+    }
+    // updating display
+    display->display();
+}
+
+void MainApp::displayFontChoice(OLED_Display* display) {
+    // clearing buffer
+    display->clear_buffer();
+    // getting options based on current menu pointer
+    std::vector<std::string> options = availableFontSizes;
+
+    // Drawing Each Option to the Screen
+    for (size_t i = 0; i < options.size(); i++)
+    {
+        std::string msg = options[i];
+        // showing choice
+        if (i == (menuIdx % options.size()))
+        {
+            msg.insert(0, ">");
+        }
+        else 
+        {
+            msg.insert(0, " ");
+        }
+        
+        display->drawText(10, 10 * i, msg.c_str(), &Font8, BLACK, WHITE);
+    }
+    // updating display
+    display->display();
+}
+
+void MainApp::displayMainMenu(OLED_Display* display) {
+    // clearing buffer
+    display->clear_buffer();
+    std::vector<std::string> options = {"Languages", "Fonts"};
+
+    // Displaying Battery Charge
+    std::string bat_str = std::format("{:.0f}", batt_charge);
+    bat_str += "%";
+    display->drawText(100, 10, bat_str.c_str(), &Font12, BLACK, WHITE);
+
+    // Displaying options
+    for (size_t i = 0; i < options.size(); i++)
+    {
+        std::string msg = options[i];
+        // showing choice
+        if (i == (menuIdx % options.size()))
+        {
+            msg.insert(0, ">");
+        }
+        else 
+        {
+            msg.insert(0, " ");
+        }
+        
+        display->drawText(20, 10 * (i + 3), msg.c_str(), &Font12, BLACK, WHITE);
+    }
+    // updating display
+    display->display();
 }

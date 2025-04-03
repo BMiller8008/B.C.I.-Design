@@ -26,6 +26,15 @@ static OLED_Display* oled = nullptr;
 static MainApp* app = nullptr;
 static esp_timer_handle_t samplingTimer = nullptr;
 
+// ----- For State Tracking -----
+enum AppState {
+    STATE_MAIN,
+    STATE_FONT,
+    STATE_LANG,
+    STATE_OFF
+};
+
+
 // ----- Timer Callback -----
 static void IRAM_ATTR audioSamplingCallback(void* arg)
 {
@@ -119,8 +128,10 @@ extern "C" void app_main() {
     oled->clear();
     oled->drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE);
     oled->display();
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     app = new MainApp();
+    AppState state = STATE_OFF; // setting state of menus
 
     // 3. Start tasks
     xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
@@ -135,9 +146,15 @@ extern "C" void app_main() {
     app->setLanguage("French");
     app->setFontSize("12");
 
-    app->set_led1(1);
-    app->set_led2(1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-    app->set_led1(0);
-    app->set_led2(0);
+    // while (true)
+    // {
+    //     app->displayMainMenu(oled);
+    //     vTaskDelay(pdMS_TO_TICKS(2000));
+    //     for (size_t i = 0; i < 7; i++)
+    //     {
+    //         vTaskDelay(pdMS_TO_TICKS(1000));
+    //         app->setMenuIdx(i);
+    //         app->displayLangChoice(oled);
+    //     }
+    // }
 }

@@ -30,9 +30,6 @@
 ******************************************************************************/
 #include "OLED_Driver.h"
 #include <stdio.h>
-
-
-#include "OLED_Driver.h"
 #include "esp_log.h"
 
 #define TAG "OLED"
