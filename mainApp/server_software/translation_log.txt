@@ -1,0 +1,27 @@
+[17:57:04] 🗣 ¿Hola, hola, cómo están? → 🌐 Hello, hello, how are you?
+[17:57:08] 🗣 Mi nombre es Alfredo. → 🌐 My name is Alfredo.
+[17:57:13] 🗣 Hola cortana. → 🌐 Hello cortana.
+[18:01:37] 🗣 ¿Hola, hola, cómo están? Mi nombre es Alfredo. → 🌐 Hello, hello, how are you? My name is Alfredo.
+[18:01:42] 🗣 Alfredo. Mi nombre es Alfredo me. → 🌐 Alfredo. My name is Alfredo me.
+[18:01:46] 🗣 Me gusta la comida mexicana. → 🌐 I like Mexican food.
+[18:01:51] 🗣 Yo soy Alfredo. → 🌐 I am Alfredo.
+[18:02:13] 🗣 Hola. → 🌐 Hello.
+[18:02:26] 🗣 Sí, hola, hola, hola, estábamos y media sí. → 🌐 Yes, hello, hello, hello, we were and half yes.
+[18:02:31] 🗣 ¿Hola, dónde está? Hola. → 🌐 Hello, where is it? Hello.
+[18:02:35] 🗣 Anoche. Hola. → 🌐 Last night. Hello.
+[18:05:04] 🗣 Hola, mi nombre es Alfredo. ¿Como están? → 🌐 Hello, my name is Alfredo. How are you?
+[18:05:08] 🗣 Mucho gusto. Este. → 🌐 Nice to meet you. This.
+[18:05:13] 🗣 Hola, muchísimo gusto, felicitaciones. → 🌐 Hello, nice to meet you, congratulations.
+[18:05:22] 🗣 ¿Cómo están? Mucho gusto, buen trabajo, buen trabajo. → 🌐 How are you? Nice to meet you, good work, good work.
+[18:05:26] 🗣 Un buen trabajo, buen trabajo. Felicitaciones Félix. → 🌐 A good job, good work. Congratulations Felix.
+[18:05:31] 🗣 Ver licitaciones. Felicitaciones a todos los trabajadores del sistema. → 🌐 See tenders. Congratulations to all the workers of the system.
+[18:05:35] 🗣 El sistema de la radio, muchísimo gusto para todos y. → 🌐 The radio system, a pleasure for everyone and.
+[18:05:40] 🗣 Y. Ciclo. → 🌐 Y. Cycle.
+[18:05:44] 🗣 Cuenta. → 🌐 Account.
+[18:05:49] 🗣 Buen trabajo. → 🌐 Good job.
+[18:05:53] 🗣 *****. → 🌐 *****.
+[18:05:58] 🗣 ¿Why DO? → 🌐 ¿Why DO?
+[18:07:40] 🗣 ¿Hola, cómo están? Bienvenidos a. → 🌐 Hello, how are you? Welcome to.
+[18:07:44] 🗣 Al la prueba número 1 del. → 🌐 To test number 1 of the.
+[18:07:48] 🗣 El proyecto final del equipo número dos. → 🌐 The final project of team number two.
+[18:07:57] 🗣 Buen trabajo para todos, felicitaciones. → 🌐 Good job to all, congratulations.
