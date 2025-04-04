@@ -42,7 +42,7 @@ def log_to_file(text):
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(text + "\n")
 
-def send_to_azure(audio_data, text_queue):
+def send_to_azure(audio_data, text_queue, chunk_size, language_code):
     # Write to temp file
     sf.write("temp.wav", audio_data, SAMPLE_RATE)
 
@@ -56,7 +56,7 @@ def send_to_azure(audio_data, text_queue):
         "Accept": "application/json"
     }
     params = {
-        "language": "es-ES",
+        "language": language_code,
         "format": "simple"
     }
     speech_start = time.time()
@@ -104,11 +104,11 @@ def send_to_azure(audio_data, text_queue):
 
     # Split into chunks of 3 words and add to queue
     words = translated_text.strip().split()
-    for i in range(0, len(words), 3):
-        chunk = " ".join(words[i:i+3])
-        text_queue.put(chunk)
+    for i in range(0, len(words), chunk_size):
+            chunk = " ".join(words[i:i+chunk_size])
+            text_queue.put(chunk)
 
-def process_audio_from_udp(text_queue: Queue):
+def process_audio_from_udp(text_queue: Queue, config):
     # Setup socket and filter state
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(("0.0.0.0", UDP_PORT))
@@ -118,6 +118,13 @@ def process_audio_from_udp(text_queue: Queue):
     filter_state = zi * 0.0
 
     while True:
+
+        start_flag, chunk_size, language_code = config.snapshot()
+        # print(f"🔄 Config: start={start_flag}, chunk_size={chunk_size}, language_code={language_code}")
+        if not start_flag:
+            time.sleep(0.1)
+            continue
+
         data, _ = sock.recvfrom(4096)
 
         chunk = []
@@ -136,5 +143,5 @@ def process_audio_from_udp(text_queue: Queue):
 
         if len(audio_buffer) >= WINDOW_SAMPLES:
             segment = np.array(audio_buffer[:WINDOW_SAMPLES], dtype=np.float32)
-            send_to_azure(segment, text_queue)
+            send_to_azure(segment, text_queue, chunk_size, language_code)
             audio_buffer = audio_buffer[int(WINDOW_SAMPLES - OVERLAP_SAMPLES):]

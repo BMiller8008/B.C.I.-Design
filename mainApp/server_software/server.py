@@ -3,7 +3,7 @@ import threading
 import time
 
 # === CONFIG ===
-ESP32_IP = "192.168.1.3"     # ESP32's IP
+ESP32_IP = "192.168.1.6"     # ESP32's IP
 ESP32_TCP_PORT = 8081        # ESP32's TCP listener (you send to ESP32)
 ESP32_CMD_RECV_PORT = 8088   # PC listens here for ESP32 → PC command messages
 SERVER_UDP_PORT = 8080       # PC receives audio via UDP here
@@ -67,6 +67,8 @@ def tcp_control_sender(text_queue):
                 try:
                     sock.sendall(control_msg.encode() + b"\n")
                     print(f"[TCP] Sent: {control_msg}")
+                    # wait 0.5 seconds before sending the next message
+                    time.sleep(0.5)
                 except BrokenPipeError:
                     print("[TCP] Disconnected. Will reconnect...")
                     break
@@ -77,7 +79,7 @@ def tcp_control_sender(text_queue):
 
 
 # === TCP Server (PC ← ESP32) to receive status/commands
-def tcp_command_receiver():
+def tcp_command_receiver(config):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_sock:
         server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         server_sock.bind(("0.0.0.0", ESP32_CMD_RECV_PORT))
@@ -91,6 +93,13 @@ def tcp_command_receiver():
                 data = conn.recv(1024)
                 if data:
                     print(f"[CMD] Received from ESP32: {data.decode().strip()}")
+                    updates = {}
+                    for pair in message.strip().split(","):
+                        if ":" in pair:
+                            key, val = pair.split(":", 1)
+                            updates[key.strip()] = val.strip()
+                    config.update(updates)
+
                 else:
                     print("[CMD] ESP32 closed the connection.")
 

@@ -25,3 +25,35 @@
 [18:07:44] 🗣 Al la prueba número 1 del. → 🌐 To test number 1 of the.
 [18:07:48] 🗣 El proyecto final del equipo número dos. → 🌐 The final project of team number two.
 [18:07:57] 🗣 Buen trabajo para todos, felicitaciones. → 🌐 Good job to all, congratulations.
+[17:43:58] 🗣 Prefijo. → 🌐 Prefix.
+[17:44:01] 🗣 Ok. → 🌐 Ok.
+[17:44:06] 🗣 O K. Office, az. → 🌐 O K. Office, az.
+[17:46:45] 🗣 Mira. → 🌐 Scope.
+[17:47:57] 🗣 HX. → 🌐 HX.
+[17:48:53] 🗣 Hola, señor, dónde está la biblioteca, Hola. → 🌐 Hello, sir, where is the library, Hello.
+[17:48:58] 🗣 Mi nombre es Alfredo me llamo Escobar. → 🌐 My name is Alfredo, my name is Escobar.
+[17:49:11] 🗣 El señor. → 🌐 Mr.
+[17:49:38] 🗣 Obviamente. → 🌐 Obviously.
+[17:49:57] 🗣 ¿Hola, cómo están? Mi nombre es Alfredo. → 🌐 Hello, how are you? My name is Alfredo.
+[17:50:01] 🗣 Número 1, para. → 🌐 Number 1, for.
+[17:50:06] 🗣 Número 1, para para la vida. → 🌐 Number 1, for life.
+[17:50:10] 🗣 Para la vida me estoy quedando sin palabras porque no sé qué decir. → 🌐 For life I'm running out of words because I don't know what to say.
+[17:50:42] 🗣 No. → 🌐 No.
+[17:50:46] 🗣 Yes. Hello. → 🌐 Yes. Hello.
+[17:50:51] 🗣 ¿Hola, cómo están, debería? → 🌐 Hello, how are you, should you?
+[17:50:55] 🗣 Debería estar enviando dos palabras a la vez. → 🌐 You should be sending two words at once.
+[17:51:13] 🗣 Otra otro intento de enviar dos palabras a la vez. → 🌐 Another attempt to send two words at once.
+[17:51:36] 🗣 La ***** aquí. → 🌐 The ***** here.
+[17:54:07] 🗣 Hola. → 🌐 Hello.
+[17:54:12] 🗣 La prueba para el. → 🌐 The test for him.
+[17:54:16] 🗣 El el proyecto. → 🌐 The project.
+[17:54:20] 🗣 Eh, ahorita vamos a tratar del. → 🌐 Eh, right now we're going to deal with the.
+[17:54:25] 🗣 Tarde, enviar dos palabras a la vez. → 🌐 Late, send two words at once.
+[17:54:34] 🗣 I One. He dicho estudió una teoría de 2 pases. → 🌐 I One. I said he studied a theory of 2 passes.
+[17:55:05] 🗣 Último último intento de la. → 🌐 Last last attempt of the.
+[17:55:15] 🗣 ¿Hola, cómo están? → 🌐 Hello, how are you?
+[17:55:19] 🗣 ¿Hola, cómo estás? → 🌐 Hi, how are you?
+[17:55:23] 🗣 ¿Cómo está? Hola. → 🌐 How is he? Hello.
+[17:55:28] 🗣 ¿Hola, cómo están? Estoy tratando de mandar dos palabras a la vez. → 🌐 Hello, how are you? I'm trying to send two words at once.
+[17:56:08] 🗣 ¿Qué podría hacer, qué podría ser? → 🌐 What could it do, what could it be?
+[17:56:13] 🗣 Podría ser, es un misterio. Pone. → 🌐 It could be, it's a mystery. Puts.
