@@ -22,6 +22,10 @@ if __name__ == "__main__":
 
     # Thread 2: TCP server to receive commands from ESP32
     t2 = threading.Thread(target=tcp_command_receiver, daemon=True)
+    # commands we need, "start",  size_array, language_array
+    # start: while 1 the process is running, 0: stop the process
+    # size_array: size of the array to be used for the translation [0: 8, 1:12, 2:16]
+    # language_array: language to be used for the translation [0: english, 1: spanish, 2: Hindi, 3: Mandarin, 4: Arabic, 5:] 
 
     # Thread 3: TCP client to send translated text to ESP32
     t3 = threading.Thread(target=tcp_control_sender_thread, daemon=True)
