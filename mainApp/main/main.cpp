@@ -16,16 +16,6 @@ static const char* TAG = "MAIN";
 #define RING_BUFFER_SIZE   4096
 #define ADC1_CHANNEL       ADC1_CHANNEL_6 // GPIO34
 
-// ----- Globals -----
-static int* ringBuffer = nullptr;
-static volatile int writeIndex = 0;
-static volatile int readIndex  = 0;
-
-static WiFiManager* wifiManager = nullptr;
-static OLED_Display* oled = nullptr;
-static MainApp* app = nullptr;
-static esp_timer_handle_t samplingTimer = nullptr;
-
 // ----- For State Tracking -----
 enum AppState {
     STATE_MAIN,
@@ -34,6 +24,24 @@ enum AppState {
     STATE_OFF
 };
 
+// ----- Globals -----
+static int* ringBuffer = nullptr;
+static volatile int writeIndex = 0;
+static volatile int readIndex  = 0;
+volatile bool button1Pressed = false;
+volatile bool button2Pressed = false;
+AppState state = STATE_OFF;
+portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
+#define SIMULTANEOUS_PRESS_WINDOW_US 20000  // 20 ms
+
+volatile uint32_t lastButton1Time = 0;
+volatile uint32_t lastButton2Time = 0;
+volatile bool bothButtonsPressedSimultaneous = false;
+
+static WiFiManager* wifiManager = nullptr;
+static OLED_Display* oled = nullptr;
+static MainApp* app = nullptr;
+static esp_timer_handle_t samplingTimer = nullptr;
 
 // ----- Timer Callback -----
 static void IRAM_ATTR audioSamplingCallback(void* arg)
@@ -45,6 +53,30 @@ static void IRAM_ATTR audioSamplingCallback(void* arg)
     ringBuffer[writeIndex] = adc1_get_raw(ADC1_CHANNEL);
     writeIndex = nextWrite;
 }
+
+// ------ Button Callback -----
+static void IRAM_ATTR button_isr_handler(void* arg) {
+    int pin = (int)(intptr_t)arg;
+    uint32_t now = (uint32_t)esp_timer_get_time(); // microseconds
+
+    portENTER_CRITICAL_ISR(&mux);
+    if (pin == BUTTON1_GPIO) {
+        lastButton1Time = now;
+        button1Pressed = true;
+        if ((now - lastButton2Time) < SIMULTANEOUS_PRESS_WINDOW_US) {
+            bothButtonsPressedSimultaneous = true;
+        }
+    } else if (pin == BUTTON2_GPIO) {
+        lastButton2Time = now;
+        button2Pressed = true;
+        if ((now - lastButton1Time) < SIMULTANEOUS_PRESS_WINDOW_US) {
+            bothButtonsPressedSimultaneous = true;
+        }
+    }
+    portEXIT_CRITICAL_ISR(&mux);
+}
+
+
 
 // ----- Audio Stream Task -----
 static void audio_stream_task(void* pvParameters)
@@ -71,16 +103,26 @@ static void audio_stream_task(void* pvParameters)
 }
 
 // ----- OLED Display Message Task -----
-static void wifi_display_task(void* pvParameters) {
+static void display_task(void* pvParameters) {
     while (true) {
-        if (wifiManager->hasNewMessage()) {
-            const char* msg = wifiManager->getReceivedMessage();
-            ESP_LOGI(TAG, "Receive message!!");
-            oled->clear_buffer();
-            oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
-            oled->display();
+        // checking if in menu or other state
+        if (state == STATE_OFF)
+        {
+            if (wifiManager->hasNewMessage()) {
+                const char* msg = wifiManager->getReceivedMessage();
+                ESP_LOGI(TAG, "Receive message!!");
+                oled->clear_buffer();
+                oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
+                oled->display();
+            }
+            vTaskDelay(pdMS_TO_TICKS(500));
         }
-        vTaskDelay(pdMS_TO_TICKS(500));
+        else if (state == STATE_MAIN)
+        {
+            /* code */
+            // TODO get adc and display main
+        }
+        
     }
 }
 
@@ -91,10 +133,30 @@ static void initWiFi() {
     wifiManager->connectToOpenNetwork("NETGEAR41");
 }
 
+// ----- Setup Helpers -----
+static void initButtons() {
+    gpio_config_t io_conf = {};
+    io_conf.intr_type = GPIO_INTR_POSEDGE;
+    io_conf.mode = GPIO_MODE_INPUT;
+    io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+    io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
+    io_conf.pin_bit_mask = (1ULL << BUTTON1_GPIO) | (1ULL << BUTTON2_GPIO);
+    gpio_config(&io_conf);
+
+    gpio_install_isr_service(0);
+    gpio_isr_handler_add(BUTTON1_GPIO, button_isr_handler, (void*)BUTTON1_GPIO);
+    gpio_isr_handler_add(BUTTON2_GPIO, button_isr_handler, (void*)BUTTON2_GPIO);
+}
+
 static void configADC() {
-    ESP_LOGI(TAG, "Configuring ADC...");
+    // configuring audio ADC
+    ESP_LOGI(TAG, "Configuring ADC 1...");
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC1_CHANNEL, ADC_ATTEN_DB_11);
+
+    // configuring battery ADC
+    ESP_LOGI(TAG, "Configuring ADC 2...");
+    adc1_config_channel_atten(BATTERY_ADC_CHANNEL, ADC_ATTEN_DB_11);
 }
 
 static void startAudioSamplingTimer() {
@@ -110,6 +172,61 @@ static void startAudioSamplingTimer() {
     ESP_LOGI(TAG, "ADC sampling timer started at %d Hz", SAMPLE_RATE);
 }
 
+// ----- Task to handle app state -----
+void button_task(void* pvParameters) {
+    AppState lastState = state;
+
+    while (true) {
+        bool b1 = false, b2 = false;
+        bool simultaneous = false;
+        // updating button states
+        portENTER_CRITICAL(&mux);
+        b1 = button1Pressed;
+        b2 = button2Pressed;
+        simultaneous = bothButtonsPressedSimultaneous;
+        button1Pressed = false;
+        button2Pressed = false;
+        bothButtonsPressedSimultaneous = false;
+        portEXIT_CRITICAL(&mux);
+
+        if (simultaneous && state == STATE_OFF) {
+            state = STATE_MAIN;  // Enter menu mode
+            ESP_LOGI(TAG, "Entered menu mode");
+
+        } 
+        else if ((b1 && !b2) && state != STATE_OFF) {
+            // Scrolling up through menu
+            app->setMenuIdx(app->getMenuIdx() + 1);
+            ESP_LOGI("MENU", "IDX INCREASED");
+        }
+        else if ((!b1 && b2) && state != STATE_OFF) {
+            // Scrolling up through menu
+            app->setMenuIdx(app->getMenuIdx() - 1);
+            ESP_LOGI("MENU", "IDX DECREASED0");
+        }
+        else if (simultaneous && state != STATE_OFF) { //TODO find logic
+            // changing menus
+            app->setMenuIdx(app->getMenuIdx() - 1);
+            ESP_LOGI(TAG, "Menu navigation: new state = %d", state);
+        }
+
+        // Handle state change logic (like stopping timer)
+        if (state != lastState) {
+            // reseting idx
+            app->setMenuIdx(0);
+            // TODO send command
+            if (state == STATE_OFF) {
+                startAudioSamplingTimer();  // resume streaming
+            } else {
+                esp_timer_stop(samplingTimer);  // pause streaming
+            }
+            lastState = state;
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(100));  // debounce
+    }
+}
+
 // ----- Main Entry -----
 extern "C" void app_main() {
     // 1. Allocate ring buffer
@@ -122,20 +239,21 @@ extern "C" void app_main() {
     // 2. Setup components
     initWiFi();
     configADC();
+    initButtons();
 
+    // Creating Objects
     oled = new OLED_Display();
     oled->init();
     oled->clear();
-    oled->drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE);
+    oled->drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE); // default text for debugging
     oled->display();
     vTaskDelay(pdMS_TO_TICKS(1000));
-
     app = new MainApp();
-    AppState state = STATE_OFF; // setting state of menus
 
     // 3. Start tasks
     xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
-    xTaskCreate(wifi_display_task, "WiFiDisplayTask", 4096, nullptr, 4, nullptr);
+    xTaskCreate(display_task, "DisplayTask", 4096, nullptr, 4, nullptr);
+    xTaskCreate(button_task, "ButtonTask", 2048, nullptr, 6, nullptr);
     startAudioSamplingTimer();
 
     // 4. MainApp info and LED blink

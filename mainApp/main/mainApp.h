@@ -9,6 +9,10 @@
 #include "OLED_Driver.h"
 #include <format>
 
+#define BATTERY_ADC_CHANNEL ADC1_CHANNEL_0  // GPIO36 / SENSOR_VP
+#define BUTTON1_GPIO GPIO_NUM_25
+#define BUTTON2_GPIO GPIO_NUM_26
+
 class MainApp {
 public:
     enum class State { OFF, ON };
