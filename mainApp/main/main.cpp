@@ -24,24 +24,39 @@ enum AppState {
     STATE_OFF
 };
 
-// ----- Globals -----
-static int* ringBuffer = nullptr;
-static volatile int writeIndex = 0;
-static volatile int readIndex  = 0;
-volatile bool button1Pressed = false;
-volatile bool button2Pressed = false;
-AppState state = STATE_OFF;
-portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
-#define SIMULTANEOUS_PRESS_WINDOW_US 20000  // 20 ms
+// ==================== Globals ====================
 
-volatile uint32_t lastButton1Time = 0;
-volatile uint32_t lastButton2Time = 0;
-volatile bool bothButtonsPressedSimultaneous = false;
+// ----- Ring buffer (shared between ISR and main code) -----
+static int* ringBuffer = nullptr;              // Pointer to dynamically allocated ring buffer
+static volatile int writeIndex = 0;            // Index for writing into the ring buffer
+static volatile int readIndex  = 0;            // Index for reading from the ring buffer
 
-static WiFiManager* wifiManager = nullptr;
-static OLED_Display* oled = nullptr;
-static MainApp* app = nullptr;
-static esp_timer_handle_t samplingTimer = nullptr;
+// ----- Button state tracking -----
+volatile bool button1Pressed = false;          // True if Button 1 is currently pressed
+volatile bool button2Pressed = false;          // True if Button 2 is currently pressed
+
+volatile uint32_t lastButton1Time = 0;         // Last timestamp when Button 1 was pressed
+volatile uint32_t lastButton2Time = 0;         // Last timestamp when Button 2 was pressed
+volatile bool bothButtonsPressedSimultaneous = false;  // True if both buttons were pressed within 20 ms
+
+#define SIMULTANEOUS_PRESS_WINDOW_US 20000     // Time window (in microseconds) to consider buttons pressed simultaneously (20 ms)
+
+// ----- Long press tracking -----
+#define LONG_PRESS_TIME_US 500000              // Duration (in microseconds) for a long press (0.5 sec)
+volatile uint32_t button1PressTime = 0;        // Timestamp when Button 1 was pressed down
+volatile uint32_t button2PressTime = 0;        // Timestamp when Button 2 was pressed down
+volatile bool button1LongPressed = false;      // True if Button 1 has been held long enough
+volatile bool button2LongPressed = false;      // True if Button 2 has been held long enough
+
+// ----- App state and synchronization -----
+AppState state = STATE_OFF;                    // Current application state
+portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED; // Mutex for critical sections (used in ISRs)
+
+// ----- Core components -----
+static WiFiManager* wifiManager = nullptr;     // Pointer to WiFi manager instance
+static OLED_Display* oled = nullptr;           // Pointer to OLED display instance
+static MainApp* app = nullptr;                 // Pointer to main app logic instance
+static esp_timer_handle_t samplingTimer = nullptr; // Handle for periodic sampling timer
 
 // ----- Timer Callback -----
 static void IRAM_ATTR audioSamplingCallback(void* arg)
@@ -57,26 +72,35 @@ static void IRAM_ATTR audioSamplingCallback(void* arg)
 // ------ Button Callback -----
 static void IRAM_ATTR button_isr_handler(void* arg) {
     int pin = (int)(intptr_t)arg;
-    uint32_t now = (uint32_t)esp_timer_get_time(); // microseconds
+    uint32_t now = (uint32_t)esp_timer_get_time();  // in microseconds
+    // ESP_LOGI("BUTTON", "Button ISR! GPIO: %d\n", pin);
 
     portENTER_CRITICAL_ISR(&mux);
+
     if (pin == BUTTON1_GPIO) {
-        lastButton1Time = now;
-        button1Pressed = true;
-        if ((now - lastButton2Time) < SIMULTANEOUS_PRESS_WINDOW_US) {
-            bothButtonsPressedSimultaneous = true;
-        }
-    } else if (pin == BUTTON2_GPIO) {
-        lastButton2Time = now;
-        button2Pressed = true;
-        if ((now - lastButton1Time) < SIMULTANEOUS_PRESS_WINDOW_US) {
-            bothButtonsPressedSimultaneous = true;
+        if (gpio_get_level(BUTTON1_GPIO) == 0) {  // button pressed (active low)
+            button1PressTime = now;
+        } else {  // button released
+            if ((now - button1PressTime) >= LONG_PRESS_TIME_US) {
+                button1LongPressed = true;
+            }
+            button1Pressed = true;  // still register as short press too
         }
     }
+
+    if (pin == BUTTON2_GPIO) {
+        if (gpio_get_level(BUTTON2_GPIO) == 0) {
+            button2PressTime = now;
+        } else {
+            if ((now - button2PressTime) >= LONG_PRESS_TIME_US) {
+                button2LongPressed = true;
+            }
+            button2Pressed = true;
+        }
+    }
+
     portEXIT_CRITICAL_ISR(&mux);
 }
-
-
 
 // ----- Audio Stream Task -----
 static void audio_stream_task(void* pvParameters)
@@ -91,9 +115,6 @@ static void audio_stream_task(void* pvParameters)
                 localBuffer[i] = ringBuffer[readIndex];
                 readIndex = (readIndex + 1) % RING_BUFFER_SIZE;
             }
-
-            // TODO: Apply FIR or IIR filter here if needed
-
             wifiManager->sendRawData(localBuffer, CHUNK_SIZE);
             // ESP_LOGI(TAG, "Sent %d samples", CHUNK_SIZE);
         } else {
@@ -108,21 +129,35 @@ static void display_task(void* pvParameters) {
         // checking if in menu or other state
         if (state == STATE_OFF)
         {
-            if (wifiManager->hasNewMessage()) {
+            if (wifiManager != NULL && wifiManager->hasNewMessage()) {
                 const char* msg = wifiManager->getReceivedMessage();
                 ESP_LOGI(TAG, "Receive message!!");
                 oled->clear_buffer();
                 oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
                 oled->display();
+                vTaskDelay(pdMS_TO_TICKS(200));
             }
-            vTaskDelay(pdMS_TO_TICKS(500));
+            else {
+                vTaskDelay(pdMS_TO_TICKS(100));
+                oled->clear_buffer();
+                oled->display();
+            }
         }
         else if (state == STATE_MAIN)
         {
-            /* code */
-            // TODO get adc and display main
+            // TODO get ADC 
+            app->displayMainMenu(oled);
+            vTaskDelay(pdMS_TO_TICKS(100));
         }
-        
+        else if (state == STATE_LANG)
+        {
+            app->displayLangChoice(oled);
+            vTaskDelay(pdMS_TO_TICKS(100));
+        }
+        else if (state == STATE_FONT) {
+            app->displayFontChoice(oled);
+            vTaskDelay(pdMS_TO_TICKS(100));
+        }
     }
 }
 
@@ -136,7 +171,7 @@ static void initWiFi() {
 // ----- Setup Helpers -----
 static void initButtons() {
     gpio_config_t io_conf = {};
-    io_conf.intr_type = GPIO_INTR_POSEDGE;
+    io_conf.intr_type = GPIO_INTR_ANYEDGE;
     io_conf.mode = GPIO_MODE_INPUT;
     io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
     io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
@@ -177,55 +212,99 @@ void button_task(void* pvParameters) {
     AppState lastState = state;
 
     while (true) {
+        // ---- Clear and read button flags (atomic section) ----
         bool b1 = false, b2 = false;
+        bool b1Long = false, b2Long = false;
         bool simultaneous = false;
-        // updating button states
+
         portENTER_CRITICAL(&mux);
         b1 = button1Pressed;
         b2 = button2Pressed;
+        b1Long = button1LongPressed;
+        b2Long = button2LongPressed;
         simultaneous = bothButtonsPressedSimultaneous;
         button1Pressed = false;
         button2Pressed = false;
+        button1LongPressed = false;
+        button2LongPressed = false;
         bothButtonsPressedSimultaneous = false;
         portEXIT_CRITICAL(&mux);
 
-        if (simultaneous && state == STATE_OFF) {
-            state = STATE_MAIN;  // Enter menu mode
+        // ---- App ON/OFF toggle (long press of either button) ----
+        if ((b1Long || b2Long)) {
+            state = STATE_OFF;
+            MainApp::State newAppState = (app->getState() == MainApp::State::ON) ? MainApp::State::OFF : MainApp::State::ON;
+            app->setState(newAppState);
+            ESP_LOGI(TAG, "Toggled app state via long press: %s", newAppState == MainApp::State::ON ? "ON" : "OFF");
+        }
+
+        // ---- Enter menu from OFF using Button2 ----
+        else if ((b2 && !b1) && state == STATE_OFF && app->getState() == MainApp::State::ON) {
+            state = STATE_MAIN;
             ESP_LOGI(TAG, "Entered menu mode");
+        }
 
-        } 
-        else if ((b1 && !b2) && state != STATE_OFF) {
-            // Scrolling up through menu
+        // ---- Scroll menu with Button1 ----
+        else if ((b1 && !b2) && state != STATE_OFF && app->getState() == MainApp::State::ON) {
             app->setMenuIdx(app->getMenuIdx() + 1);
-            ESP_LOGI("MENU", "IDX INCREASED");
-        }
-        else if ((!b1 && b2) && state != STATE_OFF) {
-            // Scrolling up through menu
-            app->setMenuIdx(app->getMenuIdx() - 1);
-            ESP_LOGI("MENU", "IDX DECREASED0");
-        }
-        else if (simultaneous && state != STATE_OFF) { //TODO find logic
-            // changing menus
-            app->setMenuIdx(app->getMenuIdx() - 1);
-            ESP_LOGI(TAG, "Menu navigation: new state = %d", state);
+            ESP_LOGI("MENU", "Menu index increased");
         }
 
-        // Handle state change logic (like stopping timer)
-        if (state != lastState) {
-            // reseting idx
-            app->setMenuIdx(0);
-            // TODO send command
-            if (state == STATE_OFF) {
-                startAudioSamplingTimer();  // resume streaming
-            } else {
-                esp_timer_stop(samplingTimer);  // pause streaming
+        // ---- Select item / change setting with Button2 ----
+        else if ((!b1 && b2) && state != STATE_OFF && app->getState() == MainApp::State::ON) {
+            switch (state) {
+                case STATE_MAIN: {
+                    int idx = app->getMenuIdx();
+                    state = (idx % 2 == 0) ? STATE_LANG : STATE_FONT;
+                    break;
+                }
+
+                case STATE_LANG: {
+                    const auto& langs = app->getAvailableLanguages();
+                    const auto& choice = langs[app->getMenuIdx() % langs.size()];
+                    app->setLanguage(choice);
+                    state = STATE_OFF;
+                    break;
+                }
+
+                case STATE_FONT: {
+                    const auto& fonts = app->getAvailableFontSizes();
+                    const auto& choice = fonts[app->getMenuIdx() % fonts.size()];
+                    app->setFontSize(choice);
+                    state = STATE_OFF;
+                    break;
+                }
+
+                default:
+                    break;
             }
+
+            ESP_LOGI(TAG, "Menu action completed. New state = %d", state);
+        }
+
+        // ---- Handle state transition (e.g., ON ↔ OFF) ----
+        if (state != lastState) {
+            app->setMenuIdx(0);
+
+            std::string command = "state:";
+            command += (app->getState() == MainApp::State::ON) ? "on," : "off,";
+            command += "lang:" + app->getLanguage();
+            command += ",font:" + app->getFontSize();
+            // wifiManager->sendCommandToServer(command);  // Uncomment if needed
+
+            if (state == STATE_OFF) {
+                startAudioSamplingTimer();  // resume audio
+            } else {
+                esp_timer_stop(samplingTimer);  // pause audio
+            }
+
             lastState = state;
         }
 
         vTaskDelay(pdMS_TO_TICKS(100));  // debounce
     }
 }
+
 
 // ----- Main Entry -----
 extern "C" void app_main() {
@@ -237,7 +316,7 @@ extern "C" void app_main() {
     }
 
     // 2. Setup components
-    initWiFi();
+    // initWiFi();
     configADC();
     initButtons();
 
@@ -251,28 +330,8 @@ extern "C" void app_main() {
     app = new MainApp();
 
     // 3. Start tasks
-    xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
+    // xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
     xTaskCreate(display_task, "DisplayTask", 4096, nullptr, 4, nullptr);
-    xTaskCreate(button_task, "ButtonTask", 2048, nullptr, 6, nullptr);
+    xTaskCreate(button_task, "ButtonTask", 4096, nullptr, 6, nullptr);
     startAudioSamplingTimer();
-
-    // 4. MainApp info and LED blink
-    printf("Initial state: %s\n", app->getState() == MainApp::State::ON ? "ON" : "OFF");
-    app->printAvailableLanguages();
-    app->printAvailableFontSizes();
-
-    app->setLanguage("French");
-    app->setFontSize("12");
-
-    // while (true)
-    // {
-    //     app->displayMainMenu(oled);
-    //     vTaskDelay(pdMS_TO_TICKS(2000));
-    //     for (size_t i = 0; i < 7; i++)
-    //     {
-    //         vTaskDelay(pdMS_TO_TICKS(1000));
-    //         app->setMenuIdx(i);
-    //         app->displayLangChoice(oled);
-    //     }
-    // }
 }
