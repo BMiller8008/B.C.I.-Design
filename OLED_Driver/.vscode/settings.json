@@ -7,5 +7,6 @@
     ],
     "idf.portWin": "COM11",
     "idf.toolsPathWin": "C:\\Users\\bcm91\\.espressif",
-    "idf.flashType": "UART"
+    "idf.flashType": "UART",
+    "idf.port": "/dev/ttyUSB0"
 }

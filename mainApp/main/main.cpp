@@ -42,7 +42,7 @@ volatile bool bothButtonsPressedSimultaneous = false;  // True if both buttons w
 #define SIMULTANEOUS_PRESS_WINDOW_US 20000     // Time window (in microseconds) to consider buttons pressed simultaneously (20 ms)
 
 // ----- Long press tracking -----
-#define LONG_PRESS_TIME_US 500000              // Duration (in microseconds) for a long press (0.5 sec)
+#define LONG_PRESS_TIME_US 1000000              // Duration (in microseconds) for a long press (0.5 sec)
 volatile uint32_t button1PressTime = 0;        // Timestamp when Button 1 was pressed down
 volatile uint32_t button2PressTime = 0;        // Timestamp when Button 2 was pressed down
 volatile bool button1LongPressed = false;      // True if Button 1 has been held long enough
@@ -116,9 +116,10 @@ static void audio_stream_task(void* pvParameters)
                 readIndex = (readIndex + 1) % RING_BUFFER_SIZE;
             }
             wifiManager->sendRawData(localBuffer, CHUNK_SIZE);
+            vTaskDelay(pdMS_TO_TICKS(100));
             // ESP_LOGI(TAG, "Sent %d samples", CHUNK_SIZE);
         } else {
-            vTaskDelay(pdMS_TO_TICKS(1));
+            vTaskDelay(pdMS_TO_TICKS(10));
         }
     }
 }
@@ -173,7 +174,7 @@ static void initButtons() {
     gpio_config_t io_conf = {};
     io_conf.intr_type = GPIO_INTR_ANYEDGE;
     io_conf.mode = GPIO_MODE_INPUT;
-    io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+    io_conf.pull_up_en = GPIO_PULLUP_DISABLE; //GPIO_PULLUP_ENABLE
     io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
     io_conf.pin_bit_mask = (1ULL << BUTTON1_GPIO) | (1ULL << BUTTON2_GPIO);
     gpio_config(&io_conf);
@@ -316,7 +317,7 @@ extern "C" void app_main() {
     }
 
     // 2. Setup components
-    // initWiFi();
+    initWiFi();
     configADC();
     initButtons();
 
@@ -330,7 +331,7 @@ extern "C" void app_main() {
     app = new MainApp();
 
     // 3. Start tasks
-    // xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
+    xTaskCreate(audio_stream_task, "AudioStreamTask", 8192, nullptr, 5, nullptr);
     xTaskCreate(display_task, "DisplayTask", 4096, nullptr, 4, nullptr);
     xTaskCreate(button_task, "ButtonTask", 4096, nullptr, 6, nullptr);
     startAudioSamplingTimer();

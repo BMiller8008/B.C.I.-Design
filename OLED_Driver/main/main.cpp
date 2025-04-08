@@ -39,6 +39,20 @@ extern "C" void app_main() {
         Driver_Delay_ms(1000);
         oled.clear_buffer();
         oled.display();
+
+        oled.drawText(0, 0, "BEN TARD", &Font24, BLACK, WHITE);
+        oled.display();
+        
+        Driver_Delay_ms(1000);
+        oled.clear_buffer();
+        oled.display();
+
+        oled.drawText(0, 0, "ROHIT BLACK", &Font24, BLACK, WHITE);
+        oled.display();
+        
+        Driver_Delay_ms(1000);
+        oled.clear_buffer();
+        oled.display();
         
         Driver_Delay_ms(2000);
         char buffer[50];

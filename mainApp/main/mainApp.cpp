@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 MainApp::MainApp()
-    : currentState(State::OFF),
+    : currentState(State::ON),
       currentLanguage("English"),
       currentFontSize("Medium")
 {
