@@ -130,11 +130,23 @@ static void display_task(void* pvParameters) {
         // checking if in menu or other state
         if (state == STATE_OFF)
         {
-            if (wifiManager != NULL && wifiManager->hasNewMessage()) {
+            if (wifiManager != NULL && wifiManager->hasNewMessage() && app->getState() == MainApp::State::ON) {
                 const char* msg = wifiManager->getReceivedMessage();
                 ESP_LOGI(TAG, "Receive message!!");
                 oled->clear_buffer();
-                oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
+                // getting font sizes
+                std::string curr_font = app->getFontSize();
+                if (curr_font == "8")
+                {
+                    oled->drawText(10, 40, msg, &Font8, BLACK, WHITE);
+                }
+                else if (curr_font == "16")
+                {
+                    oled->drawText(10, 30, msg, &Font12, BLACK, WHITE);
+                }
+                else {
+                    oled->drawText(10, 20, msg, &Font16, BLACK, WHITE);
+                }
                 oled->display();
                 vTaskDelay(pdMS_TO_TICKS(1000));
             }
@@ -146,7 +158,7 @@ static void display_task(void* pvParameters) {
         }
         else if (state == STATE_MAIN)
         {
-            // TODO get ADC 
+            app->updateBattery();
             app->displayMainMenu(oled);
             vTaskDelay(pdMS_TO_TICKS(100));
         }

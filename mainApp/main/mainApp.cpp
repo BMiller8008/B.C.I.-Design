@@ -218,3 +218,24 @@ void MainApp::displayMainMenu(OLED_Display* display) {
     // updating display
     display->display();
 }
+
+void MainApp::updateBattery() {
+    // reading voltage
+    int raw_value = adc1_get_raw(ADC1_CHANNEL_0);
+    float voltage = (raw_value / 4095.0) * 3.3;
+
+    // Getting status
+    if (voltage > 2.78) {
+        // printf("100%%\n");
+        batt_charge = 100.0;
+    } else if (voltage > 2.26) {
+        // printf("75%%\n");
+        batt_charge = 75.0;
+    } else if (voltage > 1.73) {
+        batt_charge = 50.0;
+    } else if (voltage > 1.21) {
+        batt_charge = 0.0;
+    } else {
+        batt_charge = -100.0;
+    }
+}

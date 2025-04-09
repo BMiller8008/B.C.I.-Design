@@ -8,6 +8,7 @@
 #include "WiFiManager.h"
 #include "OLED_Driver.h"
 #include <format>
+#include "driver/adc.h"
 
 #define BATTERY_ADC_CHANNEL ADC1_CHANNEL_0  // GPIO36 / SENSOR_VP
 #define BUTTON1_GPIO GPIO_NUM_25
@@ -26,6 +27,7 @@ public:
     std::vector<std::string> getAvailableLanguages() const;
     std::vector<std::string> getAvailableFontSizes() const;
     int getMenuIdx() const;
+    void updateBattery();
 
     // Setters
     void setState(State newState);
