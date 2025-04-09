@@ -26,11 +26,12 @@ extern "C" void app_main() {
     int loops = 0;
 
     while (1) {
-        oled.drawText(10, 10, "ECE 477", &Font8, BLACK, WHITE);
-        oled.drawText(10, 40, "ECE 477", &Font16, BLACK, WHITE);
+        oled.drawText(10, 10, "ABCDEFGHIJKLMNOP", &Font8, BLACK, WHITE);
+        oled.drawText(10, 20, "ABCDEFGHIJKLMNOP", &Font12, BLACK, WHITE);
+        oled.drawText(10, 30, "ABCDEFGHIJKLMNOP", &Font16, BLACK, WHITE);
         oled.display();
 
-        Driver_Delay_ms(2000);
+        Driver_Delay_ms(20000);
         oled.clear_buffer();
         
         oled.drawText(0, 0, "ALFREDO GAY", &Font24, BLACK, WHITE);
@@ -46,20 +47,5 @@ extern "C" void app_main() {
         Driver_Delay_ms(1000);
         oled.clear_buffer();
         oled.display();
-
-        oled.drawText(0, 0, "ROHIT BLACK", &Font24, BLACK, WHITE);
-        oled.display();
-        
-        Driver_Delay_ms(1000);
-        oled.clear_buffer();
-        oled.display();
-        
-        Driver_Delay_ms(2000);
-        char buffer[50];
-        snprintf(buffer, sizeof(buffer), "This is loop %d!", loops++);
-        oled.drawText(0,0, buffer, &Font8, BLACK, WHITE);
-        oled.display();
-        Driver_Delay_ms(2000);
-        oled.clear_buffer();
     }
 }

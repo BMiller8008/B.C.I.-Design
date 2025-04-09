@@ -138,14 +138,14 @@ static void display_task(void* pvParameters) {
                 std::string curr_font = app->getFontSize();
                 if (curr_font == "8")
                 {
-                    oled->drawText(10, 40, msg, &Font8, BLACK, WHITE);
+                    oled->drawText(10, 30, msg, &Font8, BLACK, WHITE);
                 }
                 else if (curr_font == "16")
                 {
-                    oled->drawText(10, 30, msg, &Font12, BLACK, WHITE);
+                    oled->drawText(10, 25, msg, &Font12, BLACK, WHITE);
                 }
                 else {
-                    oled->drawText(10, 20, msg, &Font16, BLACK, WHITE);
+                    oled->drawText(10, 15, msg, &Font16, BLACK, WHITE);
                 }
                 oled->display();
                 vTaskDelay(pdMS_TO_TICKS(1000));

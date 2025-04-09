@@ -5,7 +5,7 @@
 MainApp::MainApp()
     : currentState(State::ON),
       currentLanguage("English"),
-      currentFontSize("Medium")
+      currentFontSize("12")
 {
     availableLanguages = {"English", "Spanish", "Hindi", "Mandarin", "Arabic", "Portugues"};
     availableFontSizes = {"8", "12", "16"};
