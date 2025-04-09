@@ -136,7 +136,7 @@ static void display_task(void* pvParameters) {
                 oled->clear_buffer();
                 oled->drawText(10, 10, msg, &Font16, BLACK, WHITE);
                 oled->display();
-                vTaskDelay(pdMS_TO_TICKS(200));
+                vTaskDelay(pdMS_TO_TICKS(1000));
             }
             else {
                 vTaskDelay(pdMS_TO_TICKS(100));
@@ -291,7 +291,7 @@ void button_task(void* pvParameters) {
             command += (app->getState() == MainApp::State::ON) ? "on," : "off,";
             command += "lang:" + app->getLanguage();
             command += ",font:" + app->getFontSize();
-            // wifiManager->sendCommandToServer(command);  // Uncomment if needed
+            wifiManager->sendCommandToServer(command);  // Uncomment if needed
 
             if (state == STATE_OFF) {
                 startAudioSamplingTimer();  // resume audio
