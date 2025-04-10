@@ -3,10 +3,12 @@ import threading
 import time
 
 # === CONFIG ===
-ESP32_IP = "192.168.1.6"     # ESP32's IP
+# ESP32_IP = "192.168.1.11"     # ESP32's IP
 ESP32_TCP_PORT = 8081        # ESP32's TCP listener (you send to ESP32)
 ESP32_CMD_RECV_PORT = 8088   # PC listens here for ESP32 → PC command messages
 SERVER_UDP_PORT = 8080       # PC receives audio via UDP here
+
+
 
 # === UDP Receiver (audio from ESP32) ===
 def udp_server():
@@ -53,22 +55,28 @@ def udp_server():
 
 # === automated translated text for TCP Client (PC → ESP32) to send control messages ===
 
-def tcp_control_sender(text_queue):
+def tcp_control_sender(text_queue, config):
+
     while True:
+        esp32_ip = config.get_ip()
+        if not esp32_ip:
+            print("[TCP] Waiting for ESP32 IP to be detected via UDP...")
+            time.sleep(1)
+            continue
         try:
-            print(f"[TCP] Connecting to ESP32 at {ESP32_IP}:{ESP32_TCP_PORT}...")
+            print(f"[TCP] Connecting to ESP32 at {esp32_ip}:{ESP32_TCP_PORT}...")
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect((ESP32_IP, ESP32_TCP_PORT))
+            sock.connect((esp32_ip, ESP32_TCP_PORT))
             print("[TCP] Connected!")
 
             while True:
                 # Wait for a new text chunk
                 control_msg = text_queue.get()
                 try:
-                    sock.sendall(control_msg.encode() + b"\n")
+                    sock.sendall(control_msg.encode())
                     print(f"[TCP] Sent: {control_msg}")
                     # wait 0.5 seconds before sending the next message
-                    time.sleep(0.5)
+                    time.sleep(1)
                 except BrokenPipeError:
                     print("[TCP] Disconnected. Will reconnect...")
                     break
@@ -92,9 +100,10 @@ def tcp_command_receiver(config):
                 print(f"[CMD] ESP32 connected from {addr}")
                 data = conn.recv(1024)
                 if data:
+                    message = data.decode().strip()
                     print(f"[CMD] Received from ESP32: {data.decode().strip()}")
                     updates = {}
-                    for pair in message.strip().split(","):
+                    for pair in message.split(","):
                         if ":" in pair:
                             key, val = pair.split(":", 1)
                             updates[key.strip()] = val.strip()

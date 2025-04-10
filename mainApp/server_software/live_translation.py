@@ -116,6 +116,7 @@ def process_audio_from_udp(text_queue: Queue, config):
 
     audio_buffer = []
     filter_state = zi * 0.0
+    esp32_ip_captured = False
 
     while True:
 
@@ -125,7 +126,14 @@ def process_audio_from_udp(text_queue: Queue, config):
             time.sleep(0.1)
             continue
 
-        data, _ = sock.recvfrom(4096)
+        data, addr = sock.recvfrom(4096)
+
+         # Capture ESP32 IP once
+        if not esp32_ip_captured:
+            config.set_ip(addr[0])
+            esp32_ip_captured = True
+            print(f"📡 Detected ESP32 IP from UDP: {addr[0]}")
+        
 
         chunk = []
         for i in range(0, len(data), 2):

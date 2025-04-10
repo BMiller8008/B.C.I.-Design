@@ -57,3 +57,190 @@
 [17:55:28] 🗣 ¿Hola, cómo están? Estoy tratando de mandar dos palabras a la vez. → 🌐 Hello, how are you? I'm trying to send two words at once.
 [17:56:08] 🗣 ¿Qué podría hacer, qué podría ser? → 🌐 What could it do, what could it be?
 [17:56:13] 🗣 Podría ser, es un misterio. Pone. → 🌐 It could be, it's a mystery. Puts.
+[21:55:40] 🗣 Hola. → 🌐 Hello.
+[21:55:49] 🗣 Alfredo. → 🌐 Alfredo.
+[21:55:54] 🗣 ¿Hola, cómo estás? Mi nombre es Alfredo. → 🌐 Hi, how are you? My name is Alfredo.
+[21:55:58] 🗣 ¿Estás probando el número otro el nuevo equipo? → 🌐 Are you trying the number other new team?
+[21:57:04] 🗣 ¿Hola, cómo estás? Mi nombre es Alfredo. → 🌐 Hi, how are you? My name is Alfredo.
+[21:57:08] 🗣 Estamos probando la transmisión del proceso. → 🌐 We are testing the transmission of the process.
+[21:57:17] 🗣 El proceso del el trabajo para que aprender. → 🌐 The process of the work for what to learn.
+[21:57:26] 🗣 Mira, mira, mira. → 🌐 Look, look, look.
+[21:57:35] 🗣 O pone todas las palabras a un buen ritmo. → 🌐 Or he puts all the words at a good pace.
+[21:57:48] 🗣 Hay que espera, déjame que voy a Londres. → 🌐 We have to wait, let me go to London.
+[21:57:53] 🗣 Con el trabajo. → 🌐 With work.
+[21:57:57] 🗣 Estamos casi terminados. Estamos. → 🌐 We are almost finished. Are.
+[21:58:02] 🗣 Una muy buena posición. → 🌐 A very good position.
+[21:58:07] 🗣 Pero el problema es esa ley para la raíz, para depósitos y para. → 🌐 But the problem is that law for the root, for deposits and for.
+[21:59:21] 🗣 ¿Hola, cómo están? Mi nombre es Alfredo, estamos. → 🌐 Hello, how are you? My name is Alfredo, we are.
+[21:59:26] 🗣 Probando la trasducción. → 🌐 Testing transduction.
+[21:59:34] 🗣 La verdad no estoy seguro porque ese es. → 🌐 I'm not really sure because that's it.
+[21:59:38] 🗣 Porque ese texto sigue. → 🌐 Because that text continues.
+[21:59:43] 🗣 Vamos ahorita a probar los controles de los botones. → 🌐 Let's try the button controls right now.
+[21:59:48] 🗣 Botones. → 🌐 Bellboy.
+[22:00:07] 🗣 Abrir weatherbug. → 🌐 Abrir weatherbug.
+[22:00:14] 🗣 No. → 🌐 No.
+[22:02:36] 🗣 ¿Hola, cómo están? Mi nombre es. → 🌐 Hello, how are you? My name is.
+[22:02:40] 🗣 Mi nombre es Alfredo. Estamos probando las traducciones de las traducciones. → 🌐 My name is Alfredo. We are testing the translations of the translations.
+[22:02:58] 🗣 Please strip it or change the termination of the string. → 🌐 Please strip it or change the termination of the string.
+[22:03:03] 🗣 Oh. → 🌐 Oh.
+[22:03:07] 🗣 Oh wait. Oh, I think it's in English, but no, it's in English correctly somehow. → 🌐 Oh wait. Oh, I think it's in English, but no, it's in English correctly somehow.
+[22:03:14] 🗣 Are we speaking English right now? Ohh. → 🌐 Are we speaking English right now? Ohh.
+[22:03:18] 🗣 Yeah, I would have expected so now. → 🌐 Yeah, I would have expected so now.
+[22:03:33] 🗣 We have like whatever like termination. → 🌐 We have like whatever like termination.
+[22:03:39] 🗣 Being interpreted as like a weird unknown character. So then like a weird like. → 🌐 Being interpreted as like a weird unknown character. So then like a weird like.
+[22:03:42] 🗣 A weird like character after our attack 2. I don't support changing text size. → 🌐 A weird like character after our attack 2. I don't support changing text size.
+[22:03:47] 🗣 Size action on the on the thing, yet I do try to add the code. → 🌐 Size action on the on the thing, yet I do try to add the code.
+[22:05:46] 🗣 ¿Hola, cómo estás? → 🌐 Hi, how are you?
+[22:05:50] 🗣 Estamos testeando la vida. → 🌐 We are testing life.
+[22:05:59] 🗣 We R. → 🌐 We R.
+[22:06:12] 🗣 ¿Cerrar? Puedo hacerlo más lento, pero. → 🌐 Close? I can slow it down, but.
+[22:06:17] 🗣 Pero el problema es que lo que haremos sin palabras. → 🌐 But the problem is that what we will do without words.
+[22:06:45] 🗣 Bing. → 🌐 Bing.
+[22:06:50] 🗣 Ahora solamente le viene a aparecer dos palabras en la pantalla PIN. → 🌐 Now only two words appear on the PIN screen.
+[22:06:54] 🗣 Now me sirve. → 🌐 Now it serves me.
+[22:07:15] 🗣 Y Ahorita estamos probando. → 🌐 And right now we are testing.
+[22:07:20] 🗣 Cuando con las mayores palabras posibles que deberían o es una intuición. → 🌐 When with the greatest possible words that they should or it is an intuition.
+[22:07:24] 🗣 Usted empezó en el suelo y no va a ser tu suegra. → 🌐 You started on the ground and you won't be your mother-in-law.
+[22:07:46] 🗣 Álvaro. → 🌐 Álvaro.
+[22:13:22] 🗣 ¿Hola, cómo estás? Mi nombre es Alfredo. → 🌐 Hi, how are you? My name is Alfredo.
+[22:13:27] 🗣 Pero más claro, no puedo hablar. → 🌐 But more clearly, I can't speak.
+[22:13:36] 🗣 Ligera la máquina primada. → 🌐 Light primed machine.
+[22:13:55] 🗣 Mira. → 🌐 Scope.
+[22:14:05] 🗣 La maldita prima de Vergara. Para. → 🌐 La maldita prima de Vergara. Para.
+[22:14:08] 🗣 Pasa ligera. → 🌐 Walk lightly.
+[22:14:17] 🗣 ¿Hola, cómo estás? Mi nombre es Alfredo, no sé por qué te pusiste. → 🌐 Hi, how are you? My name is Alfredo, I don't know why you got it.
+[22:14:22] 🗣 Dice que peor, pero mejórate. → 🌐 He says worse, but get better.
+[22:15:18] 🗣 Urgent. English. → 🌐 Urgent. English.
+[22:15:24] 🗣 Oh, hello. Hello. It's me, Brittany. → 🌐 Oh, hello. Hello. It's me, Brittany.
+[22:15:28] 🗣 Virgin English. I've been trying to do British. Oh hello. → 🌐 Virgin English. I've been trying to do British. Oh hello.
+[22:15:32] 🗣 Hello. Hello. It's me comma. → 🌐 Hello. Hello. It's me comma.
+[22:15:37] 🗣 I've been trying to long to see you. → 🌐 I've been trying to long to see you.
+[22:15:41] 🗣 Or probably used to be British. → 🌐 Or probably used to be British.
+[22:15:45] 🗣 When we were all younger. I'm free bro. → 🌐 When we were all younger. I'm free bro.
+[22:15:50] 🗣 Sing, sing, sing. Sing. Sing, sing, sing, sing, sing. → 🌐 Sing, sing, sing. Sing. Sing, sing, sing, sing, sing.
+[22:15:54] 🗣 Wait, no, 8-8? No, no, it's not my fault. → 🌐 Wait, no, 8-8? No, no, it's not my fault.
+[22:16:03] 🗣 So he was singing in the singing. → 🌐 So he was singing in the singing.
+[22:16:12] 🗣 Look. → 🌐 Look.
+[22:16:21] 🗣 Hello, I like big booties. → 🌐 Hello, I like big booties.
+[22:16:39] 🗣 Did we ever specify how like how you can? → 🌐 Did we ever specify how like how you can?
+[22:16:44] 🗣 Booty, right? You know, that's what I'm saying. It's fine that. → 🌐 Booty, right? You know, that's what I'm saying. It's fine that.
+[22:16:52] 🗣 Oh yeah. → 🌐 Oh yeah.
+[22:16:56] 🗣 Oh yeah, we never specified so from the. → 🌐 Oh yeah, we never specified so from the.
+[22:17:05] 🗣 Queueing one word at a time. Actually, yeah, I changed. I changed the 8 would be the smallest. → 🌐 Queueing one word at a time. Actually, yeah, I changed. I changed the 8 would be the smallest.
+[22:17:09] 🗣 From the other, queueing one word at a time. → 🌐 From the other, queueing one word at a time.
+[22:17:14] 🗣 OK. → 🌐 OK.
+[22:17:19] 🗣 OK, so it's fine. You just need to wait because, you know, sometimes we all need to wait because waiting is good. → 🌐 OK, so it's fine. You just need to wait because, you know, sometimes we all need to wait because waiting is good.
+[22:17:32] 🗣 Well, let me take a video. → 🌐 Well, let me take a video.
+[22:17:38] 🗣 The video Wait, let me put an audio. Do we have a song in India? Or. → 🌐 The video Wait, let me put an audio. Do we have a song in India? Or.
+[22:17:42] 🗣 Or am I wearing notes on no songs? Multiple times. → 🌐 Or am I wearing notes on no songs? Multiple times.
+[22:17:50] 🗣 Don't do a song. → 🌐 Don't do a song.
+[22:18:09] 🗣 They charge you staring at the window or something to the rest. → 🌐 They charge you staring at the window or something to the rest.
+[22:18:30] 🗣 Well. → 🌐 Well.
+[22:18:39] 🗣 Fine, I don't know learn how to speak Arabic or something. Translate. → 🌐 Fine, I don't know learn how to speak Arabic or something. Translate.
+[22:18:46] 🗣 Translate. → 🌐 Translate.
+[22:19:12] 🗣 Bowling. OK, now press release. → 🌐 Bowling. OK, now press release.
+[22:19:20] 🗣 OK, you. → 🌐 OK, you.
+[22:19:38] 🗣 What. → 🌐 What.
+[22:19:48] 🗣 آلة عظيمة. → 🌐 Great machine.
+[22:19:52] 🗣 Because he doesn't like عظيم. هاهاها. → 🌐 Because he doesn't like عظيم. هاهاها.
+[22:19:57] 🗣 هاهاها. → 🌐 Hahaha.
+[22:20:01] 🗣 هاهاها. هاهاها. → 🌐 Hahaha. Hahaha.
+[22:20:24] 🗣 Working. → 🌐 Working.
+[22:20:37] 🗣 Hola. → 🌐 Hello.
+[22:20:41] 🗣 ¿Hola, cómo están a ven, le gusta el pene? → 🌐 Hello, how are you see, do you like the penis?
+[22:20:55] 🗣 ¿Por qué estás cortando palabras, no? → 🌐 Why are you cutting words, aren't you?
+[22:21:00] 🗣 No entiendo, quisiera una explicación más formal. → 🌐 I don't understand, I would like a more formal explanation.
+[22:21:18] 🗣 ¿Está tratando así, quítame por qué no haces lo que quiero porque es tan subnormal? → 🌐 Is he trying like this, take away from me why don't you do what I want because it's so subnormal?
+[22:23:19] 🗣 ¿Hola, cómo están? ¿Por qué tanta vez? → 🌐 Hello, how are you? Why so often?
+[22:23:23] 🗣 ¿Tanta verga y por qué tu mamá vale verga y por qué tu hermana vale verga? → 🌐 So much dick and why is your mom worth dick and why is your sister worth dick?
+[22:23:28] 🗣 Tía, vale verga porque todo vale verga, oh. → 🌐 Auntie, it's worth dick because everything is worth dick, oh.
+[22:23:38] 🗣 ¿Todos ustedes valen la reverenda verga? → 🌐 Are you all worth the reverend dick?
+[22:23:41] 🗣 Hija de la **** de tu madre. → 🌐 Daughter of your mother's ****.
+[22:23:46] 🗣 Recuérdame, música. → 🌐 Remember me, music.
+[22:23:50] 🗣 Buen trabajo, buen trabajo. → 🌐 Good job, good job.
+[22:23:55] 🗣 Soluciona. Twitter. → 🌐 Solves. Twitter.
+[22:23:59] 🗣 ¿Por qué no me chupas lápiz? → 🌐 Why don't you suck my pencil?
+[22:24:08] 🗣 Respetuoso y decir. → 🌐 Respectful and say.
+[22:24:13] 🗣 Sí. → 🌐 Yes.
+[22:24:19] 🗣 ¿Ben, te gusta el pene? → 🌐 Ben, do you like penis?
+[22:33:22] 🗣 Hola, probando, probando. → 🌐 Hello, trying, trying.
+[22:33:34] 🗣 Según yo. → 🌐 According to me.
+[22:33:47] 🗣 Re. Qué plan sanitario Crees que es comer plus de perdón, yo no eres. → 🌐 D. What health plan do you think is to eat plus forgiveness, you are not.
+[22:33:57] 🗣 ¿Comida en algún momento? → 🌐 Food at some point?
+[22:34:08] 🗣 Culo muy, muy poco. Acento bueno. Juntos. → 🌐 Very, very little ass. Good accent. Together.
+[22:34:12] 🗣 Hola. → 🌐 Hello.
+[22:34:31] 🗣 No sé por si estás ahorita trabajando tan mal, si lo estabas haciendo bien. → 🌐 I don't know if you're working so badly right now, if you were doing well.
+[22:34:35] 🗣 ¿O vienen, qué pasó? ¿Qué pasó? ¿Qué pasó? I don't know. → 🌐 Or do they come, what happened? What happened? What happened? I don't know.
+[22:39:35] 🗣 Actually, everything's fun. → 🌐 Actually, everything's fun.
+[22:39:57] 🗣 शो युअर स्टील इफ यू फेल। → 🌐 Show Your Steel If You Fail.
+[22:40:01] 🗣 नो युअर एरो बेक। → 🌐 No Your Arrow Beck.
+[22:40:08] 🗣 मेरा नाम रोहित है और मेरी। → 🌐 My name is Rohit and my name is Rohit.
+[22:40:16] 🗣 माइम सोहिया मैं नेम रोहित। → 🌐 Mime Sohia Main Name Rohit.
+[22:40:25] 🗣 सभी से एक्सेप्ट इनबॉस एस वेल एस व्हाइट फर्निचर इट इस दी इंबेस इन हिन्दी एंड हिन्दी। → 🌐 Everyone accepts inboss as well as white furniture it is the same in Hindi and Hindi.
+[22:40:29] 🗣 मेरा जो स्टाफ पहनो घर जाना है। → 🌐 I have to go home with what my staff wears.
+[22:40:47] 🗣 एक पिक आई हॅव टु होम। → 🌐 A Pick I Have to Home.
+[22:40:56] 🗣 एमी सोचा। → 🌐 Amy thought.
+[22:41:10] 🗣 एमरी। → 🌐 Emery.
+[22:41:14] 🗣 एमरी बहुत छोटा आदमी है। → 🌐 Emery is a very small man.
+[15:56:26] 🗣 What? → 🌐 What?
+[15:57:13] 🗣 No se quiere. → 🌐 You don't want to.
+[15:59:31] 🗣 Put on English now this register testing. → 🌐 Put on English now this register testing.
+[15:59:36] 🗣 No. → 🌐 No.
+[16:12:29] 🗣 Hello, hola. → 🌐 Hello, hola.
+[16:12:33] 🗣 Hola, hola. → 🌐 Hello, hello.
+[16:12:38] 🗣 Claro. → 🌐 Of course.
+[16:12:46] 🗣 Eh. → 🌐 Eh.
+[16:12:50] 🗣 ¿Hola, cómo están? Mi nombre es Alfredo, estamos. → 🌐 Hello, how are you? My name is Alfredo, we are.
+[16:12:55] 🗣 ¿Estamos probando en la automatización del IP? → 🌐 Are we testing IP automation?
+[16:13:15] 🗣 Tenemos que comprobar cuántas letras entran por línea. → 🌐 We need to check how many letters go in per line.
+[16:13:32] 🗣 Ahorita sólo debería haber. → 🌐 Right now there should only be.
+[16:16:34] 🗣 Hello. → 🌐 Hello.
+[16:16:38] 🗣 Hello. → 🌐 Hello.
+[16:16:47] 🗣 Hello. → 🌐 Hello.
+[16:16:52] 🗣 Asking if this work. → 🌐 Asking if this work.
+[16:16:56] 🗣 English. → 🌐 English.
+[16:17:00] 🗣 English can't be doing the best. Heard of Spanish? → 🌐 English can't be doing the best. Heard of Spanish?
+[16:17:10] 🗣 Yeah, it's doing horrible. → 🌐 Yeah, it's doing horrible.
+[16:17:14] 🗣 Do you suck or is this Python? → 🌐 Do you suck or is this Python?
+[16:17:23] 🗣 Python. → 🌐 Python.
+[16:17:28] 🗣 Yeah, well, you know, right. → 🌐 Yeah, well, you know, right.
+[16:17:32] 🗣 If you. → 🌐 If you.
+[16:17:37] 🗣 If you keep speaking like, give me a long time. → 🌐 If you keep speaking like, give me a long time.
+[16:17:41] 🗣 I like big butts and I cannot lie my. → 🌐 I like big butts and I cannot lie my.
+[16:17:46] 🗣 My other. Brother. → 🌐 My other. Brother.
+[16:18:01] 🗣 As part. → 🌐 As part.
+[16:18:05] 🗣 I'll look at the screen. → 🌐 I'll look at the screen.
+[16:18:19] 🗣 Hello, Alfredo is Mexican. → 🌐 Hello, Alfredo is Mexican.
+[16:18:23] 🗣 Yeah. → 🌐 Yeah.
+[16:37:52] 🗣 English to Spanish or English to German or what? → 🌐 English to Spanish or English to German or what?
+[16:37:57] 🗣 We're working on the English to German part, but oh, there it is OK. → 🌐 We're working on the English to German part, but oh, there it is OK.
+[16:38:01] 🗣 Shut it down. Oh, that's Backbridge. → 🌐 Shut it down. Oh, that's Backbridge.
+[16:38:06] 🗣 Oh, you've got to be kidding me. → 🌐 Oh, you've got to be kidding me.
+[16:38:10] 🗣 Oh, you got to be kidding. Oh, it is. → 🌐 Oh, you got to be kidding. Oh, it is.
+[16:38:15] 🗣 You know, it is this. This is listening to what we're talking about here. → 🌐 You know, it is this. This is listening to what we're talking about here.
+[16:40:15] 🗣 Hola. → 🌐 Hello.
+[16:40:20] 🗣 ¿Hola, cómo están? Mi nombre es Alfredo. Estamos. → 🌐 Hello, how are you? My name is Alfredo. Are.
+[16:40:24] 🗣 Estamos probando la transcripción, el micrófono no me está. → 🌐 We are testing the transcription, the microphone is not on me.
+[16:40:29] 🗣 No me está viendo, así que funciona menos bien. → 🌐 He's not seeing me, so it works less well.
+[16:40:36] 🗣 Ahora la letra está más. → 🌐 Now the lyrics are more.
+[16:40:41] 🗣 Está más chiquita, así que deberían haber más palabras en la pantalla para mí. → 🌐 She's smaller, so there should be more words on the screen for me.
+[16:40:45] 🗣 A la misma velocidad. → 🌐 At the same speed.
+[16:41:26] 🗣 你们做的很。 → 🌐 You've done a great job.
+[16:41:35] 🗣 你们队做得很棒希望你们能在这周完一场。 → 🌐 You've done a great job as a team, and hopefully you'll be able to finish this week.
+[16:41:40] 🗣 I did a great job with a team and hope you'll finish this。 → 🌐 I did a great job with a team and hope you'll finish this。
+[16:41:44] 🗣 Yeah。yeah。 → 🌐 Yeah。 yeah。
+[16:42:38] 🗣 Yeah, it makes sense to get a battery level. Yeah, you want to be able to do that, so you bring. → 🌐 Yeah, it makes sense to get a battery level. Yeah, you want to be able to do that, so you bring.
+[16:42:43] 🗣 So you bring in a set of batteries that are almost out and others that are full. You want to bring extra batteries anyway. → 🌐 So you bring in a set of batteries that are almost out and others that are full. You want to bring extra batteries anyway.
+[16:42:47] 🗣 Batteries anyway so that you're fully charged over there for the day when you're demos we have a transcription. → 🌐 Batteries anyway so that you're fully charged over there for the day when you're demos we have a transcription.
+[16:42:52] 🗣 Show the transcription and you go, yeah, Are you saving this? Yeah. → 🌐 Show the transcription and you go, yeah, Are you saving this? Yeah.
+[16:42:56] 🗣 Yeah, that's one of our VSDR. OK, or VS? → 🌐 Yeah, that's one of our VSDR. OK, or VS?
+[16:43:01] 🗣 For VFDR right now it's like for for a new today, yeah. → 🌐 For VFDR right now it's like for for a new today, yeah.
+[16:43:05] 🗣 Yeah, all of these today while we were speaking is like right now, like from the beginning. → 🌐 Yeah, all of these today while we were speaking is like right now, like from the beginning.
+[16:43:10] 🗣 Meaning I think we started Yeah. So, so everything. → 🌐 Meaning I think we started Yeah. So, so everything.
+[16:43:14] 🗣 A lot of the translation is uh, saying for the for the country. → 🌐 A lot of the translation is uh, saying for the for the country.
+[16:43:28] 🗣 Put the Chinese in and then there you go. → 🌐 Put the Chinese in and then there you go.
+[16:43:32] 🗣 1 and I don't have to get ready yeah, yeah. So I'm pretty confident once you get the packaging done like. → 🌐 1 and I don't have to get ready yeah, yeah. So I'm pretty confident once you get the packaging done like.
+[16:43:37] 🗣 Done like test a few more things like extend the cable battery which we done. → 🌐 Done like test a few more things like extend the cable battery which we done.
+[16:43:41] 🗣 We're hoping to present tomorrow or first thing Friday, yeah. → 🌐 We're hoping to present tomorrow or first thing Friday, yeah.
+[16:43:46] 🗣 OK, congratulations. Looking good. Probably the first team done. → 🌐 OK, congratulations. Looking good. Probably the first team done.
+[16:43:50] 🗣 So do this e-mail you for the make a schedule. → 🌐 So do this e-mail you for the make a schedule.

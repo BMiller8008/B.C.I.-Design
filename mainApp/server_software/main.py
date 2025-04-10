@@ -16,7 +16,7 @@ def audio_translation_thread():
 # Thread wrapper for the TCP sender (now non-blocking)
 def tcp_control_sender_thread():
     print("[Thread] TCP Control Sender started.")
-    tcp_control_sender(text_queue)
+    tcp_control_sender(text_queue, config)
 
 # Thread wrapper for the TCP command receiver (now non-blocking)
 def tcp_command_receiver_thread():
