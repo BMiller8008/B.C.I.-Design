@@ -177,7 +177,7 @@ static void display_task(void* pvParameters) {
 // ----- Setup Helpers -----
 static void initWiFi() {
     ESP_LOGI(TAG, "Initializing Wi-Fi Manager...");
-    wifiManager = new WiFiManager("192.168.1.5", 8080, 8081, 8088);
+    wifiManager = new WiFiManager("192.168.1.2", 8080, 8081, 8088);
     wifiManager->connectToOpenNetwork("NETGEAR41");
 }
 

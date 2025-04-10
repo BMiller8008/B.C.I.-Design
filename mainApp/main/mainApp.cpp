@@ -7,7 +7,7 @@ MainApp::MainApp()
       currentLanguage("English"),
       currentFontSize("12")
 {
-    availableLanguages = {"English", "Spanish", "Hindi", "Mandarin", "Arabic", "Portugues"};
+    availableLanguages = {"English", "Spanish", "Hindi", "Mandarin", "Arabic", "German"};
     availableFontSizes = {"8", "12", "16"};
     batt_charge = 0.0;
     menuIdx = 0;
