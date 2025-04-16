@@ -39,7 +39,7 @@
 
 OLED_Display::OLED_Display() {
     // filling and setting fram buffer
-    Paint_NewImage(framebuffer, OLED_1IN51_HEIGHT, OLED_1IN51_WIDTH, ROTATE_0, BLACK);
+    Paint_NewImage(framebuffer, OLED_1IN51_HEIGHT, OLED_1IN51_WIDTH, ROTATE_180, BLACK);
     // Paint_SelectImage(framebuffer);
     Paint_Clear(BLACK);
 }

@@ -192,11 +192,45 @@ parameter:
     Ypoint : At point Y
     Color  : Painted colors
 ******************************************************************************/
-void Paint_SetPixel(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color) {
+void Paint_SetPixel(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color)
+{
+    // Reject coordinates out of range
     if (Xpoint >= Paint.Width || Ypoint >= Paint.Height) return;
 
-    uint16_t byteIndex = (Ypoint / 8) * Paint.Width + Xpoint;
-    uint8_t bitMask = 1 << (Ypoint % 8);
+    uint16_t x = Xpoint;
+    uint16_t y = Ypoint;
+
+    // Apply rotation transform:
+    switch (Paint.Rotate) {
+    case ROTATE_0:
+        // no change
+        break;
+
+    case ROTATE_90:
+        // For 90°, original (x, y) becomes (y, Width - 1 - x)
+        x = Ypoint;
+        y = Paint.Width - 1 - Xpoint;
+        break;
+
+    case ROTATE_180:
+        // For 180°, original (x, y) becomes (Width - 1 - x, Height - 1 - y)
+        x = Paint.Width - 1 - Xpoint;
+        y = Paint.Height - 1 - Ypoint;
+        break;
+
+    case ROTATE_270:
+        // For 270°, original (x, y) becomes (Height - 1 - y, x)
+        x = Paint.Height - 1 - Ypoint;
+        y = Xpoint;
+        break;
+    }
+
+    // Now do the same check for mirror if you like, e.g. if (Paint.Mirror != MIRROR_NONE) ...
+    // Then finally plot the pixel using the corrected x,y:
+
+    // Locate the correct byte & bit:
+    uint16_t byteIndex = (y / 8) * Paint.Width + x;
+    uint8_t bitMask    = 1 << (y % 8);
 
     if (Color == BLACK) {
         Paint.Image[byteIndex] &= ~bitMask;
@@ -204,6 +238,7 @@ void Paint_SetPixel(uint16_t Xpoint, uint16_t Ypoint, uint16_t Color) {
         Paint.Image[byteIndex] |= bitMask;
     }
 }
+
 
 /******************************************************************************
 function: Clear the color of the picture
