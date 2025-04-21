@@ -225,17 +225,15 @@ void MainApp::updateBattery() {
     float voltage = (raw_value / 4095.0) * 3.3;
 
     // Getting status
-    if (voltage > 2.78) {
-        // printf("100%%\n");
+    if (voltage >= 2.65) {
         batt_charge = 100.0;
-    } else if (voltage > 2.26) {
-        // printf("75%%\n");
+    } else if (voltage >= 2.53) {
         batt_charge = 75.0;
-    } else if (voltage > 1.73) {
+    } else if (voltage >= 2.33) {
         batt_charge = 50.0;
-    } else if (voltage > 1.21) {
-        batt_charge = 0.0;
+    } else if (voltage >= 1.5) {
+        batt_charge = 25.0;
     } else {
-        batt_charge = -100.0;
+        batt_charge = 0.0;
     }
 }

@@ -42,7 +42,7 @@ volatile bool bothButtonsPressedSimultaneous = false;  // True if both buttons w
 #define SIMULTANEOUS_PRESS_WINDOW_US 20000     // Time window (in microseconds) to consider buttons pressed simultaneously (20 ms)
 
 // ----- Long press tracking -----
-#define LONG_PRESS_TIME_US 1000000              // Duration (in microseconds) for a long press (0.5 sec)
+#define LONG_PRESS_TIME_US 5000000              // Duration (in microseconds) for a long press (0.5 sec)
 volatile uint32_t button1PressTime = 0;        // Timestamp when Button 1 was pressed down
 volatile uint32_t button2PressTime = 0;        // Timestamp when Button 2 was pressed down
 volatile bool button1LongPressed = false;      // True if Button 1 has been held long enough
@@ -140,7 +140,7 @@ static void display_task(void* pvParameters) {
                 {
                     oled->drawText(10, 30, msg, &Font8, BLACK, WHITE);
                 }
-                else if (curr_font == "16")
+                else if (curr_font == "12")
                 {
                     oled->drawText(10, 25, msg, &Font12, BLACK, WHITE);
                 }
@@ -177,7 +177,7 @@ static void display_task(void* pvParameters) {
 // ----- Setup Helpers -----
 static void initWiFi() {
     ESP_LOGI(TAG, "Initializing Wi-Fi Manager...");
-    wifiManager = new WiFiManager("192.168.1.2", 8080, 8081, 8088);
+    wifiManager = new WiFiManager("192.168.1.4", 8080, 8081, 8088);
     wifiManager->connectToOpenNetwork("NETGEAR41");
 }
 
