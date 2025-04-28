@@ -1,0 +1,7 @@
+[01:09:06] 🗣 I see, it is able to process → 🌐  I see, it is able to process
+[01:09:10] 🗣  and store received translation text packages  → 🌐and store received translation text packages
+[01:09:14] 🗣in a text queue in the microcontroller  → 🌐 in a text queue in the microcontroller 
+[01:09:18] 🗣AND display them in the transparent OLED display via SPI. → 🌐 AND display them in the transparent OLED display via SPI.
+[01:11:22] 🗣 Les estoy diciendo soy inocente!    → 🌐 I am telling you I am innocent!
+[01:11:26] 🗣 Toda esa noche estuve trabajando en el laboratorio  → 🌐 That whole night I was working in the lab
+[01:11:30] 🗣 del “Diseño senior”! Pueden Revisar las cámaras!  → 🌐 of senior design! you can check the cameras!
