@@ -12,7 +12,6 @@
 #include <cstring>
 
 // For audio chunks 
-#define CHUNK_SIZE 1
 #define RECEIVE_BUFFER 128
 
 /**

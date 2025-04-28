@@ -31,7 +31,7 @@ extern "C" void app_main() {
         oled.drawText(10, 30, "ABCDEFGHIJKLMNOP", &Font16, BLACK, WHITE);
         oled.display();
 
-        Driver_Delay_ms(20000);
+        Driver_Delay_ms(1000);
         oled.clear_buffer();
         
         oled.drawText(0, 0, "ALFREDO GAY", &Font24, BLACK, WHITE);
