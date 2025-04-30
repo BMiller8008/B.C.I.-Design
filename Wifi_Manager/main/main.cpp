@@ -8,7 +8,8 @@ WiFiManager* wifiManager;
 
 extern "C" void app_main() {
     wifiManager = new WiFiManager("192.168.1.4", 8080, 8081, 8088);
-    wifiManager->connectToOpenNetwork("NETGEAR41");
+    // wifiManager->connectToOpenNetwork("NETGEAR41");
+    wifiManager->connectToWPA2Network("ESP32_AP", "12345678");
     // wifiManager->connectToWPA2Network("NETGEAR41", "bravemango923");
 
     // Starting Data Tasks

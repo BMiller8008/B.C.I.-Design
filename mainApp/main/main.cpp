@@ -45,6 +45,14 @@ static OLED_Display* oled = nullptr;           // Pointer to OLED display instan
 static MainApp* app = nullptr;                 // Pointer to main app logic instance
 static esp_timer_handle_t samplingTimer = nullptr; // Handle for periodic sampling timer
 
+// -----------------------------------------------
+//  Button debounce
+// -----------------------------------------------
+static const uint32_t DEBOUNCE_US = 20000;             // 20 ms
+static volatile uint32_t lastIsrTimeBtn1 = 0;
+static volatile uint32_t lastIsrTimeBtn2 = 0;
+
+
 // ----- Timer Callback -----
 static void IRAM_ATTR audioSamplingCallback(void* arg)
 {
@@ -57,21 +65,27 @@ static void IRAM_ATTR audioSamplingCallback(void* arg)
 }
 
 // ------ Button Callback -----
-static void IRAM_ATTR button_isr_handler(void* arg) {
-    int pin = (int)(intptr_t)arg;
+static void IRAM_ATTR button_isr_handler(void* arg)
+{
+    const int pin = (int)(intptr_t)arg;
+    const uint32_t nowUs = (uint32_t)esp_timer_get_time();   // µs since boot
 
-    portENTER_CRITICAL_ISR(&mux);
-
-    if (pin == BUTTON1_GPIO) {
-        button1Pressed = true;
+    if (pin == BUTTON1_GPIO)
+    {
+        if (nowUs - lastIsrTimeBtn1 > DEBOUNCE_US) {
+            lastIsrTimeBtn1 = nowUs;
+            button1Pressed = true;
+        }
     }
-
-    if (pin == BUTTON2_GPIO) {
-        button2Pressed = true;
+    else if (pin == BUTTON2_GPIO)
+    {
+        if (nowUs - lastIsrTimeBtn2 > DEBOUNCE_US) {
+            lastIsrTimeBtn2 = nowUs;
+            button2Pressed = true;
+        }
     }
-
-    portEXIT_CRITICAL_ISR(&mux);
 }
+
 
 // ----- Audio Stream Task -----
 static void audio_stream_task(void* pvParameters)
