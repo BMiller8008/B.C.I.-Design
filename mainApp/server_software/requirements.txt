@@ -1,0 +1,10 @@
+cffi
+numpy
+soundfile
+ffmpeg
+sox
+scipy
+dotenv
+requests
+noisereduce
+webrtcvad
